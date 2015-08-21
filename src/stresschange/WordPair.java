@@ -27,14 +27,6 @@ public class WordPair {
         this.currentVerbProb = initialVerbProb;
     }
     
-    public void updateNounProb(double prob){
-        this.currentNounProb = prob;
-    }
-    
-    public void updateVerbProb(double prob){
-        this.currentVerbProb = prob;
-    }
-    
     public String toString(){
         return this.word + ", noun prob = " + this.currentNounProb + ", verb prob = " + this.currentVerbProb;
     }
