@@ -12,8 +12,10 @@ public class WordPair {
     private String word;
     private Double initialNounProb;
     public Double currentNounProb;
+    public Double avgParentNounProb;
     private Double initialVerbProb;
     public Double currentVerbProb;
+    public Double avgParentVerbProb;
     
     /*
     Later can add attributes like relative frequency, origin, etc.

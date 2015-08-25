@@ -18,15 +18,14 @@ public class Speaker implements Steppable {
 
     public static final double MAX_FORCE = 3.0; // from tutorial
 
-    //private HashMap<String, double[]> stress;
-    private ArrayList<WordPair> words = new ArrayList<>();
+    public ArrayList<WordPair> words = new ArrayList<>();
     private int id = 0;
 
     public Speaker(HashMap initialStress, int i) {
         this.id = i; // get speaker ID for potentially tracking individuals later on
         Map<String, double[]> map = initialStress;
         for (Map.Entry<String, double[]> e : map.entrySet()) {
-            words.add(new WordPair(e.getKey(), e.getValue()[0], e.getValue()[1]));
+            words.add(new WordPair(e.getKey(), e.getValue()[0], e.getValue()[1]));  // create WordPair objects for each word pair from the initial HashMap
         }
         
     }
@@ -104,11 +103,34 @@ public class Speaker implements Steppable {
         // now we update the probabilities of their word pairs based on mistransmission
 
         // set the noun and verb probabilities for the next generation
-        // TODO: update not based on this speaker's probability but on average of whole population in previous generation or a subset of the population
-        for (int i = 0; i < words.size(); i++) {
+        // TODO: allow for restricting "parents" to only those speakers within a specific distance
+        // TODO: move to method to allow for adding and using different models
+        
+        Bag parents = speakers.convos.getAllNodes();
+        Bag distances = speakers.convos.getEdges(this, null); // maybe can be used to find how close speakers are and restrict who current generation learns from
+        
+        for (int i = 0; i < words.size(); i++) { // iterate through array of WordPair objects for current Speaker
             System.out.println(words.get(i)); // print out current state of each word pair
-            words.get(i).currentNounProb = getMisNoun(speakers.misProbP, words.get(i).currentNounProb); // update noun probabilities
-            words.get(i).currentVerbProb = getMisVerb(speakers.misProbQ, words.get(i).currentVerbProb); // update verb probabilities
+            double parentNounProb = 0.0; // reset parent probabilities
+            double parentVerbProb = 0.0;
+            
+            for (int j = 0; j < parents.size(); j++) { // iterate through Bag of Speakers at current state
+                // get averages of parents' word pair probabilities
+                Speaker parent = (Speaker) parents.get(j);
+                parentNounProb += parent.words.get(i).currentNounProb; // add up all the probabilities
+                parentVerbProb += parent.words.get(i).currentVerbProb;
+                
+                if (j + 1 == parents.size()) {
+                    parentNounProb = parentNounProb/parents.size(); // and divide by size of Bag of Speakers to get average
+                    parentVerbProb = parentVerbProb/parents.size();
+                }
+            }
+            
+            words.get(i).currentNounProb = getMisNoun(speakers.misProbP, parentNounProb); // update noun probabilities
+            words.get(i).currentVerbProb = getMisVerb(speakers.misProbQ, parentVerbProb); // update verb probabilities
+            
+            words.get(i).avgParentNounProb = parentNounProb; // save previous averages as well
+            words.get(i).avgParentVerbProb = parentVerbProb; // save previous averages as well
         }
 
     }

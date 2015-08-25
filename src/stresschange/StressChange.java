@@ -1,9 +1,12 @@
 /*
- * 1st model: Bayesian agents change based on mistransmission
+ * 1st model: agents change based on mistransmission
  * Mistransmission probabilities are different for verbs vs nouns, as the probability is the p(final stress)
+ * 
+ * 2nd model: agents change based on constraint that final stress is more probable for verbs than nouns
  */
 package stresschange;
 
+import java.io.IOException;
 import java.util.HashMap;
 import sim.engine.*;
 import sim.field.continuous.*;
@@ -22,15 +25,11 @@ public class StressChange extends SimState {
     public int numSpeakers = 5; // number of speakers
     public Network convos = new Network(false); // speaker relationships graph, false indicates undirected
     public Bag speakers = new Bag();
-
-    public HashMap<String, double[]> initialStress = new HashMap<>(); // initial N/V stress state - each one gets to be a class
-
-    public void createStressPairs(String pair, double[] values){
-        initialStress.put(pair, values);
-    }
     
     public double misProbP = 0.1; // mistransmission probability for N
     public double misProbQ = 0.1; // mistransmission probability for V
+    
+    public static HashMap<String, double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 
     public StressChange(long seed) {
         super(seed);
@@ -40,18 +39,6 @@ public class StressChange extends SimState {
         super.start(); // very important!
         field.clear(); // clear the field
         convos.clear(); // clear the speakers
-        
-        double[] valuesAccent = new double[2];
-        valuesAccent[0] = 0.0;
-        valuesAccent[1] = 0.0;
-
-        createStressPairs("accent", valuesAccent); // for testing just two pairs and values
-        
-        double[] valuesAddict = new double[2];
-        valuesAddict[0] = 1.0;
-        valuesAddict[1] = 1.0;
-        
-        createStressPairs("addict", valuesAddict);
         
         // add some speakers to the field
         for (int i = 0; i < numSpeakers; i++) {
@@ -66,7 +53,7 @@ public class StressChange extends SimState {
         
     /* only applies to tutorial */
         // define like/dislike relationships
-        Bag speakers = convos.getAllNodes(); // extract all speakers from the graph, returns sim.util.Bag, like an ArrayList but faster
+        speakers = convos.getAllNodes(); // extract all speakers from the graph, returns sim.util.Bag, like an ArrayList but faster
         for (int i = 0; i < speakers.size(); i++) { // loop through Bag of speakers
             Object speaker = speakers.get(i);
 
@@ -75,8 +62,8 @@ public class StressChange extends SimState {
             do {
                 speakerB = speakers.get(random.nextInt(speakers.numObjs));
             } while (speaker == speakerB);
-            double closeness = random.nextDouble();
-            convos.addEdge(speaker, speakerB, new Double(closeness)); // closeness could be relative distance?
+            double distance = random.nextDouble();
+            convos.addEdge(speaker, speakerB, new Double(distance)); // closeness could be relative distance?
 
         }
     /*  */
@@ -92,8 +79,9 @@ public class StressChange extends SimState {
         return 1.0;
     }
 
-    public static void main(String[] args) {
-        //doLoop(StressChange.class, args); this is the default for MASON but doesn't allow for many customizations
+    public static void main(String[] args) throws IOException {
+        //doLoop(StressChange.class, args); // this is the default for MASON but doesn't allow for many customizations
+        initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStress.txt").OpenFile(); // read in initial pairs
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();
         do {
