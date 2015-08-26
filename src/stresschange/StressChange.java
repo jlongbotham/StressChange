@@ -3,6 +3,8 @@
  * Mistransmission probabilities are different for verbs vs nouns, as the probability is the p(final stress)
  * 
  * 2nd model: agents change based on constraint that final stress is more probable for verbs than nouns
+ * 
+ * 3rd model: 
  */
 package stresschange;
 
@@ -28,6 +30,8 @@ public class StressChange extends SimState {
     
     public double misProbP = 0.1; // mistransmission probability for N
     public double misProbQ = 0.1; // mistransmission probability for V
+    
+    public static String model = "constraintWithMistransmission"; // default if no arguments are given
     
     public static HashMap<String, double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 
@@ -81,6 +85,14 @@ public class StressChange extends SimState {
 
     public static void main(String[] args) throws IOException {
         //doLoop(StressChange.class, args); // this is the default for MASON but doesn't allow for many customizations
+        
+        // get arguments from command line
+        if (args.length > 0) {
+            model = args[0]; // default is mistransmission
+            System.out.println("COMMAND LINE ARGUMENT IS " + args[0]);
+        } 
+        
+        System.out.println("Simulating model with " + model);
         initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStress.txt").OpenFile(); // read in initial pairs
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();
