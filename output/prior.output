@@ -1,0 +1,644 @@
+run:
+COMMAND LINE ARGUMENTS ARE: prior, stochastic, some
+Simulating stochastic model with prior, showing some words
+
+Generation at year 1500
+Speaker 0 ================
+reset: noun prob = 0.75, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 1.0, verb prob = 1.0
+sub-let: noun prob = 0.75, verb prob = 0.75
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.75, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 1.0, verb prob = 1.0
+sub-let: noun prob = 0.75, verb prob = 0.75
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.75, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 1.0, verb prob = 1.0
+sub-let: noun prob = 0.75, verb prob = 0.75
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.75, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 1.0, verb prob = 1.0
+sub-let: noun prob = 0.75, verb prob = 0.75
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.75, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 1.0, verb prob = 1.0
+sub-let: noun prob = 0.75, verb prob = 0.75
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1525
+Speaker 3 ================
+reset: noun prob = 0.38198279335434787, verb prob = 0.46967506458417274
+abstract: noun prob = 0.0, verb prob = 0.20744680851063832
+addict: noun prob = 0.6509433962264152, verb prob = 0.6509433962264152
+sub-let: noun prob = 0.3630133549820464, verb prob = 0.4212966544769683
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.3929164360819037, verb prob = 0.47592695074709457
+abstract: noun prob = 0.0, verb prob = 0.20744680851063832
+addict: noun prob = 0.6509433962264152, verb prob = 0.6509433962264152
+sub-let: noun prob = 0.3951144827089925, verb prob = 0.4520510336446107
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.36530739896289416, verb prob = 0.46014002945864685
+abstract: noun prob = 0.0, verb prob = 0.20744680851063832
+addict: noun prob = 0.6509433962264152, verb prob = 0.6509433962264152
+sub-let: noun prob = 0.354946391988436, verb prob = 0.4222085876810765
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.39766515959241516, verb prob = 0.4786422835548957
+abstract: noun prob = 0.0, verb prob = 0.20744680851063832
+addict: noun prob = 0.6509433962264152, verb prob = 0.6509433962264152
+sub-let: noun prob = 0.39296365418051776, verb prob = 0.44975101990819977
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.38566507684154744, verb prob = 0.4717806041335453
+abstract: noun prob = 0.0, verb prob = 0.20744680851063832
+addict: noun prob = 0.6509433962264152, verb prob = 0.6509433962264152
+sub-let: noun prob = 0.3630467599393073, verb prob = 0.4271980583241195
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1550
+Speaker 2 ================
+reset: noun prob = 0.13019766331924776, verb prob = 0.13019766331924776
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.25202667910192716, verb prob = 0.25202667910192716
+sub-let: noun prob = 0.06821406766268479, verb prob = 0.06821406766268479
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.15577207998974074, verb prob = 0.15577207998974074
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.2759501227871446, verb prob = 0.2759501227871446
+sub-let: noun prob = 0.08264248289622024, verb prob = 0.08264248289622024
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.10400072449840835, verb prob = 0.10400072449840835
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.21927554980595082, verb prob = 0.21927554980595082
+sub-let: noun prob = 0.05934225635137075, verb prob = 0.05934225635137075
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.12158201632551045, verb prob = 0.12158201632551045
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.254790732877064, verb prob = 0.254790732877064
+sub-let: noun prob = 0.06510702033284761, verb prob = 0.06510702033284761
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.12869167209912488, verb prob = 0.12869167209912488
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.2406321216022895, verb prob = 0.2406321216022895
+sub-let: noun prob = 0.06129153677548418, verb prob = 0.06129153677548418
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1575
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 1.1425551871393808E-4, verb prob = 1.1425551871393808E-4
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 3.18560854492645E-4, verb prob = 3.18560854492645E-4
+sub-let: noun prob = 1.2205606492772376E-5, verb prob = 1.2205606492772376E-5
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 3.9451226749269067E-4, verb prob = 3.9451226749269067E-4
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0013345303149664787, verb prob = 0.0013345303149664787
+sub-let: noun prob = 7.909156405689417E-5, verb prob = 7.909156405689417E-5
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1600
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 3.529837878429066E-8, verb prob = 3.529837878429066E-8
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1625
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1650
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1675
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1700
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1725
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1750
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1775
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1800
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1825
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1850
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1875
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1900
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1925
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1950
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+
+Generation at year 1975
+Speaker 2 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 3 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 4 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 1 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.0, verb prob = 0.0
+abstract: noun prob = 0.0, verb prob = 0.0
+addict: noun prob = 0.0, verb prob = 0.0
+sub-let: noun prob = 0.0, verb prob = 0.0
+accent: noun prob = 0.0, verb prob = 0.0
+BUILD SUCCESSFUL (total time: 0 seconds)
