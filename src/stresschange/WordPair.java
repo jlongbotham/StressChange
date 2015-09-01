@@ -9,13 +9,17 @@ package stresschange;
  */
 public class WordPair {
     
-    private String word;
+    public String word;
     private Double initialNounProb;
     public Double currentNounProb;
     public Double avgParentNounProb;
     private Double initialVerbProb;
     public Double currentVerbProb;
     public Double avgParentVerbProb;
+    public Double misNounPrev;
+    public Double misVerbPrev;
+    public Integer freqNoun;
+    public Integer freqVerb;
     
     /*
     Later can add attributes like relative frequency, origin, etc.
@@ -27,10 +31,14 @@ public class WordPair {
         this.currentNounProb = initialNounProb;
         this.initialVerbProb = initialVerbProb;
         this.currentVerbProb = initialVerbProb;
+        this.misNounPrev = StressChange.misProbP;
+        this.misVerbPrev = StressChange.misProbQ;
+        this.freqNoun = 1;
+        this.freqVerb = 1;
     }
     
     public String toString(){
-        return this.word + ", noun prob = " + this.currentNounProb + ", verb prob = " + this.currentVerbProb;
+        return this.word + ": noun prob = " + this.currentNounProb + ", verb prob = " + this.currentVerbProb;
     }
 
 }

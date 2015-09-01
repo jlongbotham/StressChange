@@ -28,10 +28,13 @@ public class StressChange extends SimState {
     public Network convos = new Network(false); // speaker relationships graph, false indicates undirected
     public Bag speakers = new Bag();
     
-    public double misProbP = 0.1; // mistransmission probability for N
-    public double misProbQ = 0.1; // mistransmission probability for V
+    public static double misProbP = 0.1; // mistransmission probability for N
+    public static double misProbQ = 0.1; // mistransmission probability for V
     
-    public static String model = "constraintWithMistransmission"; // default if no arguments are given
+    public static String model = "constraintWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint"
+    public static String mode = "stochastic"; // default if no arguments are given - other option is "deterministic"
+    public static String logWords = "some"; // default if no arguments are given - other option is "all"
+    public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let"};
     
     public static HashMap<String, double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 
@@ -89,14 +92,24 @@ public class StressChange extends SimState {
         // get arguments from command line
         if (args.length > 0) {
             model = args[0]; // default is mistransmission
-            System.out.println("COMMAND LINE ARGUMENT IS " + args[0]);
+            System.out.print("COMMAND LINE ARGUMENTS ARE: " + args[0]);
+            if (args.length > 1) { 
+                mode = args[1];
+                System.out.print(", " + args[1]);
+            }
+            if (args.length > 2) { 
+                logWords = args[2];
+                System.out.print(", " + args[2]);  
+            }
+            System.out.println("");
         } 
         
-        System.out.println("Simulating model with " + model);
+        System.out.println("Simulating " + mode + " model with " + model + ", showing " + logWords + " words");
         initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStress.txt").OpenFile(); // read in initial pairs
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();
         do {
+            System.out.println("");
             System.out.println("Generation at year " + (1500 + (state.schedule.getSteps()) * 25)); // 25-year generations
             if (!state.schedule.step(state)) {
                 break;

@@ -52,7 +52,7 @@ public class Speaker implements Steppable {
         // TODO: allow for restricting "parents" to only those speakers within a specific distance
         Bag parents = speakers.convos.getAllNodes();
         Bag distances = speakers.convos.getEdges(this, null); // maybe can be used to find how close speakers are and restrict who current generation learns from
-        System.out.println(distances.get(0));
+        //System.out.println(distances.get(0));
         for (int i = 0; i < words.size(); i++) { // iterate through array of WordPair objects for current Speaker
             //System.out.println(words.get(i)); // print out current state of each word pair
             double parentNounProb = 0.0; // reset parent probabilities
@@ -70,7 +70,6 @@ public class Speaker implements Steppable {
                     parentNounProb = parentNounProb / parents.size(); // and divide by size of Bag of Speakers to get average
                     parentVerbProb = parentVerbProb / parents.size();
                 }
-
             }
             word.avgParentNounProb = parentNounProb;
             word.avgParentVerbProb = parentVerbProb;
@@ -79,28 +78,62 @@ public class Speaker implements Steppable {
     }
 
     public void runModel() {
-        updateParentAverage(); // first get parent averages
-        
+
+        updateParentAverage(); // first get parent averages           
+
+        System.out.println("Speaker " + id + " ================");
+
         for (int i = 0; i < words.size(); i++) { // then iterate over each word pair and run model
 
             WordPair word = words.get(i);
-            
-            System.out.println(word); // print current state
-            
+
+            if (StressChange.logWords.equals("some")) {
+                for (String rep : StressChange.representativeWords) {
+                    if (word.word.contains(rep)) {
+                        System.out.println(word); // only print current state if word is in representative array
+                        break;
+                    }
+                }
+            } else {
+                System.out.println(word); // print current state of all words
+            }
+
             if (StressChange.model.equals("mistransmission")) {
                 mistransmission(word); // 1st model
             } else if (StressChange.model.equals("constraint")) {
                 constraint(word); // 2nd model
             } else if (StressChange.model.equals("constraintWithMistransmission")) {
                 constraintWithMistransmission(word); // 3rd model
+            } else if (StressChange.model.equals("prior")) {
+                prior(word); // 4th model
+            } else if (StressChange.model.equals("priorWithMistransmission")) {
+                priorWithMistransmission(word); // 5th model
             }
         }
     }
 
     public void mistransmission(WordPair word) { // Model 1
         // set the noun and verb probabilities for the next generation
-        word.currentNounProb = getMisNoun(speakers.misProbP, word.avgParentNounProb); // update noun probabilities
-        word.currentVerbProb = getMisVerb(speakers.misProbQ, word.avgParentVerbProb); // update verb probabilities
+        if (StressChange.mode.equals("stochastic")) {
+            // sample randomly for 100 numbers between 0 and 1
+            // updated word.misNounPrev and word.misVerbPrev to ((number of randoms < misProbPQ) / total number of randoms)
+            int numberMisheardNoun = 0;
+            int numberMisheardVerb = 0;
+            int sampleIterations = 100;
+            for (int i = 0; i < sampleIterations; i++) {
+                if (speakers.random.nextDouble() < StressChange.misProbP) {
+                    numberMisheardNoun++;
+                }
+                if (speakers.random.nextDouble() < StressChange.misProbQ) {
+                    numberMisheardVerb++;
+                }
+            }
+            word.misNounPrev = (double) numberMisheardNoun / sampleIterations;
+            word.misVerbPrev = (double) numberMisheardVerb / sampleIterations;
+        }
+        // otherwise deterministically update based on initial mistransmission probabilities
+        word.currentNounProb = getMisNoun(word.misNounPrev, word.avgParentNounProb); // update noun probabilities
+        word.currentVerbProb = getMisVerb(word.misVerbPrev, word.avgParentVerbProb); // update verb probabilities
     }
 
     public void constraint(WordPair word) { // Model 2
@@ -108,17 +141,104 @@ public class Speaker implements Steppable {
         if (word.avgParentNounProb < word.avgParentVerbProb) { // if constraint is met, then estimate equals expectation
             word.currentNounProb = word.avgParentNounProb;
             word.currentVerbProb = word.avgParentVerbProb;
-        } else { 
+        } else {
             word.currentNounProb = (word.avgParentNounProb + word.avgParentVerbProb) / 2; // if constraint is not met, then estimate equals average of expectations
             word.currentVerbProb = (word.avgParentNounProb + word.avgParentVerbProb) / 2;
         }
     }
 
     public void constraintWithMistransmission(WordPair word) { // Model 3
-        // the same as constraint(), but after mistransmission
-        mistransmission(word);
-        updateParentAverage();  // update parent probabilities based on mistransmission
+        // the same as constraint(), but on "heard" examples (i.e. mistransmission)
         constraint(word);
+        mistransmission(word);
+    }
+
+    public void prior(WordPair word) { // Model 4
+        // this model uses word frequencies to compute learned probabilities
+        // for deterministic model it stays at 1 for nouns and verbs
+        // for stochastic model it is changed to a random number between 0 and 1000 - incidentally will never equal 2
+        // TODO: maybe change test to 1st state rather than default frequency
+        if (StressChange.mode.equals("stochastic")) {
+            if (word.freqNoun == 1) {
+                word.freqNoun = (int)(speakers.random.nextDouble() * 999) + 1; // add 1 to avoid frequency of 0
+            }
+            if (word.freqVerb == 1) {
+                word.freqVerb = (int)(speakers.random.nextDouble() * 999) + 1;
+            }
+        }
+
+        // calculate learned probabilities (P) based on word frequencies sampled from parent probabilities
+
+        double kNoun = 0.0; // number of nouns heard as final stress
+        double kVerb = 0.0; // number of verbs heard as final stress
+
+        for (int i = 0; i < word.freqNoun; i++) {
+            if (speakers.random.nextDouble() <= word.currentNounProb) {
+                kNoun++;
+            }
+        }
+
+        for (int i = 0; i < word.freqVerb; i++) {
+            if (speakers.random.nextDouble() <= word.currentVerbProb) {
+                kVerb++;
+            }
+        }
+        
+        double p11 = ((word.freqNoun - kNoun) / word.freqNoun) * ((word.freqVerb - kVerb) / word.freqVerb);
+        double p12 = ((word.freqNoun - kNoun) / word.freqNoun) * (kVerb / word.freqVerb);
+        double p21 = (kNoun / word.freqNoun) * ((word.freqVerb - kVerb) / word.freqVerb);
+        double p22 = (kNoun / word.freqNoun) * (kVerb / word.freqVerb);
+        
+        /* for testing
+        System.out.println("P11: " + p11);
+        System.out.println("P12: " + p12);
+        System.out.println("P21: " + p21);
+        System.out.println("P22: " + p22);
+        double sumP = p11 + p12 + p21 + p22;
+        System.out.println("SUM: " + sumP);
+        */
+
+        // calculate prior probabilities (lambda) based on current state of lexicon
+        double lambda11 = 0.0;
+        double lambda12 = 0.0;
+        double lambda21 = 0.0;
+        double lambda22 = 0.0;
+
+        for (WordPair wordPair : words) {
+            if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb < 0.5) { // lambda11
+                lambda11++;
+            } else if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb >= 0.5) { // lambda12
+                lambda12++;
+            } else if (wordPair.currentNounProb >= 0.5 && wordPair.currentVerbProb < 0.5) { // lamda21
+                lambda21++;
+            } else { // lambda22
+                lambda22++;
+            }
+        }
+
+        // get prior probabilities
+        lambda11 = lambda11 / words.size();
+        lambda12 = lambda12 / words.size();
+        lambda21 = lambda21 / words.size();
+        lambda22 = lambda22 / words.size();
+
+        /* for testing
+         System.out.println("LAMBDA11: " + lambda11);
+         System.out.println("LAMBDA12: " + lambda12);
+         System.out.println("LAMBDA21: " + lambda21);
+         System.out.println("LAMBDA22: " + lambda22);
+         double sumLambda = lambda11 + lambda12 + lambda21 + lambda22;
+         System.out.println("SUM: " + sumLambda);
+         */
+        
+        // update current noun and verb probabilities based on learned and prior probabilities
+        word.currentNounProb = ((lambda21 * p21) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 + p12) + (lambda21 * p21) + (lambda22 * p22));
+        word.currentVerbProb = ((lambda12 * p12) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 + p12) + (lambda21 * p21) + (lambda22 * p22));
+        
+    }
+
+    public void priorWithMistransmission(WordPair word) {
+        // TODO
     }
 
     public void step(SimState state) { // method step implements sim.engine.Steppable interface, allows "Speaker" to be not just object but also agent
