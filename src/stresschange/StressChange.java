@@ -33,7 +33,7 @@ public class StressChange extends SimState {
     
     public static String model = "constraintWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint"
     public static String mode = "stochastic"; // default if no arguments are given - other option is "deterministic"
-    public static String logWords = "some"; // default if no arguments are given - other option is "all"
+    public static String logging = "some"; // default if no arguments are given - other option is "all"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let"};
     
     public static HashMap<String, double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
@@ -98,13 +98,13 @@ public class StressChange extends SimState {
                 System.out.print(", " + args[1]);
             }
             if (args.length > 2) { 
-                logWords = args[2];
+                logging = args[2];
                 System.out.print(", " + args[2]);  
             }
             System.out.println("");
         } 
         
-        System.out.println("Simulating " + mode + " model with " + model + ", showing " + logWords + " words");
+        System.out.println("Simulating " + mode + " model with " + model + ", showing " + logging + " words");
         initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStress.txt").OpenFile(); // read in initial pairs
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();
