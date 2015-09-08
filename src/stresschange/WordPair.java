@@ -33,8 +33,8 @@ public class WordPair {
         this.currentVerbProb = initialVerbProb;
         this.misNounPrev = StressChange.misProbP;
         this.misVerbPrev = StressChange.misProbQ;
-        this.freqNoun = 1;
-        this.freqVerb = 1;
+        this.freqNoun = StressChange.freqNoun;
+        this.freqVerb = StressChange.freqVerb;
     }
     
     public String toString(){

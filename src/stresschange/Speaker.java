@@ -76,7 +76,7 @@ public class Speaker implements Steppable {
 
         updateParentAverage(); // first get parent averages           
 
-        System.out.println("Speaker " + id + " ================");
+        if(id > 0 && id < 6) {System.out.println("Speaker " + id + " ================");}
 
         for (int i = 0; i < words.size(); i++) { // then iterate over each word pair and run model
 
@@ -95,6 +95,7 @@ public class Speaker implements Steppable {
                 }
             }
 
+            if(id > 0 && id < 6) {
             if (StressChange.logging.equals("some")) {
                 for (String rep : StressChange.representativeWords) {
                     if (word.word.contains(rep)) {
@@ -104,6 +105,7 @@ public class Speaker implements Steppable {
                 }
             } else {
                 System.out.println(word); // print current state of all words
+            }
             }
 
             if (StressChange.model.equals("mistransmission")) {
@@ -241,7 +243,6 @@ public class Speaker implements Steppable {
         }
 
         // update current noun and verb probabilities based on learned and prior probabilities
-        // TODO: see why currentNounProb and currentVerbProb aren't carried over from one function to the next
         word.currentNounProb = ((lambda21 * p21) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
         word.currentVerbProb = ((lambda12 * p12) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
 
