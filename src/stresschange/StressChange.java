@@ -28,15 +28,18 @@ public class StressChange extends SimState {
      * @param args the command line arguments
      */
     public Continuous2D field = new Continuous2D(1.0, 100, 100); // representation of space/field from sim.field.continuous.Continuous2D, bounds 100x100
-    public int numSpeakers = 100; // number of speakers
-    public Network convos = new Network(false); // speaker relationships graph, false indicates undirected
+    public static int numSpeakers = 10; // number of speakers
+    public static Network convos = new Network(false); // speaker relationships graph, false indicates undirected
     public Bag speakers = new Bag();
+    public static int count = 0; // count of speakers updated
 
     public static double misProbP = 0.1; // mistransmission probability for N
     public static double misProbQ = 0.1; // mistransmission probability for V
 
     public static int freqNoun = 0; // default frequency for nouns
     public static int freqVerb = 0; // default frequency for verbs
+    
+    public static double maxDistance = 10;
 
     public static String model = "constraintWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint"
     public static String mode = "stochastic"; // default if no arguments are given - other option is "deterministic"
@@ -58,15 +61,14 @@ public class StressChange extends SimState {
         for (int i = 0; i < numSpeakers; i++) {
             Speaker speaker = new Speaker(initialStress, i);
             field.setObjectLocation(speaker,
-                    new Double2D(field.getWidth() * 0.5 + random.nextDouble() - 0.5,
-                            field.getHeight() * 0.5 + random.nextDouble() - 0.5));
+                    new Double2D(field.getWidth() * 0.5 + 10*(random.nextDouble() - 0.5),
+                            field.getHeight() * 0.5 + 10*(random.nextDouble() - 0.5)));
 
             convos.addNode(speaker); // each speaker added to graph as a node
             schedule.scheduleRepeating(speaker);
         }
 
-        /* only applies to tutorial */
-        // define like/dislike relationships
+        // add edges between speakers defining closeness
         speakers = convos.getAllNodes(); // extract all speakers from the graph, returns sim.util.Bag, like an ArrayList but faster
         for (int i = 0; i < speakers.size(); i++) { // loop through Bag of speakers
             Object speaker = speakers.get(i);
@@ -76,21 +78,9 @@ public class StressChange extends SimState {
             do {
                 speakerB = speakers.get(random.nextInt(speakers.numObjs));
             } while (speaker == speakerB);
-            double distance = random.nextDouble();
-            convos.addEdge(speaker, speakerB, new Double(distance)); // closeness could be relative distance?
-
+            double closeness = random.nextDouble();
+            convos.addEdge(speaker, speakerB, new Double(closeness)); 
         }
-        /*  */
-    }
-
-    // not used yet
-    public double getSpeakerAverage() {
-        // get average over all speakers and all pairs
-        for (int i = 0; i < speakers.size(); i++) {
-            Object speaker = speakers.get(i);
-            System.out.println(speaker);
-        }
-        return 1.0;
     }
 
     public static void main(String[] args) throws IOException {
@@ -145,7 +135,7 @@ public class StressChange extends SimState {
         state.start();
         do {
             System.out.println("");
-            System.out.println("Generation at year " + (1500 + (state.schedule.getSteps()) * 25)); // 25-year generations
+            System.out.println("Generation at year " + (1500 + (state.schedule.getSteps()) * 25)); // 25-year generations            
             if (!state.schedule.step(state)) {
                 break;
             }

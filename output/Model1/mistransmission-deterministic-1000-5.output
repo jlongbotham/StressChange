@@ -4,25 +4,25 @@ N1 (noun frequency): 1000
 N2 (verb frequency): 5
 
 Generation at year 1500
+Speaker 1 ================
+reset: noun prob = 0.75, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 1.0, verb prob = 1.0
+sub-let: noun prob = 0.75, verb prob = 0.75
+accent: noun prob = 0.0, verb prob = 0.0
 Speaker 3 ================
 reset: noun prob = 0.75, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
 addict: noun prob = 1.0, verb prob = 1.0
 sub-let: noun prob = 0.75, verb prob = 0.75
 accent: noun prob = 0.0, verb prob = 0.0
+Speaker 0 ================
+reset: noun prob = 0.75, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 1.0, verb prob = 1.0
+sub-let: noun prob = 0.75, verb prob = 0.75
+accent: noun prob = 0.0, verb prob = 0.0
 Speaker 4 ================
-reset: noun prob = 0.75, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 1.0, verb prob = 1.0
-sub-let: noun prob = 0.75, verb prob = 0.75
-accent: noun prob = 0.0, verb prob = 0.0
-Speaker 5 ================
-reset: noun prob = 0.75, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 1.0, verb prob = 1.0
-sub-let: noun prob = 0.75, verb prob = 0.75
-accent: noun prob = 0.0, verb prob = 0.0
-Speaker 1 ================
 reset: noun prob = 0.75, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
 addict: noun prob = 1.0, verb prob = 1.0
@@ -36,609 +36,609 @@ sub-let: noun prob = 0.75, verb prob = 0.75
 accent: noun prob = 0.0, verb prob = 0.0
 
 Generation at year 1525
-Speaker 1 ================
-reset: noun prob = 0.5977829166528789, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.7970438888705054, verb prob = 1.0
-sub-let: noun prob = 0.5977829166528789, verb prob = 0.8007390277823739
-accent: noun prob = 0.0, verb prob = 0.20295611112949477
 Speaker 4 ================
-reset: noun prob = 0.6367456451977304, verb prob = 1.0
+reset: noun prob = 0.675, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.8489941935969738, verb prob = 1.0
-sub-let: noun prob = 0.6367456451977304, verb prob = 0.7877514516007565
-accent: noun prob = 0.0, verb prob = 0.15100580640302602
-Speaker 3 ================
-reset: noun prob = 0.6679699595398105, verb prob = 1.0
+addict: noun prob = 0.9, verb prob = 1.0
+sub-let: noun prob = 0.675, verb prob = 0.775
+accent: noun prob = 0.0, verb prob = 0.1
+Speaker 0 ================
+reset: noun prob = 0.675, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.8906266127197473, verb prob = 1.0
-sub-let: noun prob = 0.6679699595398105, verb prob = 0.7773433468200631
-accent: noun prob = 0.0, verb prob = 0.10937338728025266
-Speaker 5 ================
-reset: noun prob = 0.6120694183881054, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.8160925578508071, verb prob = 1.0
-sub-let: noun prob = 0.6120694183881054, verb prob = 0.7959768605372983
-accent: noun prob = 0.0, verb prob = 0.1839074421491929
+addict: noun prob = 0.9, verb prob = 1.0
+sub-let: noun prob = 0.675, verb prob = 0.775
+accent: noun prob = 0.0, verb prob = 0.1
 Speaker 2 ================
-reset: noun prob = 0.5679097379780781, verb prob = 1.0
+reset: noun prob = 0.675, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.7572129839707706, verb prob = 1.0
-sub-let: noun prob = 0.5679097379780781, verb prob = 0.8106967540073077
-accent: noun prob = 0.0, verb prob = 0.2427870160292295
+addict: noun prob = 0.9, verb prob = 1.0
+sub-let: noun prob = 0.675, verb prob = 0.775
+accent: noun prob = 0.0, verb prob = 0.1
+Speaker 3 ================
+reset: noun prob = 0.675, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.9, verb prob = 1.0
+sub-let: noun prob = 0.675, verb prob = 0.775
+accent: noun prob = 0.0, verb prob = 0.1
+Speaker 1 ================
+reset: noun prob = 0.675, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.9, verb prob = 1.0
+sub-let: noun prob = 0.675, verb prob = 0.775
+accent: noun prob = 0.0, verb prob = 0.1
 
 Generation at year 1550
-Speaker 2 ================
-reset: noun prob = 0.4920634897426484, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.6560846529901982, verb prob = 1.0
-sub-let: noun prob = 0.4920634897426484, verb prob = 0.8359788367524513
-accent: noun prob = 0.0, verb prob = 0.3439153470098022
-Speaker 1 ================
-reset: noun prob = 0.5662709256198807, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.7550279008265075, verb prob = 1.0
-sub-let: noun prob = 0.5662709256198807, verb prob = 0.8112430247933734
-accent: noun prob = 0.0, verb prob = 0.24497209917349258
-Speaker 4 ================
-reset: noun prob = 0.5659873177005837, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.7546497569341115, verb prob = 1.0
-sub-let: noun prob = 0.5659873177005837, verb prob = 0.8113375607664723
-accent: noun prob = 0.0, verb prob = 0.24535024306588854
-Speaker 5 ================
-reset: noun prob = 0.5456555904301631, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.7275407872402178, verb prob = 1.0
-sub-let: noun prob = 0.5456555904301631, verb prob = 0.8181148031899459
-accent: noun prob = 0.0, verb prob = 0.2724592127597826
 Speaker 3 ================
-reset: noun prob = 0.5653504927531094, verb prob = 1.0
+reset: noun prob = 0.6075, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.7538006570041459, verb prob = 1.0
-sub-let: noun prob = 0.5653504927531094, verb prob = 0.8115498357489639
-accent: noun prob = 0.0, verb prob = 0.24619934299585433
+addict: noun prob = 0.81, verb prob = 1.0
+sub-let: noun prob = 0.6075, verb prob = 0.7975
+accent: noun prob = 0.0, verb prob = 0.19
+Speaker 2 ================
+reset: noun prob = 0.6075, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.81, verb prob = 1.0
+sub-let: noun prob = 0.6075, verb prob = 0.7975
+accent: noun prob = 0.0, verb prob = 0.19
+Speaker 4 ================
+reset: noun prob = 0.6075, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.81, verb prob = 1.0
+sub-let: noun prob = 0.6075, verb prob = 0.7975
+accent: noun prob = 0.0, verb prob = 0.19
+Speaker 0 ================
+reset: noun prob = 0.6075, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.81, verb prob = 1.0
+sub-let: noun prob = 0.6075, verb prob = 0.7975
+accent: noun prob = 0.0, verb prob = 0.19
+Speaker 1 ================
+reset: noun prob = 0.6075, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.81, verb prob = 1.0
+sub-let: noun prob = 0.6075, verb prob = 0.7975
+accent: noun prob = 0.0, verb prob = 0.19
 
 Generation at year 1575
 Speaker 2 ================
-reset: noun prob = 0.4615693133087149, verb prob = 1.0
+reset: noun prob = 0.5467500000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.6154257510782869, verb prob = 1.0
-sub-let: noun prob = 0.4615693133087149, verb prob = 0.8461435622304287
-accent: noun prob = 0.0, verb prob = 0.3845742489217136
-Speaker 5 ================
-reset: noun prob = 0.43009630396369636, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.5734617386182627, verb prob = 1.0
-sub-let: noun prob = 0.43009630396369636, verb prob = 0.856634565345435
-accent: noun prob = 0.0, verb prob = 0.4265382613817378
-Speaker 1 ================
-reset: noun prob = 0.45577986807366405, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.6077064907648856, verb prob = 1.0
-sub-let: noun prob = 0.45577986807366405, verb prob = 0.8480733773087791
-accent: noun prob = 0.0, verb prob = 0.3922935092351147
+addict: noun prob = 0.7290000000000002, verb prob = 1.0
+sub-let: noun prob = 0.5467500000000001, verb prob = 0.81775
+accent: noun prob = 0.0, verb prob = 0.271
 Speaker 4 ================
-reset: noun prob = 0.43475800648963503, verb prob = 1.0
+reset: noun prob = 0.5467500000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.5796773419861805, verb prob = 1.0
-sub-let: noun prob = 0.43475800648963503, verb prob = 0.8550806645034555
-accent: noun prob = 0.0, verb prob = 0.4203226580138199
+addict: noun prob = 0.7290000000000002, verb prob = 1.0
+sub-let: noun prob = 0.5467500000000001, verb prob = 0.81775
+accent: noun prob = 0.0, verb prob = 0.271
+Speaker 1 ================
+reset: noun prob = 0.5467500000000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.7290000000000002, verb prob = 1.0
+sub-let: noun prob = 0.5467500000000001, verb prob = 0.81775
+accent: noun prob = 0.0, verb prob = 0.271
+Speaker 0 ================
+reset: noun prob = 0.5467500000000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.7290000000000002, verb prob = 1.0
+sub-let: noun prob = 0.5467500000000001, verb prob = 0.81775
+accent: noun prob = 0.0, verb prob = 0.271
 Speaker 3 ================
-reset: noun prob = 0.4252803203998348, verb prob = 1.0
+reset: noun prob = 0.5467500000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.5670404271997802, verb prob = 1.0
-sub-let: noun prob = 0.4252803203998348, verb prob = 0.8582398932000556
-accent: noun prob = 0.0, verb prob = 0.43295957280022024
+addict: noun prob = 0.7290000000000002, verb prob = 1.0
+sub-let: noun prob = 0.5467500000000001, verb prob = 0.81775
+accent: noun prob = 0.0, verb prob = 0.271
 
 Generation at year 1600
-Speaker 3 ================
-reset: noun prob = 0.33652469173015653, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.44869958897354256, verb prob = 1.0
-sub-let: noun prob = 0.33652469173015653, verb prob = 0.8878251027566146
-accent: noun prob = 0.0, verb prob = 0.5513004110264578
 Speaker 2 ================
-reset: noun prob = 0.39257857758973724, verb prob = 1.0
+reset: noun prob = 0.4920750000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.5234381034529837, verb prob = 1.0
-sub-let: noun prob = 0.39257857758973724, verb prob = 0.8691404741367548
-accent: noun prob = 0.0, verb prob = 0.4765618965470167
+addict: noun prob = 0.6561000000000002, verb prob = 1.0
+sub-let: noun prob = 0.4920750000000001, verb prob = 0.835975
+accent: noun prob = 0.0, verb prob = 0.34390000000000004
+Speaker 0 ================
+reset: noun prob = 0.4920750000000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.6561000000000002, verb prob = 1.0
+sub-let: noun prob = 0.4920750000000001, verb prob = 0.835975
+accent: noun prob = 0.0, verb prob = 0.34390000000000004
 Speaker 4 ================
-reset: noun prob = 0.36424526140870417, verb prob = 1.0
+reset: noun prob = 0.4920750000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.4856603485449396, verb prob = 1.0
-sub-let: noun prob = 0.36424526140870417, verb prob = 0.8785849128637656
-accent: noun prob = 0.0, verb prob = 0.5143396514550609
-Speaker 5 ================
-reset: noun prob = 0.3728265180495571, verb prob = 1.0
+addict: noun prob = 0.6561000000000002, verb prob = 1.0
+sub-let: noun prob = 0.4920750000000001, verb prob = 0.835975
+accent: noun prob = 0.0, verb prob = 0.34390000000000004
+Speaker 3 ================
+reset: noun prob = 0.4920750000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.4971020240660768, verb prob = 1.0
-sub-let: noun prob = 0.3728265180495571, verb prob = 0.8757244939834813
-accent: noun prob = 0.0, verb prob = 0.5028979759339238
+addict: noun prob = 0.6561000000000002, verb prob = 1.0
+sub-let: noun prob = 0.4920750000000001, verb prob = 0.835975
+accent: noun prob = 0.0, verb prob = 0.34390000000000004
 Speaker 1 ================
-reset: noun prob = 0.3654842845916556, verb prob = 1.0
+reset: noun prob = 0.4920750000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.4873123794555416, verb prob = 1.0
-sub-let: noun prob = 0.3654842845916556, verb prob = 0.8781719051361151
-accent: noun prob = 0.0, verb prob = 0.5126876205444589
+addict: noun prob = 0.6561000000000002, verb prob = 1.0
+sub-let: noun prob = 0.4920750000000001, verb prob = 0.835975
+accent: noun prob = 0.0, verb prob = 0.34390000000000004
 
 Generation at year 1625
-Speaker 5 ================
-reset: noun prob = 0.301837978073576, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.4024506374314353, verb prob = 1.0
-sub-let: noun prob = 0.301837978073576, verb prob = 0.8993873406421407
-accent: noun prob = 0.0, verb prob = 0.597549362568565
-Speaker 2 ================
-reset: noun prob = 0.32991554076198687, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.43988738768264984, verb prob = 1.0
-sub-let: noun prob = 0.32991554076198687, verb prob = 0.8900281530793378
-accent: noun prob = 0.0, verb prob = 0.5601126123173505
-Speaker 3 ================
-reset: noun prob = 0.33379124678776995, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.44505499571702717, verb prob = 1.0
-sub-let: noun prob = 0.33379124678776995, verb prob = 0.8887362510707434
-accent: noun prob = 0.0, verb prob = 0.5549450042829731
 Speaker 4 ================
-reset: noun prob = 0.3199810389846826, verb prob = 1.0
+reset: noun prob = 0.4428675000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.42664138531291096, verb prob = 1.0
-sub-let: noun prob = 0.3199810389846826, verb prob = 0.8933396536717721
-accent: noun prob = 0.0, verb prob = 0.5733586146870894
+addict: noun prob = 0.5904900000000002, verb prob = 1.0
+sub-let: noun prob = 0.4428675000000001, verb prob = 0.8523775
+accent: noun prob = 0.0, verb prob = 0.40951000000000004
+Speaker 3 ================
+reset: noun prob = 0.4428675000000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.5904900000000002, verb prob = 1.0
+sub-let: noun prob = 0.4428675000000001, verb prob = 0.8523775
+accent: noun prob = 0.0, verb prob = 0.40951000000000004
 Speaker 1 ================
-reset: noun prob = 0.29742378117210816, verb prob = 1.0
+reset: noun prob = 0.4428675000000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.3965650415628116, verb prob = 1.0
-sub-let: noun prob = 0.29742378117210816, verb prob = 0.9008587396092965
-accent: noun prob = 0.0, verb prob = 0.6034349584371885
+addict: noun prob = 0.5904900000000002, verb prob = 1.0
+sub-let: noun prob = 0.4428675000000001, verb prob = 0.8523775
+accent: noun prob = 0.0, verb prob = 0.40951000000000004
+Speaker 2 ================
+reset: noun prob = 0.4428675000000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.5904900000000002, verb prob = 1.0
+sub-let: noun prob = 0.4428675000000001, verb prob = 0.8523775
+accent: noun prob = 0.0, verb prob = 0.40951000000000004
+Speaker 0 ================
+reset: noun prob = 0.4428675000000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.5904900000000002, verb prob = 1.0
+sub-let: noun prob = 0.4428675000000001, verb prob = 0.8523775
+accent: noun prob = 0.0, verb prob = 0.40951000000000004
 
 Generation at year 1650
 Speaker 1 ================
-reset: noun prob = 0.24592225533956727, verb prob = 1.0
+reset: noun prob = 0.3985807500000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.3278963404527569, verb prob = 1.0
-sub-let: noun prob = 0.24592225533956727, verb prob = 0.9180259148868104
-accent: noun prob = 0.0, verb prob = 0.6721036595472432
-Speaker 2 ================
-reset: noun prob = 0.2762586032231849, verb prob = 1.0
+addict: noun prob = 0.5314410000000002, verb prob = 1.0
+sub-let: noun prob = 0.3985807500000001, verb prob = 0.86713975
+accent: noun prob = 0.0, verb prob = 0.46855900000000006
+Speaker 0 ================
+reset: noun prob = 0.3985807500000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.36834480429758026, verb prob = 1.0
-sub-let: noun prob = 0.2762586032231849, verb prob = 0.9079137989256043
-accent: noun prob = 0.0, verb prob = 0.6316551957024197
+addict: noun prob = 0.5314410000000002, verb prob = 1.0
+sub-let: noun prob = 0.3985807500000001, verb prob = 0.86713975
+accent: noun prob = 0.0, verb prob = 0.46855900000000006
 Speaker 3 ================
-reset: noun prob = 0.27394376287805877, verb prob = 1.0
+reset: noun prob = 0.3985807500000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.3652583505040789, verb prob = 1.0
-sub-let: noun prob = 0.27394376287805877, verb prob = 0.9086854123739798
-accent: noun prob = 0.0, verb prob = 0.6347416494959213
-Speaker 5 ================
-reset: noun prob = 0.2809260366628491, verb prob = 1.0
+addict: noun prob = 0.5314410000000002, verb prob = 1.0
+sub-let: noun prob = 0.3985807500000001, verb prob = 0.86713975
+accent: noun prob = 0.0, verb prob = 0.46855900000000006
+Speaker 2 ================
+reset: noun prob = 0.3985807500000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.3745680488837993, verb prob = 1.0
-sub-let: noun prob = 0.2809260366628491, verb prob = 0.9063579877790497
-accent: noun prob = 0.0, verb prob = 0.6254319511162008
+addict: noun prob = 0.5314410000000002, verb prob = 1.0
+sub-let: noun prob = 0.3985807500000001, verb prob = 0.86713975
+accent: noun prob = 0.0, verb prob = 0.46855900000000006
 Speaker 4 ================
-reset: noun prob = 0.27066391092228315, verb prob = 1.0
+reset: noun prob = 0.3985807500000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.3608852145630447, verb prob = 1.0
-sub-let: noun prob = 0.27066391092228315, verb prob = 0.9097786963592384
-accent: noun prob = 0.0, verb prob = 0.6391147854369555
+addict: noun prob = 0.5314410000000002, verb prob = 1.0
+sub-let: noun prob = 0.3985807500000001, verb prob = 0.86713975
+accent: noun prob = 0.0, verb prob = 0.46855900000000006
 
 Generation at year 1675
-Speaker 5 ================
-reset: noun prob = 0.2249262306677007, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.2999016408902679, verb prob = 1.0
-sub-let: noun prob = 0.2249262306677007, verb prob = 0.9250245897774328
-accent: noun prob = 0.0, verb prob = 0.7000983591097322
-Speaker 2 ================
-reset: noun prob = 0.2357727201085366, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.3143636268113825, verb prob = 1.0
-sub-let: noun prob = 0.2357727201085366, verb prob = 0.9214090932971538
-accent: noun prob = 0.0, verb prob = 0.6856363731886177
-Speaker 3 ================
-reset: noun prob = 0.2282013508563733, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.30426846780849803, verb prob = 1.0
-sub-let: noun prob = 0.2282013508563733, verb prob = 0.9239328830478754
-accent: noun prob = 0.0, verb prob = 0.6957315321915021
 Speaker 1 ================
-reset: noun prob = 0.23685106246241444, verb prob = 1.0
+reset: noun prob = 0.3587226750000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.31580141661655303, verb prob = 1.0
-sub-let: noun prob = 0.23685106246241444, verb prob = 0.9210496458458612
-accent: noun prob = 0.0, verb prob = 0.684198583383447
+addict: noun prob = 0.47829690000000014, verb prob = 1.0
+sub-let: noun prob = 0.3587226750000001, verb prob = 0.880425775
+accent: noun prob = 0.0, verb prob = 0.5217031000000001
+Speaker 2 ================
+reset: noun prob = 0.3587226750000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.47829690000000014, verb prob = 1.0
+sub-let: noun prob = 0.3587226750000001, verb prob = 0.880425775
+accent: noun prob = 0.0, verb prob = 0.5217031000000001
 Speaker 4 ================
-reset: noun prob = 0.21369604103303694, verb prob = 1.0
+reset: noun prob = 0.3587226750000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.28492805471071614, verb prob = 1.0
-sub-let: noun prob = 0.21369604103303694, verb prob = 0.9287679863223208
-accent: noun prob = 0.0, verb prob = 0.7150719452892838
+addict: noun prob = 0.47829690000000014, verb prob = 1.0
+sub-let: noun prob = 0.3587226750000001, verb prob = 0.880425775
+accent: noun prob = 0.0, verb prob = 0.5217031000000001
+Speaker 3 ================
+reset: noun prob = 0.3587226750000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.47829690000000014, verb prob = 1.0
+sub-let: noun prob = 0.3587226750000001, verb prob = 0.880425775
+accent: noun prob = 0.0, verb prob = 0.5217031000000001
+Speaker 0 ================
+reset: noun prob = 0.3587226750000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.47829690000000014, verb prob = 1.0
+sub-let: noun prob = 0.3587226750000001, verb prob = 0.880425775
+accent: noun prob = 0.0, verb prob = 0.5217031000000001
 
 Generation at year 1700
-Speaker 4 ================
-reset: noun prob = 0.17021259677309952, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.2269501290307997, verb prob = 1.0
-sub-let: noun prob = 0.17021259677309952, verb prob = 0.9432624677422997
-accent: noun prob = 0.0, verb prob = 0.7730498709692001
-Speaker 3 ================
-reset: noun prob = 0.1902908020613667, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.25372106941515593, verb prob = 1.0
-sub-let: noun prob = 0.1902908020613667, verb prob = 0.9365697326462109
-accent: noun prob = 0.0, verb prob = 0.7462789305848436
 Speaker 2 ================
-reset: noun prob = 0.19081376657409907, verb prob = 1.0
+reset: noun prob = 0.3228504075000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.2544183554321324, verb prob = 1.0
-sub-let: noun prob = 0.19081376657409907, verb prob = 0.9363954111419668
-accent: noun prob = 0.0, verb prob = 0.7455816445678672
-Speaker 5 ================
-reset: noun prob = 0.19594210255464298, verb prob = 1.0
+addict: noun prob = 0.43046721000000016, verb prob = 1.0
+sub-let: noun prob = 0.3228504075000001, verb prob = 0.8923831975
+accent: noun prob = 0.0, verb prob = 0.5695327900000001
+Speaker 4 ================
+reset: noun prob = 0.3228504075000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.2612561367395243, verb prob = 1.0
-sub-let: noun prob = 0.19594210255464298, verb prob = 0.9346859658151189
-accent: noun prob = 0.0, verb prob = 0.7387438632604755
+addict: noun prob = 0.43046721000000016, verb prob = 1.0
+sub-let: noun prob = 0.3228504075000001, verb prob = 0.8923831975
+accent: noun prob = 0.0, verb prob = 0.5695327900000001
+Speaker 0 ================
+reset: noun prob = 0.3228504075000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.43046721000000016, verb prob = 1.0
+sub-let: noun prob = 0.3228504075000001, verb prob = 0.8923831975
+accent: noun prob = 0.0, verb prob = 0.5695327900000001
 Speaker 1 ================
-reset: noun prob = 0.18599771441658464, verb prob = 1.0
+reset: noun prob = 0.3228504075000001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.2479969525554464, verb prob = 1.0
-sub-let: noun prob = 0.18599771441658464, verb prob = 0.9380007618611382
-accent: noun prob = 0.0, verb prob = 0.7520030474445532
+addict: noun prob = 0.43046721000000016, verb prob = 1.0
+sub-let: noun prob = 0.3228504075000001, verb prob = 0.8923831975
+accent: noun prob = 0.0, verb prob = 0.5695327900000001
+Speaker 3 ================
+reset: noun prob = 0.3228504075000001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.43046721000000016, verb prob = 1.0
+sub-let: noun prob = 0.3228504075000001, verb prob = 0.8923831975
+accent: noun prob = 0.0, verb prob = 0.5695327900000001
 
 Generation at year 1725
-Speaker 2 ================
-reset: noun prob = 0.15411427801021763, verb prob = 1.0
+Speaker 0 ================
+reset: noun prob = 0.2905653667500001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.20548570401362373, verb prob = 1.0
-sub-let: noun prob = 0.15411427801021763, verb prob = 0.9486285739965937
-accent: noun prob = 0.0, verb prob = 0.7945142959863764
-Speaker 4 ================
-reset: noun prob = 0.16547686322907484, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.22063581763876677, verb prob = 1.0
-sub-let: noun prob = 0.16547686322907484, verb prob = 0.9448410455903079
-accent: noun prob = 0.0, verb prob = 0.7793641823612331
+addict: noun prob = 0.3874204890000001, verb prob = 1.0
+sub-let: noun prob = 0.2905653667500001, verb prob = 0.9031448777499999
+accent: noun prob = 0.0, verb prob = 0.6125795110000001
 Speaker 3 ================
-reset: noun prob = 0.15821834644774704, verb prob = 1.0
+reset: noun prob = 0.2905653667500001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.21095779526366293, verb prob = 1.0
-sub-let: noun prob = 0.15821834644774704, verb prob = 0.9472605511840839
-accent: noun prob = 0.0, verb prob = 0.7890422047363369
-Speaker 5 ================
-reset: noun prob = 0.14904095778138948, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.19872127704185286, verb prob = 1.0
-sub-let: noun prob = 0.14904095778138948, verb prob = 0.9503196807395367
-accent: noun prob = 0.0, verb prob = 0.8012787229581473
+addict: noun prob = 0.3874204890000001, verb prob = 1.0
+sub-let: noun prob = 0.2905653667500001, verb prob = 0.9031448777499999
+accent: noun prob = 0.0, verb prob = 0.6125795110000001
 Speaker 1 ================
-reset: noun prob = 0.14742699162081171, verb prob = 1.0
+reset: noun prob = 0.2905653667500001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.19656932216108255, verb prob = 1.0
-sub-let: noun prob = 0.14742699162081171, verb prob = 0.9508576694597294
-accent: noun prob = 0.0, verb prob = 0.8034306778389178
+addict: noun prob = 0.3874204890000001, verb prob = 1.0
+sub-let: noun prob = 0.2905653667500001, verb prob = 0.9031448777499999
+accent: noun prob = 0.0, verb prob = 0.6125795110000001
+Speaker 2 ================
+reset: noun prob = 0.2905653667500001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.3874204890000001, verb prob = 1.0
+sub-let: noun prob = 0.2905653667500001, verb prob = 0.9031448777499999
+accent: noun prob = 0.0, verb prob = 0.6125795110000001
+Speaker 4 ================
+reset: noun prob = 0.2905653667500001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.3874204890000001, verb prob = 1.0
+sub-let: noun prob = 0.2905653667500001, verb prob = 0.9031448777499999
+accent: noun prob = 0.0, verb prob = 0.6125795110000001
 
 Generation at year 1750
-Speaker 3 ================
-reset: noun prob = 0.12284391412999954, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.1637918855066663, verb prob = 1.0
-sub-let: noun prob = 0.12284391412999954, verb prob = 0.9590520286233334
-accent: noun prob = 0.0, verb prob = 0.8362081144933342
-Speaker 4 ================
-reset: noun prob = 0.1264797245471978, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.1686396327295974, verb prob = 1.0
-sub-let: noun prob = 0.1264797245471978, verb prob = 0.9578400918176009
-accent: noun prob = 0.0, verb prob = 0.8313603672704031
-Speaker 5 ================
-reset: noun prob = 0.1225255442391398, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.16336739231885333, verb prob = 1.0
-sub-let: noun prob = 0.1225255442391398, verb prob = 0.9591581519202868
-accent: noun prob = 0.0, verb prob = 0.8366326076811471
-Speaker 2 ================
-reset: noun prob = 0.12913847333468081, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.17218463111290808, verb prob = 1.0
-sub-let: noun prob = 0.12913847333468081, verb prob = 0.9569538422217732
-accent: noun prob = 0.0, verb prob = 0.8278153688870924
 Speaker 1 ================
-reset: noun prob = 0.11765722764639258, verb prob = 1.0
+reset: noun prob = 0.2615088300750001, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.15687630352852364, verb prob = 1.0
-sub-let: noun prob = 0.11765722764639258, verb prob = 0.9607809241178693
-accent: noun prob = 0.0, verb prob = 0.8431236964714768
+addict: noun prob = 0.3486784401000001, verb prob = 1.0
+sub-let: noun prob = 0.2615088300750001, verb prob = 0.9128303899749998
+accent: noun prob = 0.0, verb prob = 0.6513215599000001
+Speaker 2 ================
+reset: noun prob = 0.2615088300750001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.3486784401000001, verb prob = 1.0
+sub-let: noun prob = 0.2615088300750001, verb prob = 0.9128303899749998
+accent: noun prob = 0.0, verb prob = 0.6513215599000001
+Speaker 0 ================
+reset: noun prob = 0.2615088300750001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.3486784401000001, verb prob = 1.0
+sub-let: noun prob = 0.2615088300750001, verb prob = 0.9128303899749998
+accent: noun prob = 0.0, verb prob = 0.6513215599000001
+Speaker 3 ================
+reset: noun prob = 0.2615088300750001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.3486784401000001, verb prob = 1.0
+sub-let: noun prob = 0.2615088300750001, verb prob = 0.9128303899749998
+accent: noun prob = 0.0, verb prob = 0.6513215599000001
+Speaker 4 ================
+reset: noun prob = 0.2615088300750001, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.3486784401000001, verb prob = 1.0
+sub-let: noun prob = 0.2615088300750001, verb prob = 0.9128303899749998
+accent: noun prob = 0.0, verb prob = 0.6513215599000001
 
 Generation at year 1775
-Speaker 4 ================
-reset: noun prob = 0.11295102637654314, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.15060136850205771, verb prob = 1.0
-sub-let: noun prob = 0.11295102637654314, verb prob = 0.9623496578744857
-accent: noun prob = 0.0, verb prob = 0.8493986314979424
-Speaker 1 ================
-reset: noun prob = 0.10121297182666177, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.13495062910221578, verb prob = 1.0
-sub-let: noun prob = 0.10121297182666177, verb prob = 0.9662623427244463
-accent: noun prob = 0.0, verb prob = 0.8650493708977842
 Speaker 2 ================
-reset: noun prob = 0.10809453182444535, verb prob = 1.0
+reset: noun prob = 0.23535794706750007, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.14412604243259394, verb prob = 1.0
-sub-let: noun prob = 0.10809453182444535, verb prob = 0.9639684893918518
-accent: noun prob = 0.0, verb prob = 0.855873957567406
+addict: noun prob = 0.3138105960900001, verb prob = 1.0
+sub-let: noun prob = 0.23535794706750007, verb prob = 0.9215473509774998
+accent: noun prob = 0.0, verb prob = 0.68618940391
+Speaker 1 ================
+reset: noun prob = 0.23535794706750007, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.3138105960900001, verb prob = 1.0
+sub-let: noun prob = 0.23535794706750007, verb prob = 0.9215473509774998
+accent: noun prob = 0.0, verb prob = 0.68618940391
+Speaker 4 ================
+reset: noun prob = 0.23535794706750007, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.3138105960900001, verb prob = 1.0
+sub-let: noun prob = 0.23535794706750007, verb prob = 0.9215473509774998
+accent: noun prob = 0.0, verb prob = 0.68618940391
 Speaker 3 ================
-reset: noun prob = 0.11326202032013123, verb prob = 1.0
+reset: noun prob = 0.23535794706750007, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.15101602709350853, verb prob = 1.0
-sub-let: noun prob = 0.11326202032013123, verb prob = 0.962245993226623
-accent: noun prob = 0.0, verb prob = 0.8489839729064917
-Speaker 5 ================
-reset: noun prob = 0.1087459053772696, verb prob = 1.0
+addict: noun prob = 0.3138105960900001, verb prob = 1.0
+sub-let: noun prob = 0.23535794706750007, verb prob = 0.9215473509774998
+accent: noun prob = 0.0, verb prob = 0.68618940391
+Speaker 0 ================
+reset: noun prob = 0.23535794706750007, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.1449945405030263, verb prob = 1.0
-sub-let: noun prob = 0.1087459053772696, verb prob = 0.9637513648742436
-accent: noun prob = 0.0, verb prob = 0.8550054594969736
+addict: noun prob = 0.3138105960900001, verb prob = 1.0
+sub-let: noun prob = 0.23535794706750007, verb prob = 0.9215473509774998
+accent: noun prob = 0.0, verb prob = 0.68618940391
 
 Generation at year 1800
 Speaker 4 ================
-reset: noun prob = 0.09765027234131596, verb prob = 1.0
+reset: noun prob = 0.21182215236075008, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.13020036312175473, verb prob = 1.0
-sub-let: noun prob = 0.09765027234131596, verb prob = 0.9674499092195615
-accent: noun prob = 0.0, verb prob = 0.8697996368782452
-Speaker 1 ================
-reset: noun prob = 0.0964110916386681, verb prob = 1.0
+addict: noun prob = 0.2824295364810001, verb prob = 1.0
+sub-let: noun prob = 0.21182215236075008, verb prob = 0.9293926158797499
+accent: noun prob = 0.0, verb prob = 0.717570463519
+Speaker 0 ================
+reset: noun prob = 0.21182215236075008, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.12854812218489092, verb prob = 1.0
-sub-let: noun prob = 0.0964110916386681, verb prob = 0.9678629694537775
-accent: noun prob = 0.0, verb prob = 0.871451877815109
-Speaker 3 ================
-reset: noun prob = 0.08949756771202594, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.11933009028270132, verb prob = 1.0
-sub-let: noun prob = 0.08949756771202594, verb prob = 0.970167477429325
-accent: noun prob = 0.0, verb prob = 0.8806699097172987
-Speaker 5 ================
-reset: noun prob = 0.08647061903854251, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.11529415871805677, verb prob = 1.0
-sub-let: noun prob = 0.08647061903854251, verb prob = 0.9711764603204861
-accent: noun prob = 0.0, verb prob = 0.8847058412819432
+addict: noun prob = 0.2824295364810001, verb prob = 1.0
+sub-let: noun prob = 0.21182215236075008, verb prob = 0.9293926158797499
+accent: noun prob = 0.0, verb prob = 0.717570463519
 Speaker 2 ================
-reset: noun prob = 0.09576267791067865, verb prob = 1.0
+reset: noun prob = 0.21182215236075008, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.12768357054757165, verb prob = 1.0
-sub-let: noun prob = 0.09576267791067865, verb prob = 0.9680791073631075
-accent: noun prob = 0.0, verb prob = 0.8723164294524282
+addict: noun prob = 0.2824295364810001, verb prob = 1.0
+sub-let: noun prob = 0.21182215236075008, verb prob = 0.9293926158797499
+accent: noun prob = 0.0, verb prob = 0.717570463519
+Speaker 3 ================
+reset: noun prob = 0.21182215236075008, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.2824295364810001, verb prob = 1.0
+sub-let: noun prob = 0.21182215236075008, verb prob = 0.9293926158797499
+accent: noun prob = 0.0, verb prob = 0.717570463519
+Speaker 1 ================
+reset: noun prob = 0.21182215236075008, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.2824295364810001, verb prob = 1.0
+sub-let: noun prob = 0.21182215236075008, verb prob = 0.9293926158797499
+accent: noun prob = 0.0, verb prob = 0.717570463519
 
 Generation at year 1825
-Speaker 3 ================
-reset: noun prob = 0.08069082530659581, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.10758776707546115, verb prob = 1.0
-sub-let: noun prob = 0.08069082530659581, verb prob = 0.9731030582311351
-accent: noun prob = 0.0, verb prob = 0.892412232924539
-Speaker 2 ================
-reset: noun prob = 0.07075313958072724, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.09433751944096969, verb prob = 1.0
-sub-let: noun prob = 0.07075313958072724, verb prob = 0.976415620139758
-accent: noun prob = 0.0, verb prob = 0.9056624805590304
-Speaker 1 ================
-reset: noun prob = 0.08085707278243748, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.10780943037658337, verb prob = 1.0
-sub-let: noun prob = 0.08085707278243748, verb prob = 0.9730476424058545
-accent: noun prob = 0.0, verb prob = 0.8921905696234167
 Speaker 4 ================
-reset: noun prob = 0.08118699450058058, verb prob = 1.0
+reset: noun prob = 0.19063993712467506, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.10824932600077418, verb prob = 1.0
-sub-let: noun prob = 0.08118699450058058, verb prob = 0.9729376684998068
-accent: noun prob = 0.0, verb prob = 0.891750673999226
-Speaker 5 ================
-reset: noun prob = 0.07956236251451841, verb prob = 1.0
+addict: noun prob = 0.25418658283290013, verb prob = 1.0
+sub-let: noun prob = 0.19063993712467506, verb prob = 0.9364533542917749
+accent: noun prob = 0.0, verb prob = 0.7458134171671
+Speaker 1 ================
+reset: noun prob = 0.19063993712467506, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.10608315001935795, verb prob = 1.0
-sub-let: noun prob = 0.07956236251451841, verb prob = 0.9734792124951609
-accent: noun prob = 0.0, verb prob = 0.8939168499806422
+addict: noun prob = 0.25418658283290013, verb prob = 1.0
+sub-let: noun prob = 0.19063993712467506, verb prob = 0.9364533542917749
+accent: noun prob = 0.0, verb prob = 0.7458134171671
+Speaker 3 ================
+reset: noun prob = 0.19063993712467506, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.25418658283290013, verb prob = 1.0
+sub-let: noun prob = 0.19063993712467506, verb prob = 0.9364533542917749
+accent: noun prob = 0.0, verb prob = 0.7458134171671
+Speaker 0 ================
+reset: noun prob = 0.19063993712467506, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.25418658283290013, verb prob = 1.0
+sub-let: noun prob = 0.19063993712467506, verb prob = 0.9364533542917749
+accent: noun prob = 0.0, verb prob = 0.7458134171671
+Speaker 2 ================
+reset: noun prob = 0.19063993712467506, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.25418658283290013, verb prob = 1.0
+sub-let: noun prob = 0.19063993712467506, verb prob = 0.9364533542917749
+accent: noun prob = 0.0, verb prob = 0.7458134171671
 
 Generation at year 1850
-Speaker 4 ================
-reset: noun prob = 0.06054910598023841, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.08073214130698456, verb prob = 1.0
-sub-let: noun prob = 0.06054910598023841, verb prob = 0.9798169646732543
-accent: noun prob = 0.0, verb prob = 0.9192678586930153
 Speaker 2 ================
-reset: noun prob = 0.06694673738063024, verb prob = 1.0
+reset: noun prob = 0.17157594341220755, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.08926231650750703, verb prob = 1.0
-sub-let: noun prob = 0.06694673738063024, verb prob = 0.9776844208731235
-accent: noun prob = 0.0, verb prob = 0.9107376834924928
-Speaker 5 ================
-reset: noun prob = 0.059389248952143946, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.07918566526952527, verb prob = 1.0
-sub-let: noun prob = 0.059389248952143946, verb prob = 0.9802035836826192
-accent: noun prob = 0.0, verb prob = 0.9208143347304747
-Speaker 3 ================
-reset: noun prob = 0.06808173858511725, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.090775651446823, verb prob = 1.0
-sub-let: noun prob = 0.06808173858511725, verb prob = 0.9773060871382945
-accent: noun prob = 0.0, verb prob = 0.9092243485531768
+addict: noun prob = 0.22876792454961012, verb prob = 1.0
+sub-let: noun prob = 0.17157594341220755, verb prob = 0.9428080188625975
+accent: noun prob = 0.0, verb prob = 0.7712320754503901
 Speaker 1 ================
-reset: noun prob = 0.06338855238150959, verb prob = 1.0
+reset: noun prob = 0.17157594341220755, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.08451806984201278, verb prob = 1.0
-sub-let: noun prob = 0.06338855238150959, verb prob = 0.978870482539497
-accent: noun prob = 0.0, verb prob = 0.9154819301579871
+addict: noun prob = 0.22876792454961012, verb prob = 1.0
+sub-let: noun prob = 0.17157594341220755, verb prob = 0.9428080188625975
+accent: noun prob = 0.0, verb prob = 0.7712320754503901
+Speaker 3 ================
+reset: noun prob = 0.17157594341220755, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.22876792454961012, verb prob = 1.0
+sub-let: noun prob = 0.17157594341220755, verb prob = 0.9428080188625975
+accent: noun prob = 0.0, verb prob = 0.7712320754503901
+Speaker 4 ================
+reset: noun prob = 0.17157594341220755, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.22876792454961012, verb prob = 1.0
+sub-let: noun prob = 0.17157594341220755, verb prob = 0.9428080188625975
+accent: noun prob = 0.0, verb prob = 0.7712320754503901
+Speaker 0 ================
+reset: noun prob = 0.17157594341220755, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.22876792454961012, verb prob = 1.0
+sub-let: noun prob = 0.17157594341220755, verb prob = 0.9428080188625975
+accent: noun prob = 0.0, verb prob = 0.7712320754503901
 
 Generation at year 1875
-Speaker 2 ================
-reset: noun prob = 0.05673792009913396, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.07565056013217865, verb prob = 1.0
-sub-let: noun prob = 0.05673792009913396, verb prob = 0.9810873599669554
-accent: noun prob = 0.0, verb prob = 0.9243494398678214
-Speaker 5 ================
-reset: noun prob = 0.055717142697726034, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.07428952359696804, verb prob = 1.0
-sub-let: noun prob = 0.055717142697726034, verb prob = 0.9814276191007582
-accent: noun prob = 0.0, verb prob = 0.9257104764030321
-Speaker 1 ================
-reset: noun prob = 0.051275280513868135, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.06836704068515753, verb prob = 1.0
-sub-let: noun prob = 0.051275280513868135, verb prob = 0.9829082398287107
-accent: noun prob = 0.0, verb prob = 0.9316329593148426
 Speaker 4 ================
-reset: noun prob = 0.05731617496192621, verb prob = 1.0
+reset: noun prob = 0.1544183490709868, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.07642156661590163, verb prob = 1.0
-sub-let: noun prob = 0.05731617496192621, verb prob = 0.9808946083460248
-accent: noun prob = 0.0, verb prob = 0.9235784333840981
+addict: noun prob = 0.2058911320946491, verb prob = 1.0
+sub-let: noun prob = 0.1544183490709868, verb prob = 0.9485272169763377
+accent: noun prob = 0.0, verb prob = 0.7941088679053511
+Speaker 2 ================
+reset: noun prob = 0.1544183490709868, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.2058911320946491, verb prob = 1.0
+sub-let: noun prob = 0.1544183490709868, verb prob = 0.9485272169763377
+accent: noun prob = 0.0, verb prob = 0.7941088679053511
+Speaker 1 ================
+reset: noun prob = 0.1544183490709868, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.2058911320946491, verb prob = 1.0
+sub-let: noun prob = 0.1544183490709868, verb prob = 0.9485272169763377
+accent: noun prob = 0.0, verb prob = 0.7941088679053511
+Speaker 0 ================
+reset: noun prob = 0.1544183490709868, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.2058911320946491, verb prob = 1.0
+sub-let: noun prob = 0.1544183490709868, verb prob = 0.9485272169763377
+accent: noun prob = 0.0, verb prob = 0.7941088679053511
 Speaker 3 ================
-reset: noun prob = 0.05533967022311003, verb prob = 1.0
+reset: noun prob = 0.1544183490709868, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.0737862269641467, verb prob = 1.0
-sub-let: noun prob = 0.05533967022311003, verb prob = 0.9815534432589635
-accent: noun prob = 0.0, verb prob = 0.9262137730358535
+addict: noun prob = 0.2058911320946491, verb prob = 1.0
+sub-let: noun prob = 0.1544183490709868, verb prob = 0.9485272169763377
+accent: noun prob = 0.0, verb prob = 0.7941088679053511
 
 Generation at year 1900
 Speaker 2 ================
-reset: noun prob = 0.04716033886965343, verb prob = 1.0
+reset: noun prob = 0.13897651416388812, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.06288045182620457, verb prob = 1.0
-sub-let: noun prob = 0.04716033886965343, verb prob = 0.984279887043449
-accent: noun prob = 0.0, verb prob = 0.9371195481737957
+addict: noun prob = 0.1853020188851842, verb prob = 1.0
+sub-let: noun prob = 0.13897651416388812, verb prob = 0.953674495278704
+accent: noun prob = 0.0, verb prob = 0.814697981114816
 Speaker 1 ================
-reset: noun prob = 0.04667123006053302, verb prob = 1.0
+reset: noun prob = 0.13897651416388812, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.06222830674737737, verb prob = 1.0
-sub-let: noun prob = 0.04667123006053302, verb prob = 0.9844429233131557
-accent: noun prob = 0.0, verb prob = 0.9377716932526228
+addict: noun prob = 0.1853020188851842, verb prob = 1.0
+sub-let: noun prob = 0.13897651416388812, verb prob = 0.953674495278704
+accent: noun prob = 0.0, verb prob = 0.814697981114816
 Speaker 4 ================
-reset: noun prob = 0.04594316487658229, verb prob = 1.0
+reset: noun prob = 0.13897651416388812, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.0612575531687764, verb prob = 1.0
-sub-let: noun prob = 0.04594316487658229, verb prob = 0.9846856117078058
-accent: noun prob = 0.0, verb prob = 0.9387424468312237
-Speaker 5 ================
-reset: noun prob = 0.046751917090993605, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.06233588945465815, verb prob = 1.0
-sub-let: noun prob = 0.046751917090993605, verb prob = 0.9844160276363355
-accent: noun prob = 0.0, verb prob = 0.9376641105453419
+addict: noun prob = 0.1853020188851842, verb prob = 1.0
+sub-let: noun prob = 0.13897651416388812, verb prob = 0.953674495278704
+accent: noun prob = 0.0, verb prob = 0.814697981114816
 Speaker 3 ================
-reset: noun prob = 0.04188389511969166, verb prob = 1.0
+reset: noun prob = 0.13897651416388812, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.05584519349292223, verb prob = 1.0
-sub-let: noun prob = 0.04188389511969166, verb prob = 0.9860387016267693
-accent: noun prob = 0.0, verb prob = 0.944154806507078
+addict: noun prob = 0.1853020188851842, verb prob = 1.0
+sub-let: noun prob = 0.13897651416388812, verb prob = 0.953674495278704
+accent: noun prob = 0.0, verb prob = 0.814697981114816
+Speaker 0 ================
+reset: noun prob = 0.13897651416388812, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.1853020188851842, verb prob = 1.0
+sub-let: noun prob = 0.13897651416388812, verb prob = 0.953674495278704
+accent: noun prob = 0.0, verb prob = 0.814697981114816
 
 Generation at year 1925
-Speaker 1 ================
-reset: noun prob = 0.03839654009055323, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.051195386787404366, verb prob = 1.0
-sub-let: noun prob = 0.03839654009055323, verb prob = 0.9872011533031487
-accent: noun prob = 0.0, verb prob = 0.9488046132125958
 Speaker 3 ================
-reset: noun prob = 0.03570377190827482, verb prob = 1.0
+reset: noun prob = 0.12507886274749933, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.04760502921103315, verb prob = 1.0
-sub-let: noun prob = 0.03570377190827482, verb prob = 0.9880987426972416
-accent: noun prob = 0.0, verb prob = 0.9523949707889667
+addict: noun prob = 0.16677181699666577, verb prob = 1.0
+sub-let: noun prob = 0.12507886274749933, verb prob = 0.9583070457508336
+accent: noun prob = 0.0, verb prob = 0.8332281830033345
+Speaker 1 ================
+reset: noun prob = 0.12507886274749933, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.16677181699666577, verb prob = 1.0
+sub-let: noun prob = 0.12507886274749933, verb prob = 0.9583070457508336
+accent: noun prob = 0.0, verb prob = 0.8332281830033345
+Speaker 0 ================
+reset: noun prob = 0.12507886274749933, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.16677181699666577, verb prob = 1.0
+sub-let: noun prob = 0.12507886274749933, verb prob = 0.9583070457508336
+accent: noun prob = 0.0, verb prob = 0.8332281830033345
 Speaker 4 ================
-reset: noun prob = 0.03723742857409259, verb prob = 1.0
+reset: noun prob = 0.12507886274749933, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.04964990476545686, verb prob = 1.0
-sub-let: noun prob = 0.03723742857409259, verb prob = 0.9875875238086358
-accent: noun prob = 0.0, verb prob = 0.950350095234543
+addict: noun prob = 0.16677181699666577, verb prob = 1.0
+sub-let: noun prob = 0.12507886274749933, verb prob = 0.9583070457508336
+accent: noun prob = 0.0, verb prob = 0.8332281830033345
 Speaker 2 ================
-reset: noun prob = 0.03921521787200617, verb prob = 1.0
+reset: noun prob = 0.12507886274749933, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.05228695716267496, verb prob = 1.0
-sub-let: noun prob = 0.03921521787200617, verb prob = 0.9869282607093313
-accent: noun prob = 0.0, verb prob = 0.9477130428373252
-Speaker 5 ================
-reset: noun prob = 0.036219641621049015, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.0482928554947321, verb prob = 1.0
-sub-let: noun prob = 0.036219641621049015, verb prob = 0.9879267861263169
-accent: noun prob = 0.0, verb prob = 0.9517071445052679
+addict: noun prob = 0.16677181699666577, verb prob = 1.0
+sub-let: noun prob = 0.12507886274749933, verb prob = 0.9583070457508336
+accent: noun prob = 0.0, verb prob = 0.8332281830033345
 
 Generation at year 1950
-Speaker 2 ================
-reset: noun prob = 0.031543268566688404, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.04205769142225129, verb prob = 1.0
-sub-let: noun prob = 0.031543268566688404, verb prob = 0.9894855771444369
-accent: noun prob = 0.0, verb prob = 0.9579423085777488
-Speaker 1 ================
-reset: noun prob = 0.0323980937511517, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.043197458334869016, verb prob = 1.0
-sub-let: noun prob = 0.0323980937511517, verb prob = 0.9892006354162823
-accent: noun prob = 0.0, verb prob = 0.9568025416651309
-Speaker 4 ================
-reset: noun prob = 0.031721658763654924, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.04229554501820665, verb prob = 1.0
-sub-let: noun prob = 0.031721658763654924, verb prob = 0.989426113745448
-accent: noun prob = 0.0, verb prob = 0.9577044549817932
 Speaker 3 ================
-reset: noun prob = 0.03221451674921173, verb prob = 1.0
+reset: noun prob = 0.1125709764727494, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.04295268899894905, verb prob = 1.0
-sub-let: noun prob = 0.03221451674921173, verb prob = 0.9892618277502623
-accent: noun prob = 0.0, verb prob = 0.9570473110010508
-Speaker 5 ================
-reset: noun prob = 0.0291292446182529, verb prob = 1.0
+addict: noun prob = 0.1500946352969992, verb prob = 1.0
+sub-let: noun prob = 0.1125709764727494, verb prob = 0.9624763411757502
+accent: noun prob = 0.0, verb prob = 0.8499053647030012
+Speaker 1 ================
+reset: noun prob = 0.1125709764727494, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.03883899282433729, verb prob = 1.0
-sub-let: noun prob = 0.0291292446182529, verb prob = 0.9902902517939152
-accent: noun prob = 0.0, verb prob = 0.9611610071756623
+addict: noun prob = 0.1500946352969992, verb prob = 1.0
+sub-let: noun prob = 0.1125709764727494, verb prob = 0.9624763411757502
+accent: noun prob = 0.0, verb prob = 0.8499053647030012
+Speaker 4 ================
+reset: noun prob = 0.1125709764727494, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.1500946352969992, verb prob = 1.0
+sub-let: noun prob = 0.1125709764727494, verb prob = 0.9624763411757502
+accent: noun prob = 0.0, verb prob = 0.8499053647030012
+Speaker 0 ================
+reset: noun prob = 0.1125709764727494, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.1500946352969992, verb prob = 1.0
+sub-let: noun prob = 0.1125709764727494, verb prob = 0.9624763411757502
+accent: noun prob = 0.0, verb prob = 0.8499053647030012
+Speaker 2 ================
+reset: noun prob = 0.1125709764727494, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.1500946352969992, verb prob = 1.0
+sub-let: noun prob = 0.1125709764727494, verb prob = 0.9624763411757502
+accent: noun prob = 0.0, verb prob = 0.8499053647030012
 
 Generation at year 1975
-Speaker 5 ================
-reset: noun prob = 0.02499117209921487, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.03332156279895322, verb prob = 1.0
-sub-let: noun prob = 0.02499117209921487, verb prob = 0.9916696093002614
-accent: noun prob = 0.0, verb prob = 0.9666784372010464
-Speaker 2 ================
-reset: noun prob = 0.028117762280961946, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.03749034970794935, verb prob = 1.0
-sub-let: noun prob = 0.028117762280961946, verb prob = 0.9906274125730126
-accent: noun prob = 0.0, verb prob = 0.9625096502920505
-Speaker 3 ================
-reset: noun prob = 0.026040661337865832, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.034720881783821184, verb prob = 1.0
-sub-let: noun prob = 0.026040661337865832, verb prob = 0.9913197795540445
-accent: noun prob = 0.0, verb prob = 0.9652791182161783
-Speaker 1 ================
-reset: noun prob = 0.027422943588267374, verb prob = 1.0
-abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.03656392478435657, verb prob = 1.0
-sub-let: noun prob = 0.027422943588267374, verb prob = 0.9908590188039107
-accent: noun prob = 0.0, verb prob = 0.9634360752156431
 Speaker 4 ================
-reset: noun prob = 0.026352083207531168, verb prob = 1.0
+reset: noun prob = 0.10131387882547448, verb prob = 1.0
 abstract: noun prob = 0.0, verb prob = 1.0
-addict: noun prob = 0.03513611094337497, verb prob = 1.0
-sub-let: noun prob = 0.026352083207531168, verb prob = 0.9912159722641558
-accent: noun prob = 0.0, verb prob = 0.9648638890566246
+addict: noun prob = 0.13508517176729928, verb prob = 1.0
+sub-let: noun prob = 0.10131387882547448, verb prob = 0.9662287070581752
+accent: noun prob = 0.0, verb prob = 0.864914828232701
+Speaker 3 ================
+reset: noun prob = 0.10131387882547448, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.13508517176729928, verb prob = 1.0
+sub-let: noun prob = 0.10131387882547448, verb prob = 0.9662287070581752
+accent: noun prob = 0.0, verb prob = 0.864914828232701
+Speaker 2 ================
+reset: noun prob = 0.10131387882547448, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.13508517176729928, verb prob = 1.0
+sub-let: noun prob = 0.10131387882547448, verb prob = 0.9662287070581752
+accent: noun prob = 0.0, verb prob = 0.864914828232701
+Speaker 0 ================
+reset: noun prob = 0.10131387882547448, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.13508517176729928, verb prob = 1.0
+sub-let: noun prob = 0.10131387882547448, verb prob = 0.9662287070581752
+accent: noun prob = 0.0, verb prob = 0.864914828232701
+Speaker 1 ================
+reset: noun prob = 0.10131387882547448, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 0.13508517176729928, verb prob = 1.0
+sub-let: noun prob = 0.10131387882547448, verb prob = 0.9662287070581752
+accent: noun prob = 0.0, verb prob = 0.864914828232701

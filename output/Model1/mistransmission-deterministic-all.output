@@ -1,0 +1,607 @@
+COMMAND LINE ARGUMENTS ARE: mistransmission, deterministic, all, 5, 5
+Simulating deterministic model with mistransmission, showing all words
+N1 (noun frequency): 5
+N2 (verb frequency): 5
+
+Generation at year 1500
+Speaker 1 ================
+surcharge: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: surcharge: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: surcharge: noun prob = 0.9, verb prob = 1.0
+discard: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: discard: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: discard: noun prob = 0.9, verb prob = 1.0
+rebel: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: rebel: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: rebel: noun prob = 0.0, verb prob = 1.0
+torment: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: torment: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: torment: noun prob = 0.0, verb prob = 1.0
+recoil: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: recoil: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: recoil: noun prob = 0.9, verb prob = 1.0
+prefix: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: prefix: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: prefix: noun prob = 0.9, verb prob = 1.0
+concert: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: concert: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: concert: noun prob = 0.9, verb prob = 1.0
+discount: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: discount: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: discount: noun prob = 0.9, verb prob = 1.0
+convert: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: convert: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: convert: noun prob = 0.0, verb prob = 1.0
+outstretch: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outstretch: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outstretch: noun prob = 0.0, verb prob = 1.0
+eject: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: eject: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: eject: noun prob = 0.9, verb prob = 1.0
+defect: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: defect: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: defect: noun prob = 0.9, verb prob = 1.0
+premise: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: premise: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: premise: noun prob = 0.0, verb prob = 1.0
+record: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: record: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: record: noun prob = 0.0, verb prob = 1.0
+incline: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: incline: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: incline: noun prob = 0.9, verb prob = 1.0
+defile: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: defile: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: defile: noun prob = 0.9, verb prob = 1.0
+conscript: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: conscript: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: conscript: noun prob = 0.0, verb prob = 1.0
+convoy: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: convoy: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: convoy: noun prob = 0.0, verb prob = 1.0
+post-date: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: post-date: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: post-date: noun prob = 0.0, verb prob = 0.1
+upgrade: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: upgrade: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: upgrade: noun prob = 0.0, verb prob = 1.0
+compress: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: compress: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: compress: noun prob = 0.9, verb prob = 1.0
+relapse: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: relapse: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: relapse: noun prob = 0.0, verb prob = 1.0
+uplift: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: uplift: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: uplift: noun prob = 0.0, verb prob = 1.0
+contract: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: contract: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: contract: noun prob = 0.9, verb prob = 1.0
+impact: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: impact: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: impact: noun prob = 0.0, verb prob = 1.0
+infix: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: infix: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: infix: noun prob = 0.0, verb prob = 1.0
+protest: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: protest: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: protest: noun prob = 0.9, verb prob = 1.0
+inlet: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: inlet: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: inlet: noun prob = 0.0, verb prob = 1.0
+contrast: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: contrast: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: contrast: noun prob = 0.9, verb prob = 1.0
+reset: noun prob = 0.75, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: reset: noun prob = 0.75, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.75, verb = 1.0
+END OF MISTRANSMISSION: reset: noun prob = 0.675, verb prob = 1.0
+detail: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: detail: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: detail: noun prob = 0.9, verb prob = 1.0
+outpour: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outpour: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outpour: noun prob = 0.0, verb prob = 1.0
+recount: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: recount: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: recount: noun prob = 0.9, verb prob = 1.0
+object: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: object: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: object: noun prob = 0.0, verb prob = 1.0
+refund: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: refund: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: refund: noun prob = 0.9, verb prob = 1.0
+confect: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: confect: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: confect: noun prob = 0.0, verb prob = 1.0
+upset: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: upset: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: upset: noun prob = 0.0, verb prob = 1.0
+affect: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: affect: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: affect: noun prob = 0.9, verb prob = 1.0
+excise: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: excise: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: excise: noun prob = 0.9, verb prob = 1.0
+outwork: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outwork: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outwork: noun prob = 0.0, verb prob = 1.0
+egress: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: egress: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: egress: noun prob = 0.0, verb prob = 1.0
+impress: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: impress: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: impress: noun prob = 0.9, verb prob = 1.0
+rebound: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: rebound: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: rebound: noun prob = 0.9, verb prob = 1.0
+refuse: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: refuse: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: refuse: noun prob = 0.9, verb prob = 1.0
+affix: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: affix: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: affix: noun prob = 0.9, verb prob = 1.0
+recall: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: recall: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: recall: noun prob = 0.9, verb prob = 1.0
+digest: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: digest: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: digest: noun prob = 0.9, verb prob = 1.0
+transplant: noun prob = 0.75, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: transplant: noun prob = 0.75, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.75, verb = 1.0
+END OF MISTRANSMISSION: transplant: noun prob = 0.675, verb prob = 1.0
+misprint: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: misprint: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: misprint: noun prob = 0.9, verb prob = 1.0
+convict: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: convict: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: convict: noun prob = 0.0, verb prob = 1.0
+incense: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: incense: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: incense: noun prob = 0.0, verb prob = 1.0
+pervert: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: pervert: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: pervert: noun prob = 0.0, verb prob = 1.0
+address: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: address: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: address: noun prob = 0.9, verb prob = 1.0
+reprint: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: reprint: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: reprint: noun prob = 0.0, verb prob = 1.0
+transverse: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: transverse: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: transverse: noun prob = 0.0, verb prob = 1.0
+abstract: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: abstract: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: abstract: noun prob = 0.0, verb prob = 1.0
+suspect: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: suspect: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: suspect: noun prob = 0.9, verb prob = 1.0
+produce: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: produce: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: produce: noun prob = 0.0, verb prob = 1.0
+addict: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: addict: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: addict: noun prob = 0.9, verb prob = 1.0
+refill: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: refill: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: refill: noun prob = 0.0, verb prob = 1.0
+cement: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: cement: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: cement: noun prob = 0.0, verb prob = 1.0
+redress: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: redress: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: redress: noun prob = 0.9, verb prob = 1.0
+progress: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: progress: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: progress: noun prob = 0.0, verb prob = 0.1
+desert: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: desert: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: desert: noun prob = 0.0, verb prob = 1.0
+exploit: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: exploit: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: exploit: noun prob = 0.9, verb prob = 1.0
+descant: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: descant: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: descant: noun prob = 0.9, verb prob = 1.0
+insult: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: insult: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: insult: noun prob = 0.0, verb prob = 1.0
+escort: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: escort: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: escort: noun prob = 0.9, verb prob = 1.0
+sub-let: noun prob = 0.75, verb prob = 0.75
+BEGINNING OF MISTRANSMISSION: sub-let: noun prob = 0.75, verb prob = 0.75
+AVG PARENT PROBABILITIES: noun = 0.75, verb = 0.75
+END OF MISTRANSMISSION: sub-let: noun prob = 0.675, verb prob = 0.775
+compact: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: compact: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: compact: noun prob = 0.0, verb prob = 1.0
+outlaw: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outlaw: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outlaw: noun prob = 0.0, verb prob = 1.0
+outcast: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outcast: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outcast: noun prob = 0.0, verb prob = 1.0
+subject: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: subject: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: subject: noun prob = 0.0, verb prob = 1.0
+project: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: project: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: project: noun prob = 0.0, verb prob = 1.0
+rehash: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: rehash: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: rehash: noun prob = 0.9, verb prob = 1.0
+refit: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: refit: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: refit: noun prob = 0.9, verb prob = 1.0
+confine: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: confine: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: confine: noun prob = 0.0, verb prob = 1.0
+research: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: research: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: research: noun prob = 0.9, verb prob = 1.0
+consort: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: consort: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: consort: noun prob = 0.0, verb prob = 1.0
+discharge: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: discharge: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: discharge: noun prob = 0.9, verb prob = 1.0
+undress: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: undress: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: undress: noun prob = 0.9, verb prob = 1.0
+export: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: export: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: export: noun prob = 0.0, verb prob = 1.0
+contest: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: contest: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: contest: noun prob = 0.0, verb prob = 1.0
+inlay: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: inlay: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: inlay: noun prob = 0.9, verb prob = 1.0
+invert: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: invert: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: invert: noun prob = 0.0, verb prob = 1.0
+upcast: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: upcast: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: upcast: noun prob = 0.0, verb prob = 1.0
+sublease: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: sublease: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: sublease: noun prob = 0.0, verb prob = 0.1
+regress: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: regress: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: regress: noun prob = 0.9, verb prob = 1.0
+decrease: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: decrease: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: decrease: noun prob = 0.9, verb prob = 1.0
+upright: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: upright: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: upright: noun prob = 0.0, verb prob = 0.1
+traverse: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: traverse: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: traverse: noun prob = 0.0, verb prob = 0.1
+discord: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: discord: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: discord: noun prob = 0.0, verb prob = 0.1
+extract: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: extract: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: extract: noun prob = 0.9, verb prob = 1.0
+recess: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: recess: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: recess: noun prob = 0.9, verb prob = 1.0
+transfer: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: transfer: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: transfer: noun prob = 0.0, verb prob = 0.1
+recast: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: recast: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: recast: noun prob = 0.9, verb prob = 1.0
+converse: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: converse: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: converse: noun prob = 0.0, verb prob = 1.0
+essay: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: essay: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: essay: noun prob = 0.0, verb prob = 1.0
+inflow: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: inflow: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: inflow: noun prob = 0.0, verb prob = 1.0
+outleap: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outleap: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: outleap: noun prob = 0.9, verb prob = 1.0
+survey: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: survey: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: survey: noun prob = 0.9, verb prob = 1.0
+excerpt: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: excerpt: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: excerpt: noun prob = 0.9, verb prob = 1.0
+present: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: present: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: present: noun prob = 0.0, verb prob = 1.0
+collect: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: collect: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: collect: noun prob = 0.0, verb prob = 1.0
+conflict: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: conflict: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: conflict: noun prob = 0.0, verb prob = 1.0
+concrete: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: concrete: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: concrete: noun prob = 0.0, verb prob = 1.0
+alloy: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: alloy: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: alloy: noun prob = 0.9, verb prob = 1.0
+import: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: import: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: import: noun prob = 0.9, verb prob = 1.0
+outspread: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outspread: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outspread: noun prob = 0.0, verb prob = 1.0
+indent: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: indent: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: indent: noun prob = 0.9, verb prob = 1.0
+commune: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: commune: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: commune: noun prob = 0.9, verb prob = 1.0
+imprint: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: imprint: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: imprint: noun prob = 0.0, verb prob = 1.0
+exile: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: exile: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: exile: noun prob = 0.0, verb prob = 1.0
+presage: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: presage: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: presage: noun prob = 0.0, verb prob = 0.1
+insert: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: insert: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: insert: noun prob = 0.0, verb prob = 1.0
+combat: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: combat: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: combat: noun prob = 0.0, verb prob = 0.1
+bombard: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: bombard: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: bombard: noun prob = 0.0, verb prob = 0.1
+outcry: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outcry: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outcry: noun prob = 0.0, verb prob = 1.0
+perfume: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: perfume: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: perfume: noun prob = 0.9, verb prob = 1.0
+content: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: content: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: content: noun prob = 0.9, verb prob = 1.0
+legate: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: legate: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: legate: noun prob = 0.0, verb prob = 1.0
+sojourn: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: sojourn: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: sojourn: noun prob = 0.0, verb prob = 0.1
+ally: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: ally: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: ally: noun prob = 0.9, verb prob = 1.0
+purport: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: purport: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: purport: noun prob = 0.0, verb prob = 0.1
+reject: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: reject: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: reject: noun prob = 0.9, verb prob = 1.0
+repeat: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: repeat: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: repeat: noun prob = 0.9, verb prob = 1.0
+redraft: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: redraft: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: redraft: noun prob = 0.9, verb prob = 1.0
+dictate: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: dictate: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: dictate: noun prob = 0.0, verb prob = 0.1
+decoy: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: decoy: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: decoy: noun prob = 0.9, verb prob = 1.0
+annex: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: annex: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: annex: noun prob = 0.9, verb prob = 1.0
+uprise: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: uprise: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: uprise: noun prob = 0.9, verb prob = 1.0
+outgo: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outgo: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outgo: noun prob = 0.0, verb prob = 1.0
+inset: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: inset: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: inset: noun prob = 0.0, verb prob = 1.0
+rebate: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: rebate: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: rebate: noun prob = 0.9, verb prob = 1.0
+relay: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: relay: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: relay: noun prob = 0.9, verb prob = 1.0
+prelude: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: prelude: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: prelude: noun prob = 0.9, verb prob = 1.0
+transport: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: transport: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: transport: noun prob = 0.0, verb prob = 1.0
+conserve: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: conserve: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: conserve: noun prob = 0.0, verb prob = 1.0
+increase: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: increase: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: increase: noun prob = 0.9, verb prob = 1.0
+accent: noun prob = 0.0, verb prob = 0.0
+BEGINNING OF MISTRANSMISSION: accent: noun prob = 0.0, verb prob = 0.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 0.0
+END OF MISTRANSMISSION: accent: noun prob = 0.0, verb prob = 0.1
+compound: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: compound: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: compound: noun prob = 0.0, verb prob = 1.0
+rampage: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: rampage: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: rampage: noun prob = 0.9, verb prob = 1.0
+discourse: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: discourse: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: discourse: noun prob = 0.9, verb prob = 1.0
+conduct: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: conduct: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: conduct: noun prob = 0.0, verb prob = 1.0
+assay: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: assay: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: assay: noun prob = 0.9, verb prob = 1.0
+uprush: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: uprush: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: uprush: noun prob = 0.0, verb prob = 1.0
+permit: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: permit: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 1.0, verb = 1.0
+END OF MISTRANSMISSION: permit: noun prob = 0.9, verb prob = 1.0
+outlook: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: outlook: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: outlook: noun prob = 0.0, verb prob = 1.0
+ferment: noun prob = 0.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: ferment: noun prob = 0.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = 0.0, verb = 1.0
+END OF MISTRANSMISSION: ferment: noun prob = 0.0, verb prob = 1.0
+Speaker 3 ================
+surcharge: noun prob = 1.0, verb prob = 1.0
+BEGINNING OF MISTRANSMISSION: surcharge: noun prob = 1.0, verb prob = 1.0
+AVG PARENT PROBABILITIES: noun = null, verb = null

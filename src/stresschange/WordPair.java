@@ -12,9 +12,11 @@ public class WordPair {
     public String word;
     private Double initialNounProb;
     public Double currentNounProb;
+    public Double nextNounProb;
     public Double avgParentNounProb;
     private Double initialVerbProb;
     public Double currentVerbProb;
+    public Double nextVerbProb;
     public Double avgParentVerbProb;
     public Double misNounPrev;
     public Double misVerbPrev;
@@ -29,8 +31,10 @@ public class WordPair {
         this.word = word;
         this.initialNounProb = initialNounProb;
         this.currentNounProb = initialNounProb;
+        this.nextNounProb = initialNounProb;
         this.initialVerbProb = initialVerbProb;
         this.currentVerbProb = initialVerbProb;
+        this.nextVerbProb = initialVerbProb;
         this.misNounPrev = StressChange.misProbP;
         this.misVerbPrev = StressChange.misProbQ;
         this.freqNoun = StressChange.freqNoun;
@@ -38,7 +42,7 @@ public class WordPair {
     }
     
     public String toString(){
-        return this.word + ": noun prob = " + this.currentNounProb + ", verb prob = " + this.currentVerbProb;
+        return this.word + ": noun prob = " + this.nextNounProb + ", verb prob = " + this.nextVerbProb;
     }
 
 }

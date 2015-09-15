@@ -19,7 +19,7 @@ public class Speaker implements Steppable {
     public static final double MAX_FORCE = 3.0; // from tutorial
 
     public ArrayList<WordPair> words = new ArrayList<>();
-    private int id = 0;
+    public int id = 0;
 
     public StressChange speakers;
 
@@ -44,20 +44,42 @@ public class Speaker implements Steppable {
 
     public void updateParentAverage() {
         // get average of current generation's probabilities to update probabilities in next generation
-        // TODO: allow for restricting "parents" to only those speakers within a specific distance
         Bag parents = speakers.convos.getAllNodes();
-        Bag distances = speakers.convos.getEdges(this, null); // maybe can be used to find how close speakers are and restrict who current generation learns from
-        //System.out.println(distances.get(0));
+        System.out.println("This many parents: " + parents.size());
+        // based on distances restrict the parents to those that are relatively close
+        if (StressChange.maxDistance != 0) {
+            Double2D speaker = speakers.field.getObjectLocation(this); // query to get location of current speaker
+            Bag parentsClose = new Bag(); // reset bag of parents  
+            for (int i = 0; i < parents.size(); i++) { // iterate through edges
+                Double2D parent = speakers.field.getObjectLocation(parents.get(i)); // for current edge get parent location
+                System.out.println("Speaker is at x: " + speaker.x + "and y: " + speaker.y);
+                System.out.println("Parent is at x: " + parent.x + "and y: " + parent.y);
+                double distance = Math.sqrt(Math.pow((speaker.x - parent.x),2) + Math.pow((speaker.y - parent.y),2)); // TODO a^2 + b^2 = c^2 to get distance
+                System.out.println("The distance is:" + distance);
+                if(distance < StressChange.maxDistance && distance != 0.0){
+                    parentsClose.add(parents.get(i)); // if distance below maxDistance, add to parents bag 
+                }                                     // RISK having 0 parents - maybe just take certain percentage of closest ones?
+            }
+            // update location (randomly?)
+            parents = parentsClose;
+        }  
+        System.out.println("Number of close parents: " + parents.size());
+
         for (int i = 0; i < words.size(); i++) { // iterate through array of WordPair objects for current Speaker
-            //System.out.println(words.get(i)); // print out current state of each word pair
             double parentNounProb = 0.0; // reset parent probabilities
             double parentVerbProb = 0.0;
 
             WordPair word = words.get(i);
 
             for (int j = 0; j < parents.size(); j++) { // iterate through Bag of Speakers at current state
-                // get averages of parents' word pair probabilities
                 Speaker parent = (Speaker) parents.get(j);
+                // if we're at a new generation, update all parents' probabilities
+                if (StressChange.count % StressChange.numSpeakers == 0){
+                    parent.words.get(i).currentNounProb = parent.words.get(i).nextNounProb;
+                    parent.words.get(i).currentVerbProb = parent.words.get(i).nextVerbProb;
+                }
+                
+                // get averages of parents' word pair probabilities              
                 parentNounProb += parent.words.get(i).currentNounProb; // add up all the probabilities
                 parentVerbProb += parent.words.get(i).currentVerbProb;
 
@@ -71,20 +93,21 @@ public class Speaker implements Steppable {
 
         }
     }
-
+    
     public void runModel() {
+        
+        updateParentAverage();  // first get parent averages    
+        StressChange.count++; // update count
 
-        updateParentAverage(); // first get parent averages           
-
-        if(id > 0 && id < 6) {System.out.println("Speaker " + id + " ================");}
+        if(id >= 0 && id < 6) {System.out.println("Speaker " + id + " ================");}
 
         for (int i = 0; i < words.size(); i++) { // then iterate over each word pair and run model
 
             WordPair word = words.get(i);
 
             // stochastic models uses word frequencies to compute learned probabilities
-            // for deterministic model it stays at 1 for nouns and verbs
-            // for stochastic model it is changed to a random number between 0 and 1000 - incidentally will never equal 2
+            // for deterministic model it is a fixed number for all nouns and verbs
+            // for stochastic model it is changed to a random number between 0 and 1000 - incidentally will never equal 1
             // TODO: maybe change test to 1st state rather than default frequency
             if (StressChange.mode.equals("stochastic")) {
                 if (word.freqNoun == 1) {
@@ -95,17 +118,17 @@ public class Speaker implements Steppable {
                 }
             }
 
-            if(id > 0 && id < 6) {
-            if (StressChange.logging.equals("some")) {
-                for (String rep : StressChange.representativeWords) {
-                    if (word.word.contains(rep)) {
-                        System.out.println(word); // only print current state if word is in representative array
-                        break;
+            if (id >= 0 && id < 6) {
+                if (StressChange.logging.equals("all")) {
+                    System.out.println(word); // print current state of all words
+                } else {
+                    for (String rep : StressChange.representativeWords) {
+                        if (word.word.contains(rep)) {
+                            System.out.println(word); // only print current state if word is in representative array
+                            break;
+                        }
                     }
                 }
-            } else {
-                System.out.println(word); // print current state of all words
-            }
             }
 
             if (StressChange.model.equals("mistransmission")) {
@@ -145,8 +168,13 @@ public class Speaker implements Steppable {
             word.misVerbPrev = (double) numberMisheardVerb / word.freqVerb;
         }
         // otherwise deterministically update based on initial mistransmission probabilities
-        word.currentNounProb = getMisNoun(word.misNounPrev, word.avgParentNounProb); // update noun probabilities
-        word.currentVerbProb = getMisVerb(word.misVerbPrev, word.avgParentVerbProb); // update verb probabilities
+        
+        if (StressChange.logging.equals("all")) {
+            System.out.println("AVG PARENT PROBABILITIES: noun = " + word.avgParentNounProb + ", verb = " + word.avgParentVerbProb);
+        }        
+        
+        word.nextNounProb = getMisNoun(word.misNounPrev, word.avgParentNounProb); // update noun probabilities
+        word.nextVerbProb = getMisVerb(word.misVerbPrev, word.avgParentVerbProb); // update verb probabilities
 
         if (StressChange.logging.equals("all")) {
             System.out.println("END OF MISTRANSMISSION: " + word);
@@ -159,11 +187,11 @@ public class Speaker implements Steppable {
             System.out.println("BEGINNING OF CONSTRAINT: " + word);
         }
         if (word.avgParentNounProb < word.avgParentVerbProb) { // if constraint is met, then estimate equals expectation
-            word.currentNounProb = word.avgParentNounProb;
-            word.currentVerbProb = word.avgParentVerbProb;
+            word.nextNounProb = word.avgParentNounProb;
+            word.nextVerbProb = word.avgParentVerbProb;
         } else {
-            word.currentNounProb = (word.avgParentNounProb + word.avgParentVerbProb) / 2; // if constraint is not met, then estimate equals average of expectations
-            word.currentVerbProb = (word.avgParentNounProb + word.avgParentVerbProb) / 2;
+            word.nextNounProb = (word.avgParentNounProb + word.avgParentVerbProb) / 2; // if constraint is not met, then estimate equals average of expectations
+            word.nextVerbProb = (word.avgParentNounProb + word.avgParentVerbProb) / 2;
         }
 
         if (StressChange.logging.equals("all")) {
@@ -243,8 +271,8 @@ public class Speaker implements Steppable {
         }
 
         // update current noun and verb probabilities based on learned and prior probabilities
-        word.currentNounProb = ((lambda21 * p21) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
-        word.currentVerbProb = ((lambda12 * p12) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
+        word.nextNounProb = ((lambda21 * p21) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
+        word.nextVerbProb = ((lambda12 * p12) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
 
         if (StressChange.logging.equals("all")) {
             System.out.println("END OF PRIOR: " + word);
