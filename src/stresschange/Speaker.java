@@ -25,9 +25,9 @@ public class Speaker implements Steppable {
 
     public Speaker(HashMap initialStress, int i) {
         this.id = i; // get speaker ID for potentially tracking individuals later on
-        Map<String, double[]> map = initialStress;
-        for (Map.Entry<String, double[]> e : map.entrySet()) {
-            words.add(new WordPair(e.getKey(), e.getValue()[0], e.getValue()[1]));  // create WordPair objects for each word pair from the initial HashMap
+        Map<String[], double[]> map = initialStress;
+        for (Map.Entry<String[], double[]> e : map.entrySet()) {
+            words.add(new WordPair(e.getKey()[0], e.getValue()[0], e.getValue()[1], e.getKey()[1]));  // create WordPair objects for each word pair from the initial HashMap
         }
     }
 

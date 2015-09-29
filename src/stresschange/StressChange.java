@@ -46,7 +46,7 @@ public class StressChange extends SimState {
     public static String logging = "some"; // default if no arguments are given - other option is "all"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
 
-    public static HashMap<String, double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
+    public static HashMap<String[], double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 
     public StressChange(long seed) {
         super(seed);

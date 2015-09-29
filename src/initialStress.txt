@@ -1,149 +1,149 @@
-abstract	0	1
-accent	0	0
-addict	1	1
-address	1	1
-affect	1	1
-affix	1	1
-alloy	1	1
-ally	1	1
-annex	1	1
-assay	1	1
-bombard	0	0
-cement	0	1
-collect	0	1
-combat	0	0
-commune	1	1
-compact	0	1
-compound	0	1
-compress	1	1
-concert	1	1
-concrete	0	1
-conduct	0	1
-confect	0	1
-confine	0	1
-conflict	0	1
-conscript	0	1
-conserve	0	1
-consort	0	1
-content	1	1
-contest	0	1
-contract	1	1
-contrast	1	1
-converse	0	1
-convert	0	1
-convict	0	1
-convoy	0	1
-decoy	1	1
-decrease	1	1
-defect	1	1
-defile	1	1
-descant	1	1
-desert	0	1
-detail	1	1
-dictate	0	0
-digest	1	1
-discard	1	1
-discharge	1	1
-discord	0	0
-discount	1	1
-discourse	1	1
-egress	0	1
-eject	1	1
-escort	1	1
-essay	0	1
-excerpt	1	1
-excise	1	1
-exile	0	1
-exploit	1	1
-export	0	1
-extract	1	1
-ferment	0	1
-impact	0	1
-import	1	1
-impress	1	1
-imprint	0	1
-incense	0	1
-incline	1	1
-increase	1	1
-indent	1	1
-infix	0	1
-inflow	0	1
-inlay	1	1
-inlet	0	1
-insert	0	1
-inset	0	1
-insult	0	1
-invert	0	1
-legate	0	1
-misprint	1	1
-object	0	1
-outcast	0	1
-outcry	0	1
-outgo	0	1
-outlaw	0	1
-outleap	1	1
-outlook	0	1
-outpour	0	1
-outspread	0	1
-outstretch	0	1
-outwork	0	1
-perfume	1	1
-permit	1	1
-pervert	0	1
-post-date	0	0
-prefix	1	1
-prelude	1	1
-premise	0	1
-presage	0	0
-present	0	1
-produce	0	1
-progress	0	0
-project	0	1
-protest	1	1
-purport	0	0
-rampage	1	1
-rebate	1	1
-rebel	0	1
-rebound	1	1
-recall	1	1
-recast	1	1
-recess	1	1
-recoil	1	1
-record	0	1
-recount	1	1
-redraft	1	1
-redress	1	1
-refill	0	1
-refit	1	1
-refund	1	1
-refuse	1	1
-regress	1	1
-rehash	1	1
-reject	1	1
-relapse	0	1
-relay	1	1
-repeat	1	1
-reprint	0	1
-research	1	1
-reset	0.75	1
-sojourn	0	0
-sub-let	0.75	0.75
-subject	0	1
-sublease	0	0
-surcharge	1	1
-survey	1	1
-suspect	1	1
-torment	0	1
-transfer	0	0
-transplant	0.75	1
-transport	0	1
-transverse	0	1
-traverse	0	0
-undress	1	1
-upcast	0	1
-upgrade	0	1
-uplift	0	1
-upright	0	0
-uprise	1	1
-uprush	0	1
-upset	0	1
+abstract	0	1	na
+accent	0	0	na
+addict	1	1	na
+address	1	1	na
+affect	1	1	na
+affix	1	1	na
+alloy	1	1	na
+ally	1	1	na
+annex	1	1	na
+assay	1	1	na
+bombard	0	0	na
+cement	0	1	na
+collect	0	1	na
+combat	0	0	con
+commune	1	1	con
+compact	0	1	con
+compound	0	1	con
+compress	1	1	con
+concert	1	1	con
+concrete	0	1	con
+conduct	0	1	con
+confect	0	1	con
+confine	0	1	con
+conflict	0	1	con
+conscript	0	1	con
+conserve	0	1	con
+consort	0	1	con
+content	1	1	con
+contest	0	1	con
+contract	1	1	con
+contrast	1	1	con
+converse	0	1	con
+convert	0	1	con
+convict	0	1	con
+convoy	0	1	con
+decoy	1	1	de
+decrease	1	1	de
+defect	1	1	de
+defile	1	1	de
+descant	1	1	de
+desert	0	1	de
+detail	1	1	de
+dictate	0	0	na
+digest	1	1	na
+discard	1	1	dis
+discharge	1	1	dis
+discord	0	0	dis
+discount	1	1	dis
+discourse	1	1	dis
+egress	0	1	e
+eject	1	1	e
+escort	1	1	na
+essay	0	1	na
+excerpt	1	1	ex
+excise	1	1	ex
+exile	0	1	ex
+exploit	1	1	ex
+export	0	1	ex
+extract	1	1	ex
+ferment	0	1	na
+impact	0	1	in
+import	1	1	in
+impress	1	1	in
+imprint	0	1	in
+incense	0	1	in
+incline	1	1	in
+increase	1	1	in
+indent	1	1	in
+infix	0	1	in
+inflow	0	1	in
+inlay	1	1	in
+inlet	0	1	in
+insert	0	1	in
+inset	0	1	in
+insult	0	1	in
+invert	0	1	in
+legate	0	1	na
+misprint	1	1	na
+object	0	1	na
+outcast	0	1	out
+outcry	0	1	out
+outgo	0	1	out
+outlaw	0	1	out
+outleap	1	1	out
+outlook	0	1	out
+outpour	0	1	out
+outspread	0	1	out
+outstretch	0	1	out
+outwork	0	1	out
+perfume	1	1	na
+permit	1	1	na
+pervert	0	1	na
+post-date	0	0	na
+prefix	1	1	pre
+prelude	1	1	pre
+premise	0	1	pre
+presage	0	0	pre
+present	0	1	pre
+produce	0	1	pro
+progress	0	0	pro
+project	0	1	pro
+protest	1	1	pro
+purport	0	0	na
+rampage	1	1	na
+rebate	1	1	re
+rebel	0	1	re
+rebound	1	1	re
+recall	1	1	re
+recast	1	1	re
+recess	1	1	re
+recoil	1	1	re
+record	0	1	re
+recount	1	1	re
+redraft	1	1	re
+redress	1	1	re
+refill	0	1	re
+refit	1	1	re
+refund	1	1	re
+refuse	1	1	re
+regress	1	1	re
+rehash	1	1	re
+reject	1	1	re
+relapse	0	1	rel
+relay	1	1	re
+repeat	1	1	re
+reprint	0	1	re
+research	1	1	re
+reset	0.75	1	re
+sojourn	0	0	na
+sub-let	0.75	0.75	sub
+subject	0	1	sub
+sublease	0	0	subl
+surcharge	1	1	sur
+survey	1	1	sur
+suspect	1	1	na
+torment	0	1	na
+transfer	0	0	trans
+transplant	0.75	1	trans
+transport	0	1	trans
+transverse	0	1	trans
+traverse	0	0	trans
+undress	1	1	na
+upcast	0	1	up
+upgrade	0	1	up
+uplift	0	1	up
+upright	0	0	up
+uprise	1	1	up
+uprush	0	1	up
+upset	0	1	up

@@ -20,17 +20,18 @@ public class ReadPairs {
         path = file_path;
     }
     
-    public HashMap<String, double[]> OpenFile() throws IOException {
+    public HashMap<String[], double[]> OpenFile() throws IOException {
         FileReader fr = new FileReader(path);
         BufferedReader textReader = new BufferedReader(fr);
-        HashMap<String, double[]> textData = new HashMap<>();
+        HashMap<String[], double[]> textData = new HashMap<>();
         
         int numberOfLines = readLines();
         
         for (int i = 0; i < numberOfLines; i++){
             String[] line = textReader.readLine().split("\t");
+            String[] pairClass = {line[0], line[3]};
             double[] probs = {Double.parseDouble(line[1]), Double.parseDouble(line[2])};
-            textData.put(line[0], probs);
+            textData.put(pairClass, probs);
         }
         
         /* 

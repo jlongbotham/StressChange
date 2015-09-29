@@ -10,6 +10,7 @@ package stresschange;
 public class WordPair {
     
     public String word;
+    public String prefix;
     private Double initialNounProb;
     public Double currentNounProb;
     public Double nextNounProb;
@@ -27,8 +28,9 @@ public class WordPair {
     Later can add attributes like relative frequency, origin, etc.
     */
         
-    public WordPair(String word, Double initialNounProb, Double initialVerbProb){
+    public WordPair(String word, Double initialNounProb, Double initialVerbProb, String prefix){
         this.word = word;
+        this.prefix = prefix;
         this.initialNounProb = initialNounProb;
         this.currentNounProb = initialNounProb;
         this.nextNounProb = initialNounProb;
