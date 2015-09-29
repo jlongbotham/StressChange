@@ -2,7 +2,7 @@
 
 This project uses the [MASON simulation toolkit](https://cs.gmu.edu/~eclab/projects/mason/) to implement 5 language change models for the stress shift in English N/V pairs. 
 
-The 5 models come from (Sonderegger and Niyogi 2010) [__Combining data and mathematical models of language change__](http://www.aclweb.org/anthology/P/P10/P10-1104.pdf).
+The 5 models come from (Sonderegger and Niyogi 2010) [*Combining data and mathematical models of language change*](http://www.aclweb.org/anthology/P/P10/P10-1104.pdf).
 
 ## Installation
 
