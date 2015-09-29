@@ -36,15 +36,15 @@ public class StressChange extends SimState {
     public static double misProbP = 0.1; // mistransmission probability for N
     public static double misProbQ = 0.1; // mistransmission probability for V
 
-    public static int freqNoun = 0; // default frequency for nouns
-    public static int freqVerb = 0; // default frequency for verbs
+    public static int freqNoun = 500; // default frequency for nouns
+    public static int freqVerb = 1000; // default frequency for verbs
     
-    public static double maxDistance = 10;
+    public static double maxDistance = 0;
 
     public static String model = "constraintWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint"
     public static String mode = "stochastic"; // default if no arguments are given - other option is "deterministic"
     public static String logging = "some"; // default if no arguments are given - other option is "all"
-    public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let"};
+    public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
 
     public static HashMap<String, double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 

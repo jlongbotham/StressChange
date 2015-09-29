@@ -33,6 +33,12 @@ public class ReadPairs {
             textData.put(line[0], probs);
         }
         
+        /* 
+        // for testing constraint (Models 2 and 3)
+        double[] oneZero = {0.75,0.25};
+        textData.put("a-test", oneZero);
+        // */
+        
         textReader.close();
              
         return textData;

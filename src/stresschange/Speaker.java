@@ -45,25 +45,28 @@ public class Speaker implements Steppable {
     public void updateParentAverage() {
         // get average of current generation's probabilities to update probabilities in next generation
         Bag parents = speakers.convos.getAllNodes();
-        System.out.println("This many parents: " + parents.size());
+        //System.out.println("This many parents: " + parents.size());
         // based on distances restrict the parents to those that are relatively close
         if (StressChange.maxDistance != 0) {
             Double2D speaker = speakers.field.getObjectLocation(this); // query to get location of current speaker
             Bag parentsClose = new Bag(); // reset bag of parents  
             for (int i = 0; i < parents.size(); i++) { // iterate through edges
                 Double2D parent = speakers.field.getObjectLocation(parents.get(i)); // for current edge get parent location
-                System.out.println("Speaker is at x: " + speaker.x + "and y: " + speaker.y);
-                System.out.println("Parent is at x: " + parent.x + "and y: " + parent.y);
+                //System.out.println("Speaker is at x: " + speaker.x + "and y: " + speaker.y);
+                //System.out.println("Parent is at x: " + parent.x + "and y: " + parent.y);
                 double distance = Math.sqrt(Math.pow((speaker.x - parent.x),2) + Math.pow((speaker.y - parent.y),2)); // TODO a^2 + b^2 = c^2 to get distance
-                System.out.println("The distance is:" + distance);
+                //System.out.println("The distance is:" + distance);
                 if(distance < StressChange.maxDistance && distance != 0.0){
                     parentsClose.add(parents.get(i)); // if distance below maxDistance, add to parents bag 
                 }                                     // RISK having 0 parents - maybe just take certain percentage of closest ones?
             }
-            // update location (randomly?)
-            parents = parentsClose;
+            // update location randomly
+            speakers.field.setObjectLocation(this, 
+                    new Double2D(speakers.field.getWidth() * 0.5 + 10*(speakers.random.nextDouble() - 0.5),
+                                 speakers.field.getHeight() * 0.5 + 10*(speakers.random.nextDouble() - 0.5)));
+            parents = parentsClose; // update bag of parents with close parents
         }  
-        System.out.println("Number of close parents: " + parents.size());
+        //System.out.println("Number of close parents: " + parents.size());
 
         for (int i = 0; i < words.size(); i++) { // iterate through array of WordPair objects for current Speaker
             double parentNounProb = 0.0; // reset parent probabilities
@@ -214,15 +217,15 @@ public class Speaker implements Steppable {
         // calculate learned probabilities (P) based on word frequencies sampled from parent probabilities
         double kNoun = 0.0; // number of nouns heard as final stress
         double kVerb = 0.0; // number of verbs heard as final stress
-
+                
         for (int i = 0; i < word.freqNoun; i++) {
-            if (speakers.random.nextDouble() <= word.currentNounProb) {
+            if (speakers.random.nextDouble() <= word.nextNounProb) {
                 kNoun++;
             }
         }
 
         for (int i = 0; i < word.freqVerb; i++) {
-            if (speakers.random.nextDouble() <= word.currentVerbProb) {
+            if (speakers.random.nextDouble() <= word.nextVerbProb) {
                 kVerb++;
             }
         }
@@ -239,7 +242,13 @@ public class Speaker implements Steppable {
             System.out.println("P22: " + p22);
         }
 
-        // calculate prior probabilities (lambda) based on current state of lexicon
+        // Set fixed lambda values, must sum to 1
+        double lambda11 = 0.45221;
+        double lambda12 = 0.2;
+        double lambda21 = 0.0; // this one should always be 0.0
+        double lambda22 = 0.4;
+        
+        /* // calculate prior probabilities (lambda) based on current state of lexicon
         double lambda11 = 0.0;
         double lambda12 = 0.0;
         double lambda21 = 0.0;
@@ -256,20 +265,24 @@ public class Speaker implements Steppable {
                 lambda22++;
             }
         }
-
+        
+        
         // get prior probabilities
         lambda11 = lambda11 / words.size();
         lambda12 = lambda12 / words.size();
         lambda21 = lambda21 / words.size();
         lambda22 = lambda22 / words.size();
+        */
 
         if (StressChange.logging.equals("all")) {
             System.out.println("LAMBDA11: " + lambda11);
             System.out.println("LAMBDA12: " + lambda12);
             System.out.println("LAMBDA21: " + lambda21);
             System.out.println("LAMBDA22: " + lambda22);
+            double R = (word.freqVerb / (1 + (word.freqVerb - 1) * (lambda12 / lambda11))) * (word.freqNoun / (1 + (word.freqNoun - 1) * (lambda12 / lambda22)));
+            System.out.println("R: " + R);
         }
-
+        
         // update current noun and verb probabilities based on learned and prior probabilities
         word.nextNounProb = ((lambda21 * p21) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
         word.nextVerbProb = ((lambda12 * p12) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
