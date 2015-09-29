@@ -120,7 +120,7 @@ refuse	1	1	re
 regress	1	1	re
 rehash	1	1	re
 reject	1	1	re
-relapse	0	1	rel
+relapse	0	1	re
 relay	1	1	re
 repeat	1	1	re
 reprint	0	1	re
@@ -129,7 +129,7 @@ reset	0.75	1	re
 sojourn	0	0	na
 sub-let	0.75	0.75	sub
 subject	0	1	sub
-sublease	0	0	subl
+sublease	0	0	sub
 surcharge	1	1	sur
 survey	1	1	sur
 suspect	1	1	na
