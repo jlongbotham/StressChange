@@ -115,5 +115,7 @@ A few optional features have been added for simulations beyond what's included i
 ## References
 
 Niyogi, P. (2006). *The computational nature of language learning and evolution*. Cambridge, MA:: MIT press.
+
 Sonderegger, M. (2009). "Dynamical systems models of language variation and change: An application to an English stress shift." *Masters paper, Department of Computer Science, University of Chicago.*
+
 (Sonderegger and Niyogi 2010) Sonderegger, M., & Niyogi, P. (2010, July). "Combining data and mathematical models of language change." In *Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics* (pp. 1019-1029). Association for Computational Linguistics.
