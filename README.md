@@ -73,9 +73,9 @@ Using the following definitions:
 
 The evolution equation for Model 1 is then:
 
-&alpha;<sub>t</sub> = &alpha;<sub>t-1</sub> (1 - *p*)
+*&alpha;<sub>t</sub> = &alpha;<sub>t-1</sub> (1 - p)*
 
-&beta;<sub>t</sub> = &beta;<sub>t-1</sub> + (1 - &beta;<sub>t-1</sub>) *q*
+*&beta;<sub>t</sub> = &beta;<sub>t-1</sub> + (1 - &beta;<sub>t-1</sub>) q*
 
 The assymetry in the evolution equation ensures that &alpha; tends toward 0, that is decreases the probability of a second-stress N, and &beta; then tends toward 1, that is increases the probability of a second-stress V.
 
