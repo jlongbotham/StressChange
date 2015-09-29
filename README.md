@@ -32,12 +32,15 @@ The stress patterns of these N/V pairs has been shown to change over time. (Sond
 
 ### Observed properties
 
+Based on the diachronic observations in the N/V pair data, (Sonderegger and Niyogi 2010) derive 6 properties (or "observed dynamics") of the stress pair language change:
+
 1. *Unstable state* - No N/V pair is observed with a {2,1} stress pattern
 2. *Stable states* - Stress patterns {1,1}, {1,2} and {2,2} are all observed in the historical data
 3. *Observed stable variation* - States are observed where either the N or V varies over time, but not both
 4. *Sudden change* - Change can happen from one stress pattern to another
-5. *Observed changes* - There are four observed changes: {1,1} <-> {1,2} and {2,2} <-> {1,2}
+5. *Observed changes* - There are four observed changes: {1,1} &harr; {1,2} and {2,2} &harr; {1,2}
 6. *Observed frequency dependence* - Change to {1,2} corresponds to a decrease in the frequency of N
+
 (Sonderegger and Niyogi 2010, p. 1023)
 
 The dynamical systems models in (Sonderegger and Niyogi 2010) are evaluated based on whether they fulfill these observed properties.
@@ -50,7 +53,9 @@ The baseline models from (Sonderegger and Niyogi 2010) have specific characteris
 2. Speakers in G<sub>t</sub> learn from speakers in the parent generation G<sub>t-1</sub> 
 3. Every speaker learns from every parent
 4. Each generation has infinite speakers (this constraint could not be met in this code)
+
 (Sonderegger and Niyogi 2010, p. 1022)
+
 
 
 ### 1. Mistransmission
@@ -92,6 +97,7 @@ The baseline models from (Sonderegger and Niyogi 2010) have specific characteris
         }
     }
 ```
+^ Just a test - maybe don't need *entire* code for each model...
 
 ### 2. Coupling by constraint
 
@@ -118,4 +124,4 @@ Niyogi, P. (2006). *The computational nature of language learning and evolution*
 
 Sonderegger, M. (2009). "Dynamical systems models of language variation and change: An application to an English stress shift." *Masters paper, Department of Computer Science, University of Chicago.*
 
-(Sonderegger and Niyogi 2010) Sonderegger, M., & Niyogi, P. (2010, July). "Combining data and mathematical models of language change." In *Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics* (pp. 1019-1029). Association for Computational Linguistics.
+Sonderegger, M., & Niyogi, P. (2010, July). "Combining data and mathematical models of language change." In *Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics* (pp. 1019-1029). Association for Computational Linguistics.
