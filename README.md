@@ -97,7 +97,6 @@ The assymetry in the evolution equation ensures that &alpha; tends toward 0, tha
         word.nextVerbProb = getMisVerb(word.misVerbPrev, word.avgParentVerbProb); // update verb probabilities
     }
 ```
-^ Just a test - maybe don't need *entire* code for each model...
 
 ### 2. Coupling by constraint
 
@@ -113,8 +112,7 @@ A few optional features have been added for simulations beyond what's included i
 
 1. *Stochasticity* - sample from parent probabilities rather than taking them directly
 2. *Distance* - in the MASON 2D field, speakers only learn from parents within a specified distance
-3. TBD
-4. TBD
+3. *Prefixes* - in models 4 and 5, the prior probabilities are derived from the prefix class of a pair, if applicable
 
 ## Results
 
