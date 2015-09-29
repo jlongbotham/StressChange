@@ -64,41 +64,37 @@ The first model is based on the assumption that language change often occurs in 
 
 In the context of the N/V stress patterns for these verbs, there is a clear bias toward a {1,2} stress pattern, known as Ross' generalization. One explanation for this bias is that generally in English stressed and unstressed syllables appear alternately in a sentence. As nouns often follow an unstressed article (a "trochaic-biasing" context), they tend to have primary stress. Because of this tendency, (Sonderegger and Niyogi 2010) assume that mistransmission can occur in only one direction ({1,1}, {2,2} &rarr; {1,2}). 
 
+Using the following definitions:
+
+* &alpha; = generation average probability of pronouncing N as second stress
+* &beta; = generation average probability of pronouncing V as second stress
+* *p* = mistransmission probability for N
+* *q* = mistransmission probability for V
+
+The evolution equation for Model 1 is then:
+
+&alpha;<sub>t</sub> = &alpha;<sub>t-1</sub> (1 - *p*)
+
+&beta;<sub>t</sub> = &beta;<sub>t-1</sub> + (1 - &beta;<sub>t-1</sub>) *q*
+
+The assymetry in the evolution equation ensures that &alpha; tends toward 0, that is decreases the probability of a second-stress N, and &beta; then tends toward 1, that is increases the probability of a second-stress V.
+
 ```java
+    public double getMisNoun(double p, double alphaPrev) {
+        double alpha = alphaPrev * (1 - p);
+        return alpha;
+    }
+
+    public double getMisVerb(double q, double betaPrev) {
+        double beta = betaPrev + ((1 - betaPrev) * q);
+        return beta;
+    }
+
     public void mistransmission(WordPair word) { // Model 1
         // set the noun and verb probabilities for the next generation
-        if (StressChange.logging.equals("all")) {
-            System.out.println("BEGINNING OF MISTRANSMISSION: " + word);
-        }
-        if (StressChange.mode.equals("stochastic")) {
-            // updated word.misNounPrev and word.misVerbPrev to ((number of randoms < misProbPQ) / word frequency)
-            int numberMisheardNoun = 0;
-            int numberMisheardVerb = 0;
-            for (int i = 0; i < word.freqNoun; i++) {
-                if (speakers.random.nextDouble() < StressChange.misProbP) {
-                    numberMisheardNoun++;
-                }
-            }
-            for (int i = 0; i < word.freqVerb; i++) {
-                if (speakers.random.nextDouble() < StressChange.misProbQ) {
-                    numberMisheardVerb++;
-                }
-            }
-            word.misNounPrev = (double) numberMisheardNoun / word.freqNoun;
-            word.misVerbPrev = (double) numberMisheardVerb / word.freqVerb;
-        }
-        // otherwise deterministically update based on initial mistransmission probabilities
-        
-        if (StressChange.logging.equals("all")) {
-            System.out.println("AVG PARENT PROBABILITIES: noun = " + word.avgParentNounProb + ", verb = " + word.avgParentVerbProb);
-        }        
         
         word.nextNounProb = getMisNoun(word.misNounPrev, word.avgParentNounProb); // update noun probabilities
         word.nextVerbProb = getMisVerb(word.misVerbPrev, word.avgParentVerbProb); // update verb probabilities
-
-        if (StressChange.logging.equals("all")) {
-            System.out.println("END OF MISTRANSMISSION: " + word);
-        }
     }
 ```
 ^ Just a test - maybe don't need *entire* code for each model...
