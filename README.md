@@ -60,6 +60,10 @@ The baseline models from (Sonderegger and Niyogi 2010) have specific characteris
 
 ### 1. Mistransmission
 
+The first model is based on the assumption that language change often occurs in the "handover" between generations due to mistransmission. That is, speakers sometimes mishear what the parent generation says, influencing the language that they end up speaking.
+
+In the context of the N/V stress patterns for these verbs, there is a clear bias toward a {1,2} stress pattern, known as Ross' generalization. One explanation for this bias is that generally in English stressed and unstressed syllables appear alternately in a sentence. As nouns often follow an unstressed article (a "trochaic-biasing" context), they tend to have primary stress. Because of this tendency, (Sonderegger and Niyogi 2010) assume that mistransmission can occur in only one direction ({1,1}, {2,2} &rarr; {1,2}). 
+
 ```java
     public void mistransmission(WordPair word) { // Model 1
         // set the noun and verb probabilities for the next generation
