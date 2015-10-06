@@ -14,11 +14,19 @@ No installation or compiling is required. The `dist` folder includes jar files f
 
 You can run the code from the command line as follows:
 
-`java -jar dist/stressChange.jar mistransmission deterministic some 5 5`
+`java -jar dist/stressChange.jar -model mistransmission -mode deterministic -logging some -nounFreq 5 -verbFreq 5`
 
-At the moment the command line arguments must be added in this exact order:
+The options are the following:
 
-`java -jar dist/stressChange.jar [model name] [model type] [words to display in output] [noun frequency] [verb frequency]`
+```
+java -jar dist/stressChange.jar -model    [mitransmission | constraint | constraintWithMistransmission | prior | priorWithMistransmission ] 
+                                 -mode     [deterministic | stochastic] 
+                                 -logging  [some | all] 
+                                 -nounFreq [1000] 
+                                 -verbFreq [1000]
+```
+
+If no option is given, the first listed is the default.
 
 ## Overview
 

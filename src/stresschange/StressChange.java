@@ -13,7 +13,10 @@ import java.util.HashMap;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 import sim.engine.*;
 import sim.field.continuous.*;
 import sim.util.*;
@@ -36,13 +39,13 @@ public class StressChange extends SimState {
     public static double misProbP = 0.1; // mistransmission probability for N
     public static double misProbQ = 0.1; // mistransmission probability for V
 
-    public static int freqNoun = 500; // default frequency for nouns
+    public static int freqNoun = 1000; // default frequency for nouns
     public static int freqVerb = 1000; // default frequency for verbs
-    
+
     public static double maxDistance = 0;
 
-    public static String model = "constraintWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint"
-    public static String mode = "stochastic"; // default if no arguments are given - other option is "deterministic"
+    public static String model = "mistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint"
+    public static String mode = "deterministic"; // default if no arguments are given - other option is "deterministic"
     public static String logging = "some"; // default if no arguments are given - other option is "all"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
 
@@ -61,8 +64,8 @@ public class StressChange extends SimState {
         for (int i = 0; i < numSpeakers; i++) {
             Speaker speaker = new Speaker(initialStress, i);
             field.setObjectLocation(speaker,
-                    new Double2D(field.getWidth() * 0.5 + 10*(random.nextDouble() - 0.5),
-                            field.getHeight() * 0.5 + 10*(random.nextDouble() - 0.5)));
+                    new Double2D(field.getWidth() * 0.5 + 10 * (random.nextDouble() - 0.5),
+                            field.getHeight() * 0.5 + 10 * (random.nextDouble() - 0.5)));
 
             convos.addNode(speaker); // each speaker added to graph as a node
             schedule.scheduleRepeating(speaker);
@@ -79,45 +82,64 @@ public class StressChange extends SimState {
                 speakerB = speakers.get(random.nextInt(speakers.numObjs));
             } while (speaker == speakerB);
             double closeness = random.nextDouble();
-            convos.addEdge(speaker, speakerB, new Double(closeness)); 
+            convos.addEdge(speaker, speakerB, new Double(closeness));
         }
     }
 
     public static void main(String[] args) throws IOException {
-        //doLoop(StressChange.class, args); // this is the default for MASON but doesn't allow for many customizations
-
-        /* TODO: add real command line options...
-        // http://commons.apache.org/proper/commons-cli/usage.html
+        // get options from command line
         CommandLineParser parser = new DefaultParser();
         Options options = new Options();
-        
-        options.addOption( "a", "all", false, "do not hide entries starting with ." );
 
+        Option optModel = OptionBuilder.withArgName( "model" )
+                                .hasArg()
+                                .withDescription(  "model used for simulation" )
+                                .create( "model" );
+        options.addOption( optModel );
+        
+        Option optMode = OptionBuilder.withArgName( "mode" )
+                                .hasArg()
+                                .withDescription(  "mode used for simulation" )
+                                .create( "mode" );
+        options.addOption( optMode );      
+        
+        Option optLogging = OptionBuilder.withArgName( "logging" )
+                                .hasArg()
+                                .withDescription(  "logging level" )
+                                .create( "logging" );
+        options.addOption( optLogging );      
 
+        Option optFreqNoun = OptionBuilder.withArgName( "freqNoun" )
+                                .hasArg()
+                                .withDescription(  "noun frequency" )
+                                .create( "freqNoun" );
+        options.addOption( optFreqNoun );   
         
-        //CommandLine cmd = parser.parse(options, args); */
-        
-        // get arguments from command line
-        if (args.length > 0) {
-            model = args[0]; // default is mistransmission
-            System.out.print("COMMAND LINE ARGUMENTS ARE: " + args[0]);
-            if (args.length > 1) {
-                mode = args[1];
-                System.out.print(", " + args[1]);
+        Option optFreqVerb = OptionBuilder.withArgName( "freqVerb" )
+                                .hasArg()
+                                .withDescription(  "verb frequency" )
+                                .create( "freqVerb" );
+        options.addOption( optFreqVerb );   
+
+        try {  // parse the command line arguments
+            CommandLine line = parser.parse(options, args);
+            if(line.hasOption("model")) {
+                model = line.getOptionValue("model");
             }
-            if (args.length > 2) {
-                logging = args[2];
-                System.out.print(", " + args[2]);
+            if(line.hasOption("mode")) {
+                mode = line.getOptionValue("mode");
             }
-            if (args.length > 3) {
-                freqNoun = Integer.parseInt(args[3]);
-                System.out.print(", " + args[3]);
+            if(line.hasOption("logging")) {
+                logging = line.getOptionValue("logging");
             }
-            if (args.length > 4) {
-                freqVerb = Integer.parseInt(args[4]);
-                System.out.print(", " + args[4]);
+            if(line.hasOption("freqNoun")) {
+                freqNoun = Integer.parseInt(line.getOptionValue("freqNoun"));
             }
-            System.out.println("");
+            if(line.hasOption("freqVerb")) {
+                freqVerb = Integer.parseInt(line.getOptionValue("freqVerb"));
+            }
+        } catch ( ParseException exp) {
+            System.out.println("Unexpected exception: " + exp.getMessage());
         }
 
         System.out.println("Simulating " + mode + " model with " + model + ", showing " + logging + " words");
@@ -128,9 +150,7 @@ public class StressChange extends SimState {
             System.out.println("N1 and N2 (noun and verb frequency): random");
         }
         initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStress.txt").OpenFile(); // read in initial pairs
-        
-        
-        
+
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();
         do {
