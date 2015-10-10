@@ -49,15 +49,17 @@ Based on the diachronic observations in the N/V pair data, (Sonderegger and Niyo
 5. *Observed changes* - There are four observed changes: {1,1} &harr; {1,2} and {2,2} &harr; {1,2}
 6. *Observed frequency dependence* - Change to {1,2} corresponds to a decrease in the frequency of N
 
-(Sonderegger and Niyogi 2010, p. 1023)
+	(Sonderegger and Niyogi 2010, p. 1023)
 
-The dynamical systems models in (Sonderegger and Niyogi 2010) are evaluated based on whether they fulfill these observed properties.
+	The dynamical systems models in (Sonderegger and Niyogi 2010) are evaluated based on whether they fulfill these observed properties.
 
-(Sonderegger 2009) made the additional observation that word pairs with the same prefix (e.g. *re-* or *de-*) have similar trajectories. And in our analysis of the data, we observed some examples of variation between stress patterns in US and UK dictionaries, for example with the noun form of *address*:
+	(Sonderegger 2009) made the additional observation that word pairs with the same prefix (e.g. *re-* or *de-*) have similar trajectories. And in our analysis of the data, we observed some examples of variation between stress patterns in US and UK dictionaries, for example with the noun form of *address*:
 
-![Dialectical divergence for "address"](address-n.png)
+	![Dialectical divergence for "address"](address-n.png)
 
-For this reason, we've added two observed properties:
+	In this figure, a y-value of 2 means only secondary stress, 1.75 means mostly secondary stress and 1.25 means mostly primary stress. You can see that US dictionaries show a change toward primary stress for *address* starting around 1935, whereas UK dictionaries continue to show only secondary stress.
+
+	For this reason, we've added two observed properties:
 
 7. *Analogical change* - N/V pairs with same prefix tend to have the same stress pattern
 8. *Dialectical divergence* - N/V pair trajectories can diverge between distant groups of speakers
