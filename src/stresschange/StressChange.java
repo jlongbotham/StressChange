@@ -149,7 +149,7 @@ public class StressChange extends SimState {
         } else {
             System.out.println("N1 and N2 (noun and verb frequency): random");
         }
-        initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStress.txt").OpenFile(); // read in initial pairs
+        initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStressSmoothed.txt").OpenFile(); // read in initial pairs
 
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();

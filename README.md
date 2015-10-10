@@ -14,16 +14,16 @@ No installation or compiling is required. The `dist` folder includes jar files f
 
 You can run the code from the command line as follows:
 
-`java -jar dist/stressChange.jar -model mistransmission -mode deterministic -logging some -nounFreq 5 -verbFreq 5`
+`java -jar dist/stressChange.jar -model mistransmission -mode deterministic -logging some -nounFreq 1000 -verbFreq 1000`
 
 The options are the following:
 
 ```
-java -jar dist/stressChange.jar -model    [mitransmission | constraint | constraintWithMistransmission | prior | priorWithMistransmission ] 
-                                 -mode     [deterministic | stochastic] 
-                                 -logging  [some | all] 
-                                 -nounFreq [1000] 
-                                 -verbFreq [1000]
+java -jar dist/stressChange.jar -model    [ mitransmission | constraint | constraintWithMistransmission | prior | priorWithMistransmission ] 
+                                -mode     [ deterministic | stochastic ] 
+                                -logging  [ some | all ] 
+                                -nounFreq [ 1000 ] 
+                                -verbFreq [ 1000 ]
 ```
 
 If no option is given, the first listed is the default.
@@ -40,7 +40,7 @@ The stress patterns of these N/V pairs has been shown to change over time. (Sond
 
 ### Observed properties
 
-Based on the diachronic observations in the N/V pair data, (Sonderegger and Niyogi 2010) derive 6 properties (or "observed dynamics") of the stress pair language change:
+Based on the diachronic observations in the N/V pair data, (Sonderegger and Niyogi 2010) derive 6 properties (or "observed dynamics") of the stress pattern language change:
 
 1. *Unstable state* - No N/V pair is observed with a {2,1} stress pattern
 2. *Stable states* - Stress patterns {1,1}, {1,2} and {2,2} are all observed in the historical data
@@ -53,6 +53,15 @@ Based on the diachronic observations in the N/V pair data, (Sonderegger and Niyo
 
 The dynamical systems models in (Sonderegger and Niyogi 2010) are evaluated based on whether they fulfill these observed properties.
 
+(Sonderegger 2009) made the additional observation that word pairs with the same prefix (e.g. *re-* or *de-*) have similar trajectories. And in our analysis of the data, we observed some examples of variation between stress patterns in US and UK dictionaries, for example with the noun form of *address*:
+
+![Dialectical divergence for "address"](address-n.png)
+
+For this reason, we've added two observed properties:
+
+7. *Analogical change* - N/V pairs with same prefix tend to have the same stress pattern
+8. *Dialectical divergence* - N/V pair trajectories can diverge between distant groups of speakers
+
 ## Baseline Models
 
 The baseline models from (Sonderegger and Niyogi 2010) have specific characteristics:
@@ -63,8 +72,6 @@ The baseline models from (Sonderegger and Niyogi 2010) have specific characteris
 4. Each generation has infinite speakers (this constraint could not be met in this code)
 
 (Sonderegger and Niyogi 2010, p. 1022)
-
-
 
 ### 1. Mistransmission
 
@@ -118,9 +125,15 @@ The assymetry in the evolution equation ensures that &alpha; tends toward 0, tha
 
 A few optional features have been added for simulations beyond what's included in (Sonderegger and Niyogi 2010):
 
-1. *Stochasticity* - sample from parent probabilities rather than taking them directly
-2. *Distance* - in the MASON 2D field, speakers only learn from parents within a specified distance
-3. *Prefixes* - in models 4 and 5, the prior probabilities are derived from the prefix class of a pair, if applicable
+1. *Stochasticity* - Sample from parent probabilities rather than taking them directly
+2. *Distance* - In the MASON 2D field, speakers only learn from parents within a specified distance
+3. *Prefixes* - In models 4 and 5, the prior probabilities are derived from the prefix class of a pair, if applicable
+
+### 1. Stochasticity
+
+### 2. Distance
+
+### 3. Prefixes
 
 ## Results
 

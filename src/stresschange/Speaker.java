@@ -243,8 +243,8 @@ public class Speaker implements Steppable {
         }
 
         // Set fixed lambda values, must sum to 1
-        double lambda11 = 0.45221;
-        double lambda12 = 0.2;
+        double lambda11 = 0.2;
+        double lambda12 = 0.4;
         double lambda21 = 0.0; // this one should always be 0.0
         double lambda22 = 0.4;
         
