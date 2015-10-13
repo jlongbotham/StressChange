@@ -42,8 +42,8 @@ public class StressChange extends SimState {
     public static int freqNoun = 1000; // default frequency for nouns
     public static int freqVerb = 1000; // default frequency for verbs
 
-    public static String distModel = "none"; // default distance model - options are "none", "absolute", "probability", "grouped"
-    public static double maxDistance = 0; // default maximum distance 
+    public static String distModel = "none"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped"
+    public static double maxDistance = 20; // default maximum distance 
     
     public static String priorClass = "none"; // default classes for prior models - options are "none", "prefix"
 

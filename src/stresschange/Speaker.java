@@ -47,7 +47,7 @@ public class Speaker implements Steppable {
         Bag parents = speakers.convos.getAllNodes();
         //System.out.println("This many parents: " + parents.size());
         // based on distances restrict the parents to those that are relatively close
-        if (StressChange.maxDistance != 0) {
+        if (! StressChange.distModel.equals("none")) {  // if there is a distance model, parents bag should be updated
             Double2D speaker = speakers.field.getObjectLocation(this); // query to get location of current speaker
             Bag parentsClose = new Bag(); // reset bag of parents  
             for (int i = 0; i < parents.size(); i++) { // iterate through edges
@@ -56,11 +56,25 @@ public class Speaker implements Steppable {
                 //System.out.println("Parent is at x: " + parent.x + "and y: " + parent.y);
                 double distance = Math.sqrt(Math.pow((speaker.x - parent.x),2) + Math.pow((speaker.y - parent.y),2)); // TODO a^2 + b^2 = c^2 to get distance
                 //System.out.println("The distance is:" + distance);
-                if(distance < StressChange.maxDistance && distance != 0.0){
-                    parentsClose.add(parents.get(i)); // if distance below maxDistance, add to parents bag 
-                }                                     // RISK having 0 parents - maybe just take certain percentage of closest ones?
+                if (StressChange.distModel.equals("absolute")) {
+                    if (distance < StressChange.maxDistance && distance != 0.0) {
+                        parentsClose.add(parents.get(i)); // if distance below maxDistance, add to parents bag 
+                    }
+                } else if(StressChange.distModel.equals("probabilistic")){
+                    // distance is inversely proportional to whether the parent is heard 
+                    if (distance < 50){ // only searching when distance is less than 50
+                        if ((50 * speakers.random.nextDouble()) >= distance ){
+                            parentsClose.add(parents.get(i));
+                        }
+                    }                        
+                } else if(StressChange.distModel.equals("random")){
+                    // each speaker talks to half of the previous generation - randomly 
+                    if (speakers.random.nextDouble() >= 0.5){
+                        parentsClose.add(parents.get(i));
+                    }
+                }
             }
-            // update location randomly
+            // update speaker location randomly
             speakers.field.setObjectLocation(this, 
                     new Double2D(speakers.field.getWidth() * 0.5 + 10*(speakers.random.nextDouble() - 0.5),
                                  speakers.field.getHeight() * 0.5 + 10*(speakers.random.nextDouble() - 0.5)));
