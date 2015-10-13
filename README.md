@@ -19,11 +19,13 @@ You can run the code from the command line as follows:
 The options are the following:
 
 ```
-java -jar dist/stressChange.jar -model    [ mitransmission | constraint | constraintWithMistransmission | prior | priorWithMistransmission ] 
-                                -mode     [ deterministic | stochastic ] 
-                                -logging  [ some | all ] 
-                                -nounFreq [ 1000 ] 
-                                -verbFreq [ 1000 ]
+java -jar dist/stressChange.jar -model      [ mitransmission | constraint | constraintWithMistransmission | prior | priorWithMistransmission ] 
+                                -mode       [ deterministic | stochastic ] 
+                                -distModel  [ none | random | absolute | probabilistic | grouped ] 
+                                -logging    [ some | all ]
+                                -priorClass [ none | prefix ]
+                                -nounFreq   [ 1000 ]
+                                -verbFreq   [ 1000 ]
 ```
 
 If no option is given, the first option listed is the default.
@@ -215,15 +217,31 @@ A few optional features have been added for simulations beyond what's included i
 
 ### 1. Stochasticity
 
-The deterministic models use exact probabilities between generations to update 
+The deterministic models use exact probabilities between generations, while stochastic models sample from a probability distribution, allowing for a small amount of randomness.
 
 ### 2. Distance
 
-Absolute
+One of the 
 
-Probabilistic
+#### None
 
-Grouped (dialectical)
+With this default setting, no special restrictions are placed on distance, i.e. everyone speaks to everyone.
+
+#### Random
+
+With the random setting, each speaker speaks to half the total number of parents, chosen randomly.
+
+#### Absolute
+
+With the absolute setting, each speaker speaks to parents located within a specific maximum distance.
+
+#### Probabilistic
+
+With the probabilistic setting, whether a speaker speaks to a parent is decided by a sampling a probability based on the distance, i.e. the farther away a parent is, the less like a speaker will speak to them.
+
+#### Grouped
+
+With the grouped setting, speakers are initially placed into two separate groups, allowing diverting trajectories over time.
 
 ### 3. Prefixes
 

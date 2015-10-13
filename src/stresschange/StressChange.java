@@ -64,16 +64,38 @@ public class StressChange extends SimState {
         convos.clear(); // clear the speakers
 
         // add some speakers to the field
-        for (int i = 0; i < numSpeakers; i++) {
-            Speaker speaker = new Speaker(initialStress, i);
-            field.setObjectLocation(speaker,
-                    new Double2D(field.getWidth() * 0.5 + 10 * (random.nextDouble() - 0.5),
-                            field.getHeight() * 0.5 + 10 * (random.nextDouble() - 0.5)));
+        if (distModel.equals("grouped")) { // add two distinct groups with equal number of people
+            for (int i = 0; i < (numSpeakers / 2); i++) {
+                Speaker speaker = new Speaker(initialStress, i + 1);
+                field.setObjectLocation(speaker,
+                        new Double2D(field.getWidth() * 0.25 + 25 * (random.nextDouble() - 0.5),
+                                field.getHeight() * 0.25 + 25 * (random.nextDouble() - 0.5)));
 
-            convos.addNode(speaker); // each speaker added to graph as a node
-            schedule.scheduleRepeating(speaker);
+                convos.addNode(speaker); // each speaker added to graph as a node
+                schedule.scheduleRepeating(speaker);
+                speaker.group = "UK";
+            }
+            for (int i = 0; i < (numSpeakers / 2); i++) {
+                Speaker speaker = new Speaker(initialStress, 2 * (i + 1));
+                field.setObjectLocation(speaker,
+                        new Double2D(field.getWidth() * 0.75 + 25 * (random.nextDouble() - 0.5),
+                                field.getHeight() * 0.75 + 25 * (random.nextDouble() - 0.5)));
+
+                convos.addNode(speaker); // each speaker added to graph as a node
+                schedule.scheduleRepeating(speaker);
+                speaker.group = "US";
+            }
+        } else { // otherwise just one big group
+            for (int i = 0; i < numSpeakers; i++) {
+                Speaker speaker = new Speaker(initialStress, i);
+                field.setObjectLocation(speaker,
+                        new Double2D(field.getWidth() * 0.5 + 25 * (random.nextDouble() - 0.5),
+                                field.getHeight() * 0.5 + 25 * (random.nextDouble() - 0.5)));
+
+                convos.addNode(speaker); // each speaker added to graph as a node
+                schedule.scheduleRepeating(speaker);
+            }
         }
-
         // add edges between speakers defining closeness
         speakers = convos.getAllNodes(); // extract all speakers from the graph, returns sim.util.Bag, like an ArrayList but faster
         for (int i = 0; i < speakers.size(); i++) { // loop through Bag of speakers
@@ -130,10 +152,10 @@ public class StressChange extends SimState {
                                 .create("distModel");
         options.addOption(optDistModel);   
         
-        Option optPriorClass = OptionBuilder.withArgName("priorClasses")
+        Option optPriorClass = OptionBuilder.withArgName("priorClass")
                                 .hasArg()
                                 .withDescription("class for prior probabilities")
-                                .create("priorClasses");
+                                .create("priorClass");
         options.addOption(optPriorClass);   
 
         try {  // parse the command line arguments
@@ -156,20 +178,21 @@ public class StressChange extends SimState {
             if(line.hasOption("distModel")) {
                 distModel = line.getOptionValue("distModel");
             }
-            if(line.hasOption("priorClasses")) {
-                distModel = line.getOptionValue("priorClasses");
+            if(line.hasOption("priorClass")) {
+                priorClass = line.getOptionValue("priorClass");
             }
         } catch ( ParseException exp) {
             System.out.println("Unexpected exception: " + exp.getMessage());
         }
 
-        System.out.println("Simulating " + mode + " model with " + model + ", showing " + logging + " words");
+        System.out.println("Simulating " + mode + " model with " + model + " and " + distModel + " distance model, showing " + logging + " words");
         if (freqNoun != 0) {
             System.out.println("N1 (noun frequency): " + freqNoun);
             System.out.println("N2 (verb frequency): " + freqVerb);
         } else {
             System.out.println("N1 and N2 (noun and verb frequency): random");
         }
+        
         initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStressSmoothed.txt").OpenFile(); // read in initial pairs
 
         SimState state = new StressChange(System.currentTimeMillis());

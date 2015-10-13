@@ -7,9 +7,7 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
 import sim.engine.*;
-import sim.field.continuous.*;
 import sim.util.*;
-import sim.field.network.*;
 
 /**
  * @author James
@@ -20,6 +18,8 @@ public class Speaker implements Steppable {
 
     public ArrayList<WordPair> words = new ArrayList<>();
     public int id = 0;
+    
+    public String group = "none";
 
     public StressChange speakers;
 
@@ -47,23 +47,21 @@ public class Speaker implements Steppable {
         Bag parents = speakers.convos.getAllNodes();
         //System.out.println("This many parents: " + parents.size());
         // based on distances restrict the parents to those that are relatively close
+        
         if (! StressChange.distModel.equals("none")) {  // if there is a distance model, parents bag should be updated
             Double2D speaker = speakers.field.getObjectLocation(this); // query to get location of current speaker
+            //System.out.println("Speaker from " + group + " is at x: " + speaker.x + " and y: " + speaker.y);
             Bag parentsClose = new Bag(); // reset bag of parents  
             for (int i = 0; i < parents.size(); i++) { // iterate through edges
                 Double2D parent = speakers.field.getObjectLocation(parents.get(i)); // for current edge get parent location
-                //System.out.println("Speaker is at x: " + speaker.x + "and y: " + speaker.y);
-                //System.out.println("Parent is at x: " + parent.x + "and y: " + parent.y);
+                //System.out.println("Speaker from " + group + " is at x: " + speaker.x + "and y: " + speaker.y);
+                //System.out.println("Parent from " + group + " is at x: " + parent.x + "and y: " + parent.y);
                 double distance = Math.sqrt(Math.pow((speaker.x - parent.x),2) + Math.pow((speaker.y - parent.y),2)); // TODO a^2 + b^2 = c^2 to get distance
                 //System.out.println("The distance is:" + distance);
-                if (StressChange.distModel.equals("absolute")) {
-                    if (distance < StressChange.maxDistance && distance != 0.0) {
-                        parentsClose.add(parents.get(i)); // if distance below maxDistance, add to parents bag 
-                    }
-                } else if(StressChange.distModel.equals("probabilistic")){
+                if (StressChange.distModel.equals("probabilistic")){
                     // distance is inversely proportional to whether the parent is heard 
-                    if (distance < 50){ // only searching when distance is less than 50
-                        if ((50 * speakers.random.nextDouble()) >= distance ){
+                    if (distance < 25){ // only searching when distance is less than 50
+                        if ((25 * speakers.random.nextDouble()) >= distance ){
                             parentsClose.add(parents.get(i));
                         }
                     }                        
@@ -72,12 +70,17 @@ public class Speaker implements Steppable {
                     if (speakers.random.nextDouble() >= 0.5){
                         parentsClose.add(parents.get(i));
                     }
-                }
+                } else { // otherwise it's absolute distance
+                    if (distance < StressChange.maxDistance && distance != 0.0) {
+                        parentsClose.add(parents.get(i)); // if distance below maxDistance, add to parents bag 
+                    }
+                } 
             }
             // update speaker location randomly
             speakers.field.setObjectLocation(this, 
-                    new Double2D(speakers.field.getWidth() * 0.5 + 10*(speakers.random.nextDouble() - 0.5),
-                                 speakers.field.getHeight() * 0.5 + 10*(speakers.random.nextDouble() - 0.5)));
+                    new Double2D(speaker.x + 5 * (speakers.random.nextDouble() - 0.5),
+                                 speaker.y + 5 * (speakers.random.nextDouble() - 0.5)));
+            
             parents = parentsClose; // update bag of parents with close parents
         }  
         //System.out.println("Number of close parents: " + parents.size());
@@ -313,54 +316,9 @@ public class Speaker implements Steppable {
 
     public void step(SimState state) { // method step implements sim.engine.Steppable interface, allows "Speaker" to be not just object but also agent
         speakers = (StressChange) state;
-        Continuous2D field = speakers.field;
+        //Continuous2D field = speakers.field;
 
-        Double2D me = speakers.field.getObjectLocation(this); // query to get location of current Speaker
-
-        MutableDouble2D sumForces = new MutableDouble2D(); // like Double2D except you can change X and Y values after the fact, also has addIn method
-
-        /* only applies to tutorial */
-        // go through my buddies and determine how much I want to be near them
-        MutableDouble2D forceVector = new MutableDouble2D();
-        Bag out = speakers.convos.getEdges(this, null);
-        int len = out.size();
-        for (int buddy = 0; buddy < len; buddy++) {
-            Edge e = (Edge) (out.get(buddy));
-            double buddiness = ((Double) (e.info)).doubleValue();
-
-            // getOtherNode grabs the guy at the opposite end of the yard
-            Double2D him = speakers.field.getObjectLocation(e.getOtherNode(this));
-
-            // the further away I am the more I want to get near
-            if (buddiness >= 0) {
-                forceVector.setTo((him.x - me.x) * buddiness, (him.y - me.y) * buddiness);
-                if (forceVector.length() > MAX_FORCE) // I'm far enough away
-                {
-                    forceVector.resize(MAX_FORCE);
-                } else {
-                    forceVector.setTo((him.x - me.x) * buddiness, (him.y - me.y) * buddiness);
-                    if (forceVector.length() > MAX_FORCE) // I'm far enough away
-                    {
-                        forceVector.resize(0.0);
-                    } else if (forceVector.length() > 0) {
-                        forceVector.resize(MAX_FORCE - forceVector.length()); // invert the distance
-                    }
-                }
-
-            }
-            sumForces.addIn(forceVector);
-        }
-
-        // add in a vector to the "teacher" to not get too far away, increases with distance to the yard
-        //sumForces.addIn(new Double2D((field.width * 0.5 - me.x) * speakers.forceToSchoolMultiplier,
-        //        (field.height * 0.5 - me.y) * speakers.forceToSchoolMultiplier));
-        // add some randomness, small and constant
-        //sumForces.addIn(new Double2D(speakers.randomMultiplier * (speakers.random.nextDouble() * 1.0 - 0.5),
-        //        speakers.randomMultiplier * (speakers.random.nextDouble() * 1.0 - 0.5)));
-        sumForces.addIn(me); // start force at present location
-
-        speakers.field.setObjectLocation(this, new Double2D(sumForces)); // set object location to the sum, must be a Double2D (immutable)
-    /* */
+        //Double2D me = speakers.field.getObjectLocation(this); // query to get location of current Speaker
 
         // Run chosen model
         runModel();
