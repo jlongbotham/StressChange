@@ -79,6 +79,8 @@ The baseline models from (Sonderegger and Niyogi 2010) have specific characteris
 
 ### 1. Mistransmission
 
+`java -jar dist/stressChange.jar -model mistransmission`
+
 The first model is based on the assumption that language change often occurs in the "handover" between generations due to mistransmission. That is, speakers sometimes mishear what the parent generation says, influencing the language that they end up speaking.
 
 In the context of the N/V stress patterns for these verbs, there is a clear bias toward a {1,2} stress pattern, known as Ross' generalization. One explanation for this bias is that generally in English stressed and unstressed syllables appear alternately in a sentence. As nouns often follow an unstressed article (a "trochaic-biasing" context), they tend to have primary stress. Because of this tendency, (Sonderegger and Niyogi 2010) assume that mistransmission can occur in only one direction ({1,1}, {2,2} &rarr; {1,2}). 
@@ -121,6 +123,8 @@ All N/V pairs converge to the {1,2} stress pattern in this model.
 
 ### 2. Coupling by constraint
 
+`java -jar dist/stressChange.jar -model constraint`
+
 The coupling by constraint model takes a different approach and assumes a simple *constraint* based on Ross' Generalization that the probability of a second-stress N must be less than the probability of a second-stress V for a specific word pair.
 
 ```java
@@ -141,6 +145,8 @@ All N/V pairs with stress patterns satisfy this constraint do not show any chang
 
 ### 3. Coupling by constraint, with mistransmission
 
+`java -jar dist/stressChange.jar -model constraintWithMistransmission`
+
 This model combines the coupling by constraint but includes mistransmission for the "heard" examples between generations.
 
 ```java
@@ -154,6 +160,8 @@ This model combines the coupling by constraint but includes mistransmission for 
 With this model, the mistransmission updates guarantee that all N/V pairs converge to a {1,2} stress pattern.
 
 ### 4. Coupling by priors
+
+`java -jar dist/stressChange.jar -model prior`
 
 Using prior probabilities as well as observed likelihoods allows information about the lexicon in general to affect how a specific word pair's stress pattern changes over time. As with a Bayesian approach, the prior represents knowledge of stress patterns in general (e.g. that {2,1} never occurs), while the observed likelihood is based on what speakers hear from the previous generation.
 
@@ -197,6 +205,8 @@ In this model, the stress patterns that word pairs converge to depends mostly on
 
 ### 5. Coupling by priors, with mistransmission
 
+`java -jar dist/stressChange.jar -model priorWithMistransmission`
+
 This model includes the prior probabilities of Mode 4, but applies the updates between generations to the "mistransmitted" examples.
 
 ```java
@@ -217,11 +227,11 @@ A few optional features have been added for simulations beyond what's included i
 
 ### 1. Stochasticity
 
-The deterministic models use exact probabilities between generations, while stochastic models sample from a probability distribution, allowing for a small amount of randomness.
+`-mode stochastic`
+
+The deterministic models use exact probabilities between generations (default setting), while stochastic models sample from a probability distribution, allowing for a small amount of randomness.
 
 ### 2. Distance
-
-One of the 
 
 #### None
 
@@ -229,23 +239,38 @@ With this default setting, no special restrictions are placed on distance, i.e. 
 
 #### Random
 
+`-distModel random`
+
 With the random setting, each speaker speaks to half the total number of parents, chosen randomly.
 
 #### Absolute
+
+`-distModel absolute`
 
 With the absolute setting, each speaker speaks to parents located within a specific maximum distance.
 
 #### Probabilistic
 
+`-distModel probabilistic`
+
 With the probabilistic setting, whether a speaker speaks to a parent is decided by a sampling a probability based on the distance, i.e. the farther away a parent is, the less like a speaker will speak to them.
 
 #### Grouped
+
+`-distModel grouped`
 
 With the grouped setting, speakers are initially placed into two separate groups, allowing diverting trajectories over time.
 
 ### 3. Prefixes
 
+`-priorClass prefix`
+
+Using prefix classes allows having prior probabilities set per prefix class, rather than for the lexicon as a whole. This allows for representing similarities at a more fine-grained level, consistent with the observed property that word pairs with the same prefix tend to have similar stress patterns.
+
 ## Results
+
+* How do the agent-based models compare to the baseline dynamical systems models in general?
+* Which models and combitations of agent-based additions fulfill the additional properties?
 
 ## References
 
