@@ -204,8 +204,8 @@ public class Speaker implements Steppable {
 
     public void constraintWithMistransmission(WordPair word) { // Model 3
         // the same as constraint(), but on "heard" examples (i.e. mistransmission)
-        constraint(word);
         mistransmission(word);
+        constraint(word);
     }
 
     public void prior(WordPair word) { // Model 4

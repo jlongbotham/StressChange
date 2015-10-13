@@ -42,9 +42,12 @@ public class StressChange extends SimState {
     public static int freqNoun = 1000; // default frequency for nouns
     public static int freqVerb = 1000; // default frequency for verbs
 
-    public static double maxDistance = 0;
+    public static String distModel = "none"; // default distance model - options are "none", "absolute", "probability", "grouped"
+    public static double maxDistance = 0; // default maximum distance 
+    
+    public static String priorClass = "none"; // default classes for prior models - options are "none", "prefix"
 
-    public static String model = "mistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint"
+    public static String model = "mistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission"
     public static String mode = "deterministic"; // default if no arguments are given - other option is "deterministic"
     public static String logging = "some"; // default if no arguments are given - other option is "all"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
@@ -91,35 +94,47 @@ public class StressChange extends SimState {
         CommandLineParser parser = new DefaultParser();
         Options options = new Options();
 
-        Option optModel = OptionBuilder.withArgName( "model" )
+        Option optModel = OptionBuilder.withArgName("model")
                                 .hasArg()
-                                .withDescription(  "model used for simulation" )
-                                .create( "model" );
-        options.addOption( optModel );
+                                .withDescription("model used for simulation")
+                                .create("model");
+        options.addOption(optModel);
         
-        Option optMode = OptionBuilder.withArgName( "mode" )
+        Option optMode = OptionBuilder.withArgName("mode")
                                 .hasArg()
-                                .withDescription(  "mode used for simulation" )
-                                .create( "mode" );
-        options.addOption( optMode );      
+                                .withDescription("mode used for simulation")
+                                .create("mode");
+        options.addOption(optMode);      
         
-        Option optLogging = OptionBuilder.withArgName( "logging" )
+        Option optLogging = OptionBuilder.withArgName("logging")
                                 .hasArg()
-                                .withDescription(  "logging level" )
-                                .create( "logging" );
-        options.addOption( optLogging );      
+                                .withDescription("logging level")
+                                .create("logging");
+        options.addOption(optLogging);      
 
-        Option optFreqNoun = OptionBuilder.withArgName( "freqNoun" )
+        Option optFreqNoun = OptionBuilder.withArgName("freqNoun")
                                 .hasArg()
-                                .withDescription(  "noun frequency" )
-                                .create( "freqNoun" );
-        options.addOption( optFreqNoun );   
+                                .withDescription("noun frequency")
+                                .create("freqNoun");
+        options.addOption(optFreqNoun);   
         
-        Option optFreqVerb = OptionBuilder.withArgName( "freqVerb" )
+        Option optFreqVerb = OptionBuilder.withArgName("freqVerb")
                                 .hasArg()
-                                .withDescription(  "verb frequency" )
-                                .create( "freqVerb" );
-        options.addOption( optFreqVerb );   
+                                .withDescription("verb frequency")
+                                .create("freqVerb");
+        options.addOption(optFreqVerb);   
+        
+        Option optDistModel = OptionBuilder.withArgName("distModel")
+                                .hasArg()
+                                .withDescription("distance model")
+                                .create("distModel");
+        options.addOption(optDistModel);   
+        
+        Option optPriorClass = OptionBuilder.withArgName("priorClasses")
+                                .hasArg()
+                                .withDescription("class for prior probabilities")
+                                .create("priorClasses");
+        options.addOption(optPriorClass);   
 
         try {  // parse the command line arguments
             CommandLine line = parser.parse(options, args);
@@ -137,6 +152,12 @@ public class StressChange extends SimState {
             }
             if(line.hasOption("freqVerb")) {
                 freqVerb = Integer.parseInt(line.getOptionValue("freqVerb"));
+            }
+            if(line.hasOption("distModel")) {
+                distModel = line.getOptionValue("distModel");
+            }
+            if(line.hasOption("priorClasses")) {
+                distModel = line.getOptionValue("priorClasses");
             }
         } catch ( ParseException exp) {
             System.out.println("Unexpected exception: " + exp.getMessage());

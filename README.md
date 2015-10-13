@@ -26,7 +26,7 @@ java -jar dist/stressChange.jar -model    [ mitransmission | constraint | constr
                                 -verbFreq [ 1000 ]
 ```
 
-If no option is given, the first listed is the default.
+If no option is given, the first option listed is the default.
 
 ## Overview
 
@@ -49,17 +49,17 @@ Based on the diachronic observations in the N/V pair data, (Sonderegger and Niyo
 5. *Observed changes* - There are four observed changes: {1,1} &harr; {1,2} and {2,2} &harr; {1,2}
 6. *Observed frequency dependence* - Change to {1,2} corresponds to a decrease in the frequency of N
 
-	(Sonderegger and Niyogi 2010, p. 1023)
+(Sonderegger and Niyogi 2010, p. 1023)
 
-	The dynamical systems models in (Sonderegger and Niyogi 2010) are evaluated based on whether they fulfill these observed properties.
+The dynamical systems models in (Sonderegger and Niyogi 2010) are evaluated based on whether they fulfill these observed properties.
 
-	(Sonderegger 2009) made the additional observation that word pairs with the same prefix (e.g. *re-* or *de-*) have similar trajectories. And in our analysis of the data, we observed some examples of variation between stress patterns in US and UK dictionaries, for example with the noun form of *address*:
+(Sonderegger 2009) made the additional observation that word pairs with the same prefix (e.g. *re-* or *de-*) have similar trajectories. And in our analysis of the data, we observed some examples of variation between stress patterns in US and UK dictionaries, for example with the noun form of *address*:
 
-	![Dialectical divergence for "address"](address-n.png)
+![Dialectical divergence for "address"](address-n.png)
 
-	In this figure, a y-value of 2 means only secondary stress, 1.75 means mostly secondary stress and 1.25 means mostly primary stress. You can see that US dictionaries show a change toward primary stress for *address* starting around 1935, whereas UK dictionaries continue to show only secondary stress.
+In this figure, a y-value of 2 means only secondary stress, 1.75 means mostly secondary stress and 1.25 means mostly primary stress. You can see that US dictionaries show a change toward primary stress for *address* starting around 1935, whereas UK dictionaries continue to show only secondary stress.
 
-	For this reason, we've added two observed properties:
+For this reason, we've added two observed properties:
 
 7. *Analogical change* - N/V pairs with same prefix tend to have the same stress pattern
 8. *Dialectical divergence* - N/V pair trajectories can diverge between distant groups of speakers
@@ -115,13 +115,95 @@ The assymetry in the evolution equation ensures that &alpha; tends toward 0, tha
     }
 ```
 
+All N/V pairs converge to the {1,2} stress pattern in this model.
+
 ### 2. Coupling by constraint
+
+The coupling by constraint model takes a different approach and assumes a simple *constraint* based on Ross' Generalization that the probability of a second-stress N must be less than the probability of a second-stress V for a specific word pair.
+
+```java
+    public void constraint(WordPair word) { // Model 2
+        // updates noun and verb probabilities based on constraint only
+
+        if (word.avgParentNounProb < word.avgParentVerbProb) { // if constraint is met, then estimate equals expectation
+            word.nextNounProb = word.avgParentNounProb;
+            word.nextVerbProb = word.avgParentVerbProb;
+        } else {
+            word.nextNounProb = (word.avgParentNounProb + word.avgParentVerbProb) / 2; // if constraint is not met, then estimate equals average of expectations
+            word.nextVerbProb = (word.avgParentNounProb + word.avgParentVerbProb) / 2;
+        }
+    }
+```
+
+All N/V pairs with stress patterns satisfy this constraint do not show any change, while any patterns where the N probability of second-stress is higher than the V probability converge until the constraint is met, usually when the N and V probabilities of second-stress are equal.
 
 ### 3. Coupling by constraint, with mistransmission
 
+This model combines the coupling by constraint but includes mistransmission for the "heard" examples between generations.
+
+```java
+    public void constraintWithMistransmission(WordPair word) { // Model 3
+        // the same as constraint(), but on "heard" examples (i.e. mistransmission)
+        mistransmission(word);
+        constraint(word);
+    }
+```
+
+With this model, the mistransmission updates guarantee that all N/V pairs converge to a {1,2} stress pattern.
+
 ### 4. Coupling by priors
 
+Using prior probabilities as well as observed likelihoods allows information about the lexicon in general to affect how a specific word pair's stress pattern changes over time. As with a Bayesian approach, the prior represents knowledge of stress patterns in general (e.g. that {2,1} never occurs), while the observed likelihood is based on what speakers hear from the previous generation.
+
+```java
+    public void prior(WordPair word) { // Model 4
+
+        // calculate learned probabilities (P) based on word frequencies sampled from parent probabilities
+        double kNoun = 0.0; // number of nouns heard as final stress
+        double kVerb = 0.0; // number of verbs heard as final stress
+                
+        for (int i = 0; i < word.freqNoun; i++) {
+            if (speakers.random.nextDouble() <= word.nextNounProb) {
+                kNoun++;
+            }
+        }
+
+        for (int i = 0; i < word.freqVerb; i++) {
+            if (speakers.random.nextDouble() <= word.nextVerbProb) {
+                kVerb++;
+            }
+        }
+
+        double p11 = ((word.freqNoun - kNoun) / word.freqNoun) * ((word.freqVerb - kVerb) / word.freqVerb);
+        double p12 = ((word.freqNoun - kNoun) / word.freqNoun) * (kVerb / word.freqVerb);
+        double p21 = (kNoun / word.freqNoun) * ((word.freqVerb - kVerb) / word.freqVerb);
+        double p22 = (kNoun / word.freqNoun) * (kVerb / word.freqVerb);
+
+        // Set fixed lambda values, must sum to 1
+        double lambda11 = 0.2;
+        double lambda12 = 0.4;
+        double lambda21 = 0.0; // this one should always be 0.0
+        double lambda22 = 0.4;
+        
+        // update current noun and verb probabilities based on learned and prior probabilities
+        word.nextNounProb = ((lambda21 * p21) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
+        word.nextVerbProb = ((lambda12 * p12) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
+    }
+```
+
+In this model, the stress patterns that word pairs converge to depends mostly on the lambda (prior) probabilities. However, likelihoods of 0.0 probability will of course rule out specific stress patterns, just as the lambda probability of 0.0 for the stress pattern {2,1} guarantees that it will never occur.
+
 ### 5. Coupling by priors, with mistransmission
+
+This model includes the prior probabilities of Mode 4, but applies the updates between generations to the "mistransmitted" examples.
+
+```java
+    public void priorWithMistransmission(WordPair word) {
+        // the same as prior(), but on "heard" examples (i.e. mistransmission)
+        mistransmission(word);
+        prior(word);
+    }
+```
 
 ## Additions
 
@@ -133,7 +215,15 @@ A few optional features have been added for simulations beyond what's included i
 
 ### 1. Stochasticity
 
+The deterministic models use exact probabilities between generations to update 
+
 ### 2. Distance
+
+Absolute
+
+Probabilistic
+
+Grouped (dialectical)
 
 ### 3. Prefixes
 
