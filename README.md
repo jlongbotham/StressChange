@@ -53,9 +53,9 @@ Based on the diachronic observations in the N/V pair data, Sonderegger and Niyog
 
 (Sonderegger and Niyogi 2010, p. 1023)
 
-The dynamical systems models in (Sonderegger and Niyogi 2010) are evaluated based on whether they fulfill these observed properties.
+The dynamical systems models in Sonderegger and Niyogi (2010) are evaluated based on whether they fulfill these observed properties.
 
-(Sonderegger 2009) made the additional observation that word pairs with the same prefix (e.g. *re-* or *de-*) have similar trajectories. And in our analysis of the data, we observed some examples of variation between stress patterns in US and UK dictionaries, for example with the noun form of *address*:
+Sonderegger (2009) made the additional observation that word pairs with the same prefix (e.g. *re-* or *de-*) have similar trajectories. And in our analysis of the data, we observed some examples of variation between stress patterns in US and UK dictionaries, for example with the noun form of *address*:
 
 ![Dialectical divergence for "address"](address-n.png)
 
@@ -68,7 +68,7 @@ For this reason, we've added two observed properties:
 
 ## Baseline Models
 
-The baseline models from (Sonderegger and Niyogi 2010) have specific characteristics:
+The baseline models from Sonderegger and Niyogi (2010) have specific characteristics:
 
 1. Each generation is discrete
 2. Speakers in G<sub>t</sub> learn from speakers in the parent generation G<sub>t-1</sub> 
@@ -83,7 +83,7 @@ The baseline models from (Sonderegger and Niyogi 2010) have specific characteris
 
 The first model is based on the assumption that language change often occurs in the "handover" between generations due to mistransmission. That is, speakers sometimes mishear what the parent generation says, influencing the language that they end up speaking.
 
-In the context of the N/V stress patterns for these verbs, there is a clear bias toward a {1,2} stress pattern, known as Ross' generalization. One explanation for this bias is that generally in English stressed and unstressed syllables appear alternately in a sentence. As nouns often follow an unstressed article (a "trochaic-biasing" context), they tend to have primary stress. Because of this tendency, (Sonderegger and Niyogi 2010) assume that mistransmission can occur in only one direction ({1,1}, {2,2} &rarr; {1,2}). 
+In the context of the N/V stress patterns for these verbs, there is a clear bias toward a {1,2} stress pattern, known as Ross' generalization. One explanation for this bias is that generally in English stressed and unstressed syllables appear alternately in a sentence. As nouns often follow an unstressed article (a "trochaic-biasing" context), they tend to have primary stress. Because of this tendency, Sonderegger and Niyogi (2010) assume that mistransmission can occur in only one direction ({1,1}, {2,2} &rarr; {1,2}). 
 
 Using the following definitions:
 
@@ -219,7 +219,7 @@ This model includes the prior probabilities of Mode 4, but applies the updates b
 
 ## Additions
 
-A few optional features have been added for simulations beyond what's included in (Sonderegger and Niyogi 2010):
+A few optional features have been added for simulations beyond what's included in Sonderegger and Niyogi (2010):
 
 1. *Stochasticity* - Sample from parent probabilities rather than taking them directly
 2. *Distance* - In the MASON 2D field, speakers only learn from parents within a specified distance
@@ -265,7 +265,9 @@ With the grouped setting, speakers are initially placed into two separate groups
 
 `-priorClass prefix`
 
-Using prefix classes allows having prior probabilities set per prefix class, rather than for the lexicon as a whole. This allows for representing similarities at a more fine-grained level, consistent with the observed property that word pairs with the same prefix tend to have similar stress patterns.
+Using prefix classes allows having prior probabilities set per prefix class, rather than for the lexicon as a whole. This allows for representing similarities at a more fine-grained level, consistent with the observed property that word pairs with the same prefix tend to have similar stress patterns. With this setting, the prior probabilities (lambdas) are caculated based on the initial stress patterns *per prefix class*. For example, word pairs with the prefix *out* have prior probabilities of {1,2} = 0.9 and {2,2} = 0.1, while pairs with the prefix *pre* have {1,1} = 0.2, {1,2} = 0.4 and {2,2} = 0.4. If a word pair does not have a specific prefix (e.g. *affect*), the prior probabilities are caculated from the lexicon as a whole, that is {1,1} = 0.09, {1,2} = 0.43 and {2,2} = 0.48.
+
+Without this option, all word pairs have the same prior probabilities, which can be set in the code.
 
 ## Results
 
