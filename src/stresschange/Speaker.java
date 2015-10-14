@@ -14,11 +14,8 @@ import sim.util.*;
  */
 public class Speaker implements Steppable {
 
-    public static final double MAX_FORCE = 3.0; // from tutorial
-
     public ArrayList<WordPair> words = new ArrayList<>();
-    public int id = 0;
-    
+    public int id = 0; 
     public String group = "none";
 
     public StressChange speakers;
@@ -259,50 +256,53 @@ public class Speaker implements Steppable {
             System.out.println("P22: " + p22);
         }
 
-        // Set fixed lambda values, must sum to 1
-        double lambda11 = 0.2;
-        double lambda12 = 0.4;
-        double lambda21 = 0.0; // this one should always be 0.0
-        double lambda22 = 0.4;
-        
-        /* // calculate prior probabilities (lambda) based on current state of lexicon
-        double lambda11 = 0.0;
-        double lambda12 = 0.0;
-        double lambda21 = 0.0;
-        double lambda22 = 0.0;
+        if (StressChange.step == 0) { // set lambdas initially
+            if (StressChange.priorClass.equals("prefix")) { // reset lambda values based on prefix class
+                word.lambda11 = 0.0;
+                word.lambda12 = 0.0;
+                word.lambda21 = 0.0;
+                word.lambda22 = 0.0;
 
-        for (WordPair wordPair : words) {
-            if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb < 0.5) { // lambda11
-                lambda11++;
-            } else if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb >= 0.5) { // lambda12
-                lambda12++;
-            } else if (wordPair.currentNounProb >= 0.5 && wordPair.currentVerbProb < 0.5) { // lamda21
-                lambda21++;
-            } else { // lambda22
-                lambda22++;
+                for (WordPair wordPair : words) { // iterate through word pairs
+                    if (wordPair.prefix.equals(word.prefix) || word.prefix.equals("na")) { // for current prefix class or "na"
+                        word.prefixClassSize++;
+                        if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb < 0.5) { // lambda11
+                            word.lambda11++;
+                        } else if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb >= 0.5) { // lambda12
+                            word.lambda12++;
+                        } else if (wordPair.currentNounProb >= 0.5 && wordPair.currentVerbProb < 0.5) { // lamda21
+                            word.lambda21++;
+                        } else { // lambda22
+                            word.lambda22++;
+                        }
+
+                    }
+                }
+                // get prior probabilities
+                word.lambda11 = word.lambda11 / word.prefixClassSize;
+                word.lambda12 = word.lambda12 / word.prefixClassSize;
+                word.lambda21 = word.lambda21 / word.prefixClassSize;
+                word.lambda22 = word.lambda22 / word.prefixClassSize;
+            } else {  // Set fixed lambda values, must sum to 1
+                word.lambda11 = 0.2;
+                word.lambda12 = 0.4;
+                word.lambda21 = 0.0; // this one should always be 0.0
+                word.lambda22 = 0.4;
             }
         }
         
-        
-        // get prior probabilities
-        lambda11 = lambda11 / words.size();
-        lambda12 = lambda12 / words.size();
-        lambda21 = lambda21 / words.size();
-        lambda22 = lambda22 / words.size();
-        */
-
         if (StressChange.logging.equals("all")) {
-            System.out.println("LAMBDA11: " + lambda11);
-            System.out.println("LAMBDA12: " + lambda12);
-            System.out.println("LAMBDA21: " + lambda21);
-            System.out.println("LAMBDA22: " + lambda22);
-            double R = (word.freqVerb / (1 + (word.freqVerb - 1) * (lambda12 / lambda11))) * (word.freqNoun / (1 + (word.freqNoun - 1) * (lambda12 / lambda22)));
+            System.out.println("LAMBDA11: " + word.lambda11);
+            System.out.println("LAMBDA12: " + word.lambda12);
+            System.out.println("LAMBDA21: " + word.lambda21);
+            System.out.println("LAMBDA22: " + word.lambda22);
+            double R = (word.freqVerb / (1 + (word.freqVerb - 1) * (word.lambda12 / word.lambda11))) * (word.freqNoun / (1 + (word.freqNoun - 1) * (word.lambda12 / word.lambda22)));
             System.out.println("R: " + R);
         }
         
         // update current noun and verb probabilities based on learned and prior probabilities
-        word.nextNounProb = ((lambda21 * p21) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
-        word.nextVerbProb = ((lambda12 * p12) + (lambda22 * p22)) / ((lambda11 * p11) + (lambda12 * p12) + (lambda21 * p21) + (lambda22 * p22));
+        word.nextNounProb = ((word.lambda21 * p21) + (word.lambda22 * p22)) / ((word.lambda11 * p11) + (word.lambda12 * p12) + (word.lambda21 * p21) + (word.lambda22 * p22));
+        word.nextVerbProb = ((word.lambda12 * p12) + (word.lambda22 * p22)) / ((word.lambda11 * p11) + (word.lambda12 * p12) + (word.lambda21 * p21) + (word.lambda22 * p22));
 
         if (StressChange.logging.equals("all")) {
             System.out.println("END OF PRIOR: " + word);

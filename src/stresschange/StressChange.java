@@ -1,10 +1,6 @@
 /*
- * 1st model: agents change based on mistransmission
- * Mistransmission probabilities are different for verbs vs nouns, as the probability is the p(final stress)
- * 
- * 2nd model: agents change based on constraint that final stress is more probable for verbs than nouns
- * 
- * 3rd model: 
+ * TODO:
+ * - add option to "seed" different values for different groups
  */
 package stresschange;
 
@@ -35,6 +31,7 @@ public class StressChange extends SimState {
     public static Network convos = new Network(false); // speaker relationships graph, false indicates undirected
     public Bag speakers = new Bag();
     public static int count = 0; // count of speakers updated
+    public static int step = 0; // step count
 
     public static double misProbP = 0.1; // mistransmission probability for N
     public static double misProbQ = 0.1; // mistransmission probability for V
@@ -203,6 +200,7 @@ public class StressChange extends SimState {
             if (!state.schedule.step(state)) {
                 break;
             }
+            step++;
         } while (state.schedule.getSteps() < 20); // 20 generations
         state.finish();
 
