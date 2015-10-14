@@ -2,7 +2,7 @@
 
 This project uses the [MASON simulation toolkit](https://cs.gmu.edu/~eclab/projects/mason/) to implement 5 language change models for the stress shift in English N/V pairs. 
 
-The 5 models come from (Sonderegger and Niyogi 2010) [*Combining data and mathematical models of language change*](http://www.aclweb.org/anthology/P/P10/P10-1104.pdf).
+The 5 models come from Sonderegger and Niyogi (2010) [*Combining data and mathematical models of language change*](http://www.aclweb.org/anthology/P/P10/P10-1104.pdf).
 
 ## Installation
 
@@ -14,7 +14,7 @@ No installation or compiling is required. The `dist` folder includes jar files f
 
 You can run the code from the command line as follows:
 
-`java -jar dist/stressChange.jar -model mistransmission -mode deterministic -logging some -nounFreq 1000 -verbFreq 1000`
+`java -jar dist/stressChange.jar -model mistransmission -mode deterministic -distModel none -logging some -priorClass none -nounFreq 1000 -verbFreq 1000`
 
 The options are the following:
 
@@ -34,15 +34,15 @@ If no option is given, the first option listed is the default.
 
 ### Stress in English N/V pairs
 
-English has many word pairs where the noun and verb forms are identical except for syllable stress.
+English has many word pairs where the noun and verb forms are identical except for syllable stress, for example *per*mit (n) vs. per*mit* (v).
 
 ### Change over time
 
-The stress patterns of these N/V pairs has been shown to change over time. (Sonderegger 2009) compiled entries for 149 N/V from British and American dictionaries from around 1500 to today. 
+The stress patterns of these N/V pairs has been shown to change over time. Sonderegger (2009) compiled entries for 149 N/V pairs from British and American dictionaries from around 1500 to today. 
 
 ### Observed properties
 
-Based on the diachronic observations in the N/V pair data, (Sonderegger and Niyogi 2010) derive 6 properties (or "observed dynamics") of the stress pattern language change:
+Based on the diachronic observations in the N/V pair data, Sonderegger and Niyogi (2010) derive 6 properties (or "observed dynamics") of the stress pattern language change:
 
 1. *Unstable state* - No N/V pair is observed with a {2,1} stress pattern
 2. *Stable states* - Stress patterns {1,1}, {1,2} and {2,2} are all observed in the historical data
