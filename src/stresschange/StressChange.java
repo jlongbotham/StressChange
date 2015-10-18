@@ -27,7 +27,7 @@ public class StressChange extends SimState {
      * @param args the command line arguments
      */
     public Continuous2D field = new Continuous2D(1.0, 100, 100); // representation of space/field from sim.field.continuous.Continuous2D, bounds 100x100
-    public static int numSpeakers = 10; // number of speakers
+    public static int numSpeakers = 100; // number of speakers
     public static Network convos = new Network(false); // speaker relationships graph, false indicates undirected
     public Bag speakers = new Bag();
     public static int count = 0; // count of speakers updated
@@ -39,14 +39,15 @@ public class StressChange extends SimState {
     public static int freqNoun = 1000; // default frequency for nouns
     public static int freqVerb = 1000; // default frequency for verbs
 
-    public static String distModel = "none"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped"
-    public static double maxDistance = 20; // default maximum distance 
+    public static String distModel = "none"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped", "lattice"
+    public static double maxDistance = 30; // default maximum distance 
+    public int x = 5; public int y = 5; // fixed x and y for lattice model
     
     public static String priorClass = "none"; // default classes for prior models - options are "none", "prefix"
 
     public static String model = "mistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission"
     public static String mode = "deterministic"; // default if no arguments are given - other option is "deterministic"
-    public static String logging = "some"; // default if no arguments are given - other option is "all"
+    public static String logging = "some"; // default if no arguments are given - other options are "all", "troubleshooting"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
 
     public static HashMap<String[], double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
@@ -61,39 +62,37 @@ public class StressChange extends SimState {
         convos.clear(); // clear the speakers
 
         // add some speakers to the field
-        if (distModel.equals("grouped")) { // add two distinct groups with equal number of people
-            for (int i = 0; i < (numSpeakers / 2); i++) {
-                Speaker speaker = new Speaker(initialStress, i + 1);
-                field.setObjectLocation(speaker,
-                        new Double2D(field.getWidth() * 0.25 + 25 * (random.nextDouble() - 0.5),
-                                field.getHeight() * 0.25 + 25 * (random.nextDouble() - 0.5)));
+        if (distModel.equals("lattice")){ numSpeakers = 100; maxDistance = 11; } // fixed number of speakers and fixed distance for lattice
+        for (int i = 0; i < numSpeakers; i++) {
+            Speaker speaker = new Speaker(initialStress, i + 1);
 
-                convos.addNode(speaker); // each speaker added to graph as a node
-                schedule.scheduleRepeating(speaker);
-                speaker.group = "UK";
-            }
-            for (int i = 0; i < (numSpeakers / 2); i++) {
-                Speaker speaker = new Speaker(initialStress, 2 * (i + 1));
-                field.setObjectLocation(speaker,
-                        new Double2D(field.getWidth() * 0.75 + 25 * (random.nextDouble() - 0.5),
-                                field.getHeight() * 0.75 + 25 * (random.nextDouble() - 0.5)));
-
-                convos.addNode(speaker); // each speaker added to graph as a node
-                schedule.scheduleRepeating(speaker);
-                speaker.group = "US";
-            }
-        } else { // otherwise just one big group
-            for (int i = 0; i < numSpeakers; i++) {
-                Speaker speaker = new Speaker(initialStress, i);
+            if (distModel.equals("grouped")) { // add two distinct groups with equal number of people
+                if (i % 2 == 0) {
+                    field.setObjectLocation(speaker,
+                            new Double2D(field.getWidth() * 0.25 + 25 * (random.nextDouble() - 0.5),
+                                    field.getHeight() * 0.25 + 25 * (random.nextDouble() - 0.5)));
+                    speaker.group = "UK";
+                } else {
+                    field.setObjectLocation(speaker,
+                            new Double2D(field.getWidth() * 0.75 + 25 * (random.nextDouble() - 0.5),
+                                    field.getHeight() * 0.75 + 25 * (random.nextDouble() - 0.5)));
+                    speaker.group = "US";
+                }
+            } else if (distModel.equals("lattice")) { // add fixed number of speakers at fixed points
+                if (i != 0 && i % 10 == 0){ x += 10; y = 5;}
+                field.setObjectLocation(speaker, new Double2D(x,y));
+                y += 10;
+            } else { // otherwise just one big group centered at the middle
                 field.setObjectLocation(speaker,
                         new Double2D(field.getWidth() * 0.5 + 25 * (random.nextDouble() - 0.5),
                                 field.getHeight() * 0.5 + 25 * (random.nextDouble() - 0.5)));
-
-                convos.addNode(speaker); // each speaker added to graph as a node
-                schedule.scheduleRepeating(speaker);
             }
+            convos.addNode(speaker); // each speaker added to graph as a node
+            schedule.scheduleRepeating(speaker);
         }
-        // add edges between speakers defining closeness
+        
+        /* From tutorial - not actually used
+        // add edges between speakers defining closeness 
         speakers = convos.getAllNodes(); // extract all speakers from the graph, returns sim.util.Bag, like an ArrayList but faster
         for (int i = 0; i < speakers.size(); i++) { // loop through Bag of speakers
             Object speaker = speakers.get(i);
@@ -106,6 +105,7 @@ public class StressChange extends SimState {
             double closeness = random.nextDouble();
             convos.addEdge(speaker, speakerB, new Double(closeness));
         }
+                */
     }
 
     public static void main(String[] args) throws IOException {

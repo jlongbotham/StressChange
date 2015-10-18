@@ -235,6 +235,8 @@ The deterministic models use exact probabilities between generations (default se
 
 #### None
 
+`-distModel none`
+
 With this default setting, no special restrictions are placed on distance, i.e. everyone speaks to everyone.
 
 #### Random
