@@ -27,6 +27,24 @@ public class Speaker implements Steppable {
             words.add(new WordPair(e.getKey()[0], e.getValue()[0], e.getValue()[1], e.getKey()[1]));  // create WordPair objects for each word pair from the initial HashMap
         }
     }
+    
+    // get specific word probability for visualization
+    public double getWordProbability(String word, String pos){
+        double prob = 0.0;
+        System.out.println("Words: " + words.size());
+        for (WordPair word1 : words) {
+            System.out.println(word1);
+            if (word1.word.equals(word)) {
+                if (pos.equals("n")) {
+                    prob = word1.currentNounProb;
+                } else if (pos.equals("v")) {
+                    prob = word1.currentVerbProb;
+                }
+            } 
+        }
+        System.out.println("Visualization for " + word + " (" + pos + ") with current probability " + prob);
+        return prob;
+    }
 
     // get mistransmission updates
     public double getMisNoun(double p, double alphaPrev) {

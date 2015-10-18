@@ -27,7 +27,7 @@ public class StressChange extends SimState {
      * @param args the command line arguments
      */
     public Continuous2D field = new Continuous2D(1.0, 100, 100); // representation of space/field from sim.field.continuous.Continuous2D, bounds 100x100
-    public static int numSpeakers = 100; // number of speakers
+    public static int numSpeakers = 10; // number of speakers
     public static Network convos = new Network(false); // speaker relationships graph, false indicates undirected
     public Bag speakers = new Bag();
     public static int count = 0; // count of speakers updated
@@ -39,14 +39,14 @@ public class StressChange extends SimState {
     public static int freqNoun = 1000; // default frequency for nouns
     public static int freqVerb = 1000; // default frequency for verbs
 
-    public static String distModel = "none"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped", "lattice"
+    public static String distModel = "grouped"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped", "lattice"
     public static double maxDistance = 30; // default maximum distance 
     public int x = 5; public int y = 5; // fixed x and y for lattice model
     
     public static String priorClass = "none"; // default classes for prior models - options are "none", "prefix"
 
-    public static String model = "mistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission"
-    public static String mode = "deterministic"; // default if no arguments are given - other option is "deterministic"
+    public static String model = "priorWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission"
+    public static String mode = "stochastic"; // default if no arguments are given - other option is "deterministic"
     public static String logging = "some"; // default if no arguments are given - other options are "all", "troubleshooting"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
 
@@ -107,7 +107,7 @@ public class StressChange extends SimState {
         }
                 */
     }
-
+    
     public static void main(String[] args) throws IOException {
         // get options from command line
         CommandLineParser parser = new DefaultParser();
