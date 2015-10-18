@@ -31,18 +31,18 @@ public class Speaker implements Steppable {
     // get specific word probability for visualization
     public double getWordProbability(String word, String pos){
         double prob = 0.0;
-        System.out.println("Words: " + words.size());
         for (WordPair word1 : words) {
-            System.out.println(word1);
-            if (word1.word.equals(word)) {
-                if (pos.equals("n")) {
+            if (word1.word.equals(word)) { // first update location for probability visualization
+                
+                speakers.probSpace.setObjectLocation(this, new Double2D(word1.currentNounProb * 100, word1.currentVerbProb * 100));    
+                
+                if (pos.equals("n")) { // then update for field visualization
                     prob = word1.currentNounProb;
                 } else if (pos.equals("v")) {
                     prob = word1.currentVerbProb;
                 }
             } 
         }
-        System.out.println("Visualization for " + word + " (" + pos + ") with current probability " + prob);
         return prob;
     }
 
@@ -133,7 +133,7 @@ public class Speaker implements Steppable {
     }
     
     public void runModel() {
-        if(id >= 0 && id < 6) {System.out.println("Speaker " + id + " ================");}
+        if (!StressChange.logging.equals("none")) { if(id >= 0 && id < 6) {System.out.println("Speaker " + id + " ================");} }
         
         updateParentAverage();  // first get parent averages    
         StressChange.count++; // update count
@@ -153,14 +153,16 @@ public class Speaker implements Steppable {
                 }
             }
 
-            if (id >= 0 && id < 6) {
-                if (StressChange.logging.equals("all") || StressChange.logging.equals("troubleshooting")) {
-                    System.out.println(word); // print current state of all words
-                } else {
-                    for (String rep : StressChange.representativeWords) {
-                        if (word.word.contains(rep)) {
-                            System.out.println(word); // only print current state if word is in representative array
-                            break;
+            if (!StressChange.logging.equals("none")) {
+                if (id >= 0 && id < 6) {
+                    if (StressChange.logging.equals("all") || StressChange.logging.equals("troubleshooting")) {
+                        System.out.println(word); // print current state of all words
+                    } else {
+                        for (String rep : StressChange.representativeWords) {
+                            if (word.word.contains(rep)) {
+                                System.out.println(word); // only print current state if word is in representative array
+                                break;
+                            }
                         }
                     }
                 }

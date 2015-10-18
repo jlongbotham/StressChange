@@ -21,12 +21,13 @@ import sim.field.network.*;
 /**
  * @author James
  */
-public class StressChange extends SimState {
+public class StressChange extends SimState /*implements sim.portrayal.inspector.Tabbable*/{
 
     /**
      * @param args the command line arguments
      */
     public Continuous2D field = new Continuous2D(1.0, 100, 100); // representation of space/field from sim.field.continuous.Continuous2D, bounds 100x100
+    public Continuous2D probSpace = new Continuous2D(1.0, 100, 100);
     public static int numSpeakers = 10; // number of speakers
     public static Network convos = new Network(false); // speaker relationships graph, false indicates undirected
     public Bag speakers = new Bag();
@@ -47,9 +48,30 @@ public class StressChange extends SimState {
 
     public static String model = "priorWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission"
     public static String mode = "stochastic"; // default if no arguments are given - other option is "deterministic"
-    public static String logging = "some"; // default if no arguments are given - other options are "all", "troubleshooting"
+    public static String logging = "none"; // default if no arguments are given - other options are "some", "all", "troubleshooting"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
-
+    public static String targetWord = "address";
+    
+    // properties for "Model" tab in GUI
+    public int getNumSpeakers() { return numSpeakers; }
+    public void setNumSpeakers(int val) {if (val > 0) numSpeakers = val; }
+    public int getNounFreq() { return freqNoun; }
+    public void setNounFreq(int val) {if (val > 0) freqNoun = val; }
+    public int getVerbFreq() { return freqVerb; }
+    public void setVerbFreq(int val) {if (val > 0) freqVerb = val; }
+    public String getDistanceModel() { return distModel; }
+    public void setDistanceModel(String s) { if(s.equals("none") || s.equals("random") || s.equals("absolute") || s.equals("probabilistic") || s.equals("grouped") || s.equals("lattice")) distModel = s; }
+    public String getModel() { return model; }
+    public void setModel(String s) { if(s.equals("mistransmission") || s.equals("constraint") || s.equals("constraintWithMistransmission") || s.equals("prior") || s.equals("priorWithMistransmission")) model = s; }
+    public String getLogging() { return logging; }
+    public void setLogging(String s) { if(s.equals("some") || s.equals("all") || s.equals("troubleshooting") || s.equals("none")) logging = s; }
+    public String getMode() { return mode; }
+    public void setMode(String s) { if(s.equals("deterministic") || s.equals("stochastic")) mode = s; }
+    public String getTargetWord() { return targetWord; }
+    public void setTargetWord(String s) { targetWord = s; }
+    
+    
+    
     public static HashMap<String[], double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 
     public StressChange(long seed) {
@@ -59,6 +81,7 @@ public class StressChange extends SimState {
     public void start() {
         super.start(); // very important!
         field.clear(); // clear the field
+        probSpace.clear(); // clear the probability visualization
         convos.clear(); // clear the speakers
 
         // add some speakers to the field
@@ -89,9 +112,17 @@ public class StressChange extends SimState {
             }
             convos.addNode(speaker); // each speaker added to graph as a node
             schedule.scheduleRepeating(speaker);
+            
+            // add probability for visualization
+            for (WordPair word1 : speaker.words) {
+                if (word1.word.equals(targetWord)){
+                     probSpace.setObjectLocation(speaker, new Double2D(word1.currentNounProb * 100, word1.currentVerbProb * 100));    
+                }   
+            }
+            
         }
         
-        /* From tutorial - not actually used
+        /* From tutorial - not actually used, but should be added for visualization of parents
         // add edges between speakers defining closeness 
         speakers = convos.getAllNodes(); // extract all speakers from the graph, returns sim.util.Bag, like an ArrayList but faster
         for (int i = 0; i < speakers.size(); i++) { // loop through Bag of speakers
@@ -106,6 +137,7 @@ public class StressChange extends SimState {
             convos.addEdge(speaker, speakerB, new Double(closeness));
         }
                 */
+        
     }
     
     public static void main(String[] args) throws IOException {
@@ -182,12 +214,14 @@ public class StressChange extends SimState {
             System.out.println("Unexpected exception: " + exp.getMessage());
         }
 
-        System.out.println("Simulating " + mode + " model with " + model + " and " + distModel + " distance model, showing " + logging + " words");
-        if (freqNoun != 0) {
-            System.out.println("N1 (noun frequency): " + freqNoun);
-            System.out.println("N2 (verb frequency): " + freqVerb);
-        } else {
-            System.out.println("N1 and N2 (noun and verb frequency): random");
+        if (!StressChange.logging.equals("none")) {
+            System.out.println("Simulating " + mode + " model with " + model + " and " + distModel + " distance model, showing " + logging + " words");
+            if (freqNoun != 0) {
+                System.out.println("N1 (noun frequency): " + freqNoun);
+                System.out.println("N2 (verb frequency): " + freqVerb);
+            } else {
+                System.out.println("N1 and N2 (noun and verb frequency): random");
+            }
         }
         
         initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStressSmoothed.txt").OpenFile(); // read in initial pairs
@@ -195,8 +229,8 @@ public class StressChange extends SimState {
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();
         do {
-            System.out.println("");
-            System.out.println("Generation at year " + (1500 + (state.schedule.getSteps()) * 25)); // 25-year generations            
+            if (! StressChange.logging.equals("none")){  System.out.println(""); }
+            if (! StressChange.logging.equals("none")){  System.out.println("Generation at year " + (1500 + (state.schedule.getSteps()) * 25)); }// 25-year generations            
             if (!state.schedule.step(state)) {
                 break;
             }

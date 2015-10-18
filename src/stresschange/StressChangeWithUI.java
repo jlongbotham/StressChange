@@ -18,9 +18,13 @@ import java.io.IOException;
  */
 public class StressChangeWithUI extends GUIState {
     
-    public Display2D display;
-    public JFrame displayFrame;
+    public Display2D fieldDisplay;
+    public JFrame fieldDisplayFrame;
     ContinuousPortrayal2D fieldPortrayal = new ContinuousPortrayal2D();
+    
+    public Display2D probDisplay;
+    public JFrame probDisplayFrame;
+    ContinuousPortrayal2D probPortrayal = new ContinuousPortrayal2D();
     
     public static void main(String[] args) throws IOException{
         StressChangeWithUI vid = new StressChangeWithUI();
@@ -32,6 +36,8 @@ public class StressChangeWithUI extends GUIState {
     public StressChangeWithUI() { super(new StressChange(System.currentTimeMillis())); }
     public StressChangeWithUI(SimState state) { super(state); }
     public static String getName() { return "Stress Change Simulation"; }
+    
+    public Object getSimulationInspectedObject() { return state; }  // non-volatile
     
     public void start() {
         super.start();
@@ -46,12 +52,13 @@ public class StressChangeWithUI extends GUIState {
     public void setupPortrayals(){
         StressChange speakers = (StressChange) state;
         
+        // field to visualize space
         fieldPortrayal.setField(speakers.field);
-        fieldPortrayal.setPortrayalForAll(new OvalPortrayal2D(){
+        fieldPortrayal.setPortrayalForAll(new OvalPortrayal2D(){ // colors change with probability of a specific noun or verb
             public void draw(Object object, Graphics2D graphics, DrawInfo2D info){
                 Speaker speaker = (Speaker)object;
                 
-                int probabilityShade = (int) (speaker.getWordProbability("address", "n") * 255);
+                int probabilityShade = (int) (speaker.getWordProbability(StressChange.targetWord, "n") * 255);
                 if (probabilityShade > 255) probabilityShade = 255;
                 paint = new Color(probabilityShade, 0, 255 - probabilityShade);
                 super.draw(object, graphics, info);
@@ -59,28 +66,50 @@ public class StressChangeWithUI extends GUIState {
 
         });
         
-        display.reset();
-        display.setBackdrop(Color.white);
+        fieldDisplay.reset();
+        fieldDisplay.setBackdrop(Color.white);
         
-        display.repaint();
+        fieldDisplay.repaint();
+        
+        // visualization for probability space
+        probPortrayal.setField(speakers.probSpace);
+        probPortrayal.setPortrayalForAll(new OvalPortrayal2D());
+        
+        probDisplay.reset();
+        probDisplay.setBackdrop(Color.white);
+        
+        probDisplay.repaint();
+        
     }
         
     public void init(Controller c){
         super.init(c);
-        display = new Display2D(600,600,this);
-        display.setClipping(false);
         
-        displayFrame = display.createFrame();
-        displayFrame.setTitle("Speaker Field");
-        c.registerFrame(displayFrame);
-        displayFrame.setVisible(true);
-        display.attach(fieldPortrayal, "Field");
+        // field to visualize space
+        fieldDisplay = new Display2D(600,600,this);
+        fieldDisplay.setClipping(false);
+        
+        fieldDisplayFrame = fieldDisplay.createFrame();
+        fieldDisplayFrame.setTitle("Speaker Field");
+        c.registerFrame(fieldDisplayFrame);
+        fieldDisplayFrame.setVisible(true);
+        fieldDisplay.attach(fieldPortrayal, "Field");
+        
+        // visualization for probability space
+        probDisplay = new Display2D(600,600,this);
+        probDisplay.setClipping(false);
+        
+        probDisplayFrame = probDisplay.createFrame();
+        probDisplayFrame.setTitle("Stress Pattern");
+        c.registerFrame(probDisplayFrame);
+        probDisplayFrame.setVisible(true);
+        probDisplay.attach(probPortrayal, "Stress");
     }    
     
     public void quit(){
         super.quit();
-        if (displayFrame!=null) displayFrame.dispose();
-        displayFrame = null; 
-        display = null;
+        if (fieldDisplayFrame!=null) fieldDisplayFrame.dispose();
+        fieldDisplayFrame = null; 
+        fieldDisplay = null;
     }
 }
