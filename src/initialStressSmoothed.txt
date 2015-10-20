@@ -147,3 +147,4 @@ upright	0.01	0.01	up
 uprise	0.99	0.99	up
 uprush	0.01	0.99	up
 upset	0.01	0.99	up
+a-test	0.99	0.01	na

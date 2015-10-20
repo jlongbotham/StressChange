@@ -27,12 +27,14 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
      * @param args the command line arguments
      */
     public Continuous2D field = new Continuous2D(1.0, 100, 100); // representation of space/field from sim.field.continuous.Continuous2D, bounds 100x100
-    public Continuous2D probSpace = new Continuous2D(1.0, 100, 100);
+    public Continuous2D targetSpace = new Continuous2D(1.0, 110, 110);
     public static int numSpeakers = 10; // number of speakers
     public static Network convos = new Network(false); // speaker relationships graph, false indicates undirected
     public Bag speakers = new Bag();
     public static int count = 0; // count of speakers updated
     public static int step = 0; // step count
+    public double totalAvgVerbProb = 0.0; // to get universal average for visualization
+    public double totalAvgNounProb = 0.0;
 
     public static double misProbP = 0.1; // mistransmission probability for N
     public static double misProbQ = 0.1; // mistransmission probability for V
@@ -44,10 +46,11 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public static double maxDistance = 30; // default maximum distance 
     public int x = 5; public int y = 5; // fixed x and y for lattice model
     
-    public static String priorClass = "none"; // default classes for prior models - options are "none", "prefix"
+    public static Boolean priorClass = true; // use prefixes as prior class
 
     public static String model = "priorWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission"
-    public static String mode = "stochastic"; // default if no arguments are given - other option is "deterministic"
+    public static Boolean stochastic = true; // default if no arguments are given - otherwise is "deterministic"
+    public static int loggingLevel = 0;
     public static String logging = "none"; // default if no arguments are given - other options are "some", "all", "troubleshooting"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
     public static String targetWord = "address";
@@ -55,22 +58,48 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     // properties for "Model" tab in GUI
     public int getNumSpeakers() { return numSpeakers; }
     public void setNumSpeakers(int val) {if (val > 0) numSpeakers = val; }
+    public Object domNumSpeakers() { return new Interval(10, 100); }
+    public String nameNumSpeakers() {return "Number of speakers";}
+    
     public int getNounFreq() { return freqNoun; }
     public void setNounFreq(int val) {if (val > 0) freqNoun = val; }
+    public Object domNounFreq() { return new Interval(10, 1000); }
+    public String nameNounFreq() {return "Noun frequency";}
+    
     public int getVerbFreq() { return freqVerb; }
     public void setVerbFreq(int val) {if (val > 0) freqVerb = val; }
+    public Object domVerbFreq() { return new Interval(10, 1000); }
+    public String nameVerbFreq() {return "Verb frequency";}
+    
     public String getDistanceModel() { return distModel; }
     public void setDistanceModel(String s) { if(s.equals("none") || s.equals("random") || s.equals("absolute") || s.equals("probabilistic") || s.equals("grouped") || s.equals("lattice")) distModel = s; }
+    public String nameDistanceModel() {return "Distance model";}
+    public String desDistanceModel() {return "The optionsa are: none, random, absolute, probabilistic, grouped, lattice";}
+    
     public String getModel() { return model; }
     public void setModel(String s) { if(s.equals("mistransmission") || s.equals("constraint") || s.equals("constraintWithMistransmission") || s.equals("prior") || s.equals("priorWithMistransmission")) model = s; }
-    public String getLogging() { return logging; }
-    public void setLogging(String s) { if(s.equals("some") || s.equals("all") || s.equals("troubleshooting") || s.equals("none")) logging = s; }
-    public String getMode() { return mode; }
-    public void setMode(String s) { if(s.equals("deterministic") || s.equals("stochastic")) mode = s; }
+    public String nameModel() {return "Simulation model";}
+    public String desModel() {return "The model you want to run. Options are: mistransmission, constraint, constraintWithMistransmission, prior, priorWithMistransmission";}
+    //TODO make popup, see Mason manual p.80-81
+    //public Object domModel() {return new String[] { "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission" };}
+    
+    public int getLogging() { return loggingLevel; }
+    public void setLogging(int val) { loggingLevel = val; if(val == 0){logging = "none";} else if(val == 1){logging = "some";} else if(val == 2){logging = "all";} else if(val == 3){logging = "troubleshooting";} else {logging = "none";}}
+    public Object domLogging() { return new Interval(0, 3); }
+    public String nameLogging() {return "Logging level";}    
+    public String desLogging() {return "0 = none; 1 = show words from visualization; 2 = show all words; 3 = show troubleshooting information";}
+
+    public Boolean isStochastic() { return stochastic; }
+    public void setStochastic(Boolean val) { stochastic = val; }
+    
+    public Boolean isPriorClass() { return priorClass; }
+    public void setPriorClass(Boolean val) { priorClass = val; }
+    public String namePriorClass() {return "Prefix class prior";}
+    public String desPriorClass() {return "Use prefixes as a class for determining prior probabilities";}
+    
     public String getTargetWord() { return targetWord; }
     public void setTargetWord(String s) { targetWord = s; }
-    
-    
+    public String nameTargetWord() {return "Target word (n)";}
     
     public static HashMap<String[], double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 
@@ -81,7 +110,8 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public void start() {
         super.start(); // very important!
         field.clear(); // clear the field
-        probSpace.clear(); // clear the probability visualization
+        //probSpace.clear(); // clear the probability visualization
+        targetSpace.clear(); // clear the probability visualization
         convos.clear(); // clear the speakers
 
         // add some speakers to the field
@@ -107,37 +137,26 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
                 y += 10;
             } else { // otherwise just one big group centered at the middle
                 field.setObjectLocation(speaker,
-                        new Double2D(field.getWidth() * 0.5 + 25 * (random.nextDouble() - 0.5),
-                                field.getHeight() * 0.5 + 25 * (random.nextDouble() - 0.5)));
+                        new Double2D(field.getWidth() * 0.5 + 50 * (random.nextDouble() - 0.5),
+                                field.getHeight() * 0.5 + 50 * (random.nextDouble() - 0.5)));
             }
             convos.addNode(speaker); // each speaker added to graph as a node
             schedule.scheduleRepeating(speaker);
             
             // add probability for visualization
             for (WordPair word1 : speaker.words) {
-                if (word1.word.equals(targetWord)){
-                     probSpace.setObjectLocation(speaker, new Double2D(word1.currentNounProb * 100, word1.currentVerbProb * 100));    
-                }   
+                if (word1.word.equals(targetWord)) {
+                        targetSpace.setObjectLocation(speaker, new Double2D(word1.currentNounProb * 100 + 5, word1.currentVerbProb * 100 + 5));
+                    }
+                for (String word2 : representativeWords) {
+                    if (word1.word.equals(word2)) {
+                        word1.probSpace.setObjectLocation(speaker, new Double2D(word1.currentNounProb * 100 + 5, word1.currentVerbProb * 100 + 5));
+                    } 
+                }
             }
             
+            count++;
         }
-        
-        /* From tutorial - not actually used, but should be added for visualization of parents
-        // add edges between speakers defining closeness 
-        speakers = convos.getAllNodes(); // extract all speakers from the graph, returns sim.util.Bag, like an ArrayList but faster
-        for (int i = 0; i < speakers.size(); i++) { // loop through Bag of speakers
-            Object speaker = speakers.get(i);
-
-            // adds a random edge for each speaker
-            Object speakerB = null;
-            do {
-                speakerB = speakers.get(random.nextInt(speakers.numObjs));
-            } while (speaker == speakerB);
-            double closeness = random.nextDouble();
-            convos.addEdge(speaker, speakerB, new Double(closeness));
-        }
-                */
-        
     }
     
     public static void main(String[] args) throws IOException {
@@ -192,9 +211,9 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
             if(line.hasOption("model")) {
                 model = line.getOptionValue("model");
             }
-            if(line.hasOption("mode")) {
-                mode = line.getOptionValue("mode");
-            }
+            //if(line.hasOption("mode")) {  TODO: Change to boolean
+            //    stochastic = line.getOptionValue("mode");
+            //}
             if(line.hasOption("logging")) {
                 logging = line.getOptionValue("logging");
             }
@@ -207,15 +226,15 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
             if(line.hasOption("distModel")) {
                 distModel = line.getOptionValue("distModel");
             }
-            if(line.hasOption("priorClass")) {
-                priorClass = line.getOptionValue("priorClass");
-            }
+            //if(line.hasOption("priorClass")) {
+            //    priorClass = line.getOptionValue("priorClass");
+            //}
         } catch ( ParseException exp) {
             System.out.println("Unexpected exception: " + exp.getMessage());
         }
 
         if (!StressChange.logging.equals("none")) {
-            System.out.println("Simulating " + mode + " model with " + model + " and " + distModel + " distance model, showing " + logging + " words");
+            System.out.println("Simulating " + stochastic + " model with " + model + " and " + distModel + " distance model, showing " + logging + " words");
             if (freqNoun != 0) {
                 System.out.println("N1 (noun frequency): " + freqNoun);
                 System.out.println("N2 (verb frequency): " + freqVerb);
@@ -228,7 +247,9 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
 
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();
+        //
         do {
+            convos.removeAllEdges();
             if (! StressChange.logging.equals("none")){  System.out.println(""); }
             if (! StressChange.logging.equals("none")){  System.out.println("Generation at year " + (1500 + (state.schedule.getSteps()) * 25)); }// 25-year generations            
             if (!state.schedule.step(state)) {

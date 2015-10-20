@@ -1,1 +1,276 @@
-<p>PLACEHOLDER</p>
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-stresschange" class="anchor" href="#stresschange" aria-hidden="true"><span class="octicon octicon-link"></span></a>StressChange</h1>
+
+<p>This project uses the <a href="https://cs.gmu.edu/%7Eeclab/projects/mason/">MASON simulation toolkit</a> to implement 5 language change models for the stress shift in English N/V pairs. </p>
+
+<p>The 5 models come from Sonderegger and Niyogi (2010) <a href="http://www.aclweb.org/anthology/P/P10/P10-1104.pdf"><em>Combining data and mathematical models of language change</em></a>.</p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>This code was prepared and tested with Java 8.</p>
+
+<p>No installation or compiling is required. The <code>dist</code> folder includes jar files for the main StressChange classes and the dependencies <code>mason.19.jar</code> and <code>commons-cli-1.3.1.jar</code>.</p>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>You can run the code from the command line as follows:</p>
+
+<p><code>java -jar dist/stressChange.jar</code></p>
+
+<p>Options are available in the UI to change various parameters.</p>
+
+<h2><a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<h3><a id="user-content-stress-in-english-nv-pairs" class="anchor" href="#stress-in-english-nv-pairs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stress in English N/V pairs</h3>
+
+<p>English has many word pairs where the noun and verb forms are identical except for syllable stress, for example <em>per</em>mit (n) vs. per<em>mit</em> (v).</p>
+
+<h3><a id="user-content-change-over-time" class="anchor" href="#change-over-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change over time</h3>
+
+<p>The stress patterns of these N/V pairs has been shown to change over time. Sonderegger (2009) compiled entries for 149 N/V pairs from British and American dictionaries from around 1500 to today. </p>
+
+<h3><a id="user-content-observed-properties" class="anchor" href="#observed-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Observed properties</h3>
+
+<p>Based on the diachronic observations in the N/V pair data, Sonderegger and Niyogi (2010) derive 6 properties (or "observed dynamics") of the stress pattern language change:</p>
+
+<ol>
+<li><em>Unstable state</em> - No N/V pair is observed with a {2,1} stress pattern</li>
+<li><em>Stable states</em> - Stress patterns {1,1}, {1,2} and {2,2} are all observed in the historical data</li>
+<li><em>Observed stable variation</em> - States are observed where either the N or V varies over time, but not both</li>
+<li><em>Sudden change</em> - Change can happen from one stress pattern to another</li>
+<li><em>Observed changes</em> - There are four observed changes: {1,1} ↔ {1,2} and {2,2} ↔ {1,2}</li>
+<li><em>Observed frequency dependence</em> - Change to {1,2} corresponds to a decrease in the frequency of N</li>
+</ol>
+
+<p>(Sonderegger and Niyogi 2010, p. 1023)</p>
+
+<p>The dynamical systems models in Sonderegger and Niyogi (2010) are evaluated based on whether they fulfill these observed properties.</p>
+
+<p>Sonderegger (2009) made the additional observation that word pairs with the same prefix (e.g. <em>re-</em> or <em>de-</em>) have similar trajectories. And in our analysis of the data, we observed some examples of variation between stress patterns in US and UK dictionaries, for example with the noun form of <em>address</em>:</p>
+
+<p><a href="/jlongbotham/StressChange/blob/master/address-n.png" target="_blank"><img src="/jlongbotham/StressChange/raw/master/address-n.png" alt="Dialectical divergence for &quot;address&quot;" style="max-width:100%;"></a></p>
+
+<p>In this figure, a y-value of 2 means only secondary stress, 1.75 means mostly secondary stress and 1.25 means mostly primary stress. You can see that US dictionaries show a change toward primary stress for <em>address</em> starting around 1935, whereas UK dictionaries continue to show only secondary stress.</p>
+
+<p>For this reason, we've added two observed properties:</p>
+
+<ol>
+<li><em>Analogical change</em> - N/V pairs with same prefix tend to have the same stress pattern</li>
+<li><em>Dialectical divergence</em> - N/V pair trajectories can diverge between distant groups of speakers</li>
+</ol>
+
+<h2><a id="user-content-baseline-models" class="anchor" href="#baseline-models" aria-hidden="true"><span class="octicon octicon-link"></span></a>Baseline Models</h2>
+
+<p>The baseline models from Sonderegger and Niyogi (2010) have specific characteristics:</p>
+
+<ol>
+<li>Each generation is discrete</li>
+<li>Speakers in G<sub>t</sub> learn from speakers in the parent generation G<sub>t-1</sub> </li>
+<li>Every speaker learns from every parent</li>
+<li>Each generation has infinite speakers (this constraint could not be met in this code)</li>
+</ol>
+
+<p>(Sonderegger and Niyogi 2010, p. 1022)</p>
+
+<h3><a id="user-content-1-mistransmission" class="anchor" href="#1-mistransmission" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Mistransmission</h3>
+
+<p><code>java -jar dist/stressChange.jar -model mistransmission</code></p>
+
+<p>The first model is based on the assumption that language change often occurs in the "handover" between generations due to mistransmission. That is, speakers sometimes mishear what the parent generation says, influencing the language that they end up speaking.</p>
+
+<p>In the context of the N/V stress patterns for these verbs, there is a clear bias toward a {1,2} stress pattern, known as Ross' generalization. One explanation for this bias is that generally in English stressed and unstressed syllables appear alternately in a sentence. As nouns often follow an unstressed article (a "trochaic-biasing" context), they tend to have primary stress. Because of this tendency, Sonderegger and Niyogi (2010) assume that mistransmission can occur in only one direction ({1,1}, {2,2} → {1,2}). </p>
+
+<p>Using the following definitions:</p>
+
+<ul>
+<li>α = generation average probability of pronouncing N as second stress</li>
+<li>β = generation average probability of pronouncing V as second stress</li>
+<li><em>p</em> = mistransmission probability for N</li>
+<li><em>q</em> = mistransmission probability for V</li>
+</ul>
+
+<p>The evolution equation for Model 1 is then:</p>
+
+<p><em>α<sub>t</sub> = α<sub>t-1</sub> (1 - p)</em></p>
+
+<p><em>β<sub>t</sub> = β<sub>t-1</sub> + (1 - β<sub>t-1</sub>) q</em></p>
+
+<p>The assymetry in the evolution equation ensures that α tends toward 0, that is decreases the probability of a second-stress N, and β then tends toward 1, that is increases the probability of a second-stress V.</p>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">double</span> getMisNoun(<span class="pl-k">double</span> p, <span class="pl-k">double</span> alphaPrev) {
+        <span class="pl-k">double</span> alpha <span class="pl-k">=</span> alphaPrev <span class="pl-k">*</span> (<span class="pl-c1">1</span> <span class="pl-k">-</span> p);
+        <span class="pl-k">return</span> alpha;
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">double</span> getMisVerb(<span class="pl-k">double</span> q, <span class="pl-k">double</span> betaPrev) {
+        <span class="pl-k">double</span> beta <span class="pl-k">=</span> betaPrev <span class="pl-k">+</span> ((<span class="pl-c1">1</span> <span class="pl-k">-</span> betaPrev) <span class="pl-k">*</span> q);
+        <span class="pl-k">return</span> beta;
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> mistransmission(<span class="pl-smi">WordPair</span> word) { <span class="pl-c">// Model 1</span>
+        <span class="pl-c">// set the noun and verb probabilities for the next generation</span>
+
+        word<span class="pl-k">.</span>nextNounProb <span class="pl-k">=</span> getMisNoun(word<span class="pl-k">.</span>misNounPrev, word<span class="pl-k">.</span>avgParentNounProb); <span class="pl-c">// update noun probabilities</span>
+        word<span class="pl-k">.</span>nextVerbProb <span class="pl-k">=</span> getMisVerb(word<span class="pl-k">.</span>misVerbPrev, word<span class="pl-k">.</span>avgParentVerbProb); <span class="pl-c">// update verb probabilities</span>
+    }</pre></div>
+
+<p>All N/V pairs converge to the {1,2} stress pattern in this model.</p>
+
+<h3><a id="user-content-2-coupling-by-constraint" class="anchor" href="#2-coupling-by-constraint" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Coupling by constraint</h3>
+
+<p><code>java -jar dist/stressChange.jar -model constraint</code></p>
+
+<p>The coupling by constraint model takes a different approach and assumes a simple <em>constraint</em> based on Ross' Generalization that the probability of a second-stress N must be less than the probability of a second-stress V for a specific word pair.</p>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">void</span> constraint(<span class="pl-smi">WordPair</span> word) { <span class="pl-c">// Model 2</span>
+        <span class="pl-c">// updates noun and verb probabilities based on constraint only</span>
+
+        <span class="pl-k">if</span> (word<span class="pl-k">.</span>avgParentNounProb <span class="pl-k">&lt;</span> word<span class="pl-k">.</span>avgParentVerbProb) { <span class="pl-c">// if constraint is met, then estimate equals expectation</span>
+            word<span class="pl-k">.</span>nextNounProb <span class="pl-k">=</span> word<span class="pl-k">.</span>avgParentNounProb;
+            word<span class="pl-k">.</span>nextVerbProb <span class="pl-k">=</span> word<span class="pl-k">.</span>avgParentVerbProb;
+        } <span class="pl-k">else</span> {
+            word<span class="pl-k">.</span>nextNounProb <span class="pl-k">=</span> (word<span class="pl-k">.</span>avgParentNounProb <span class="pl-k">+</span> word<span class="pl-k">.</span>avgParentVerbProb) <span class="pl-k">/</span> <span class="pl-c1">2</span>; <span class="pl-c">// if constraint is not met, then estimate equals average of expectations</span>
+            word<span class="pl-k">.</span>nextVerbProb <span class="pl-k">=</span> (word<span class="pl-k">.</span>avgParentNounProb <span class="pl-k">+</span> word<span class="pl-k">.</span>avgParentVerbProb) <span class="pl-k">/</span> <span class="pl-c1">2</span>;
+        }
+    }</pre></div>
+
+<p>All N/V pairs with stress patterns satisfy this constraint do not show any change, while any patterns where the N probability of second-stress is higher than the V probability converge until the constraint is met, usually when the N and V probabilities of second-stress are equal.</p>
+
+<h3><a id="user-content-3-coupling-by-constraint-with-mistransmission" class="anchor" href="#3-coupling-by-constraint-with-mistransmission" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Coupling by constraint, with mistransmission</h3>
+
+<p><code>java -jar dist/stressChange.jar -model constraintWithMistransmission</code></p>
+
+<p>This model combines the coupling by constraint but includes mistransmission for the "heard" examples between generations.</p>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">void</span> constraintWithMistransmission(<span class="pl-smi">WordPair</span> word) { <span class="pl-c">// Model 3</span>
+        <span class="pl-c">// the same as constraint(), but on "heard" examples (i.e. mistransmission)</span>
+        mistransmission(word);
+        constraint(word);
+    }</pre></div>
+
+<p>With this model, the mistransmission updates guarantee that all N/V pairs converge to a {1,2} stress pattern.</p>
+
+<h3><a id="user-content-4-coupling-by-priors" class="anchor" href="#4-coupling-by-priors" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Coupling by priors</h3>
+
+<p><code>java -jar dist/stressChange.jar -model prior</code></p>
+
+<p>Using prior probabilities as well as observed likelihoods allows information about the lexicon in general to affect how a specific word pair's stress pattern changes over time. As with a Bayesian approach, the prior represents knowledge of stress patterns in general (e.g. that {2,1} never occurs), while the observed likelihood is based on what speakers hear from the previous generation.</p>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">void</span> prior(<span class="pl-smi">WordPair</span> word) { <span class="pl-c">// Model 4</span>
+
+        <span class="pl-c">// calculate learned probabilities (P) based on word frequencies sampled from parent probabilities</span>
+        <span class="pl-k">double</span> kNoun <span class="pl-k">=</span> <span class="pl-c1">0.0</span>; <span class="pl-c">// number of nouns heard as final stress</span>
+        <span class="pl-k">double</span> kVerb <span class="pl-k">=</span> <span class="pl-c1">0.0</span>; <span class="pl-c">// number of verbs heard as final stress</span>
+
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> word<span class="pl-k">.</span>freqNoun; i<span class="pl-k">++</span>) {
+            <span class="pl-k">if</span> (speakers<span class="pl-k">.</span>random<span class="pl-k">.</span>nextDouble() <span class="pl-k">&lt;=</span> word<span class="pl-k">.</span>nextNounProb) {
+                kNoun<span class="pl-k">++</span>;
+            }
+        }
+
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> word<span class="pl-k">.</span>freqVerb; i<span class="pl-k">++</span>) {
+            <span class="pl-k">if</span> (speakers<span class="pl-k">.</span>random<span class="pl-k">.</span>nextDouble() <span class="pl-k">&lt;=</span> word<span class="pl-k">.</span>nextVerbProb) {
+                kVerb<span class="pl-k">++</span>;
+            }
+        }
+
+        <span class="pl-k">double</span> p11 <span class="pl-k">=</span> ((word<span class="pl-k">.</span>freqNoun <span class="pl-k">-</span> kNoun) <span class="pl-k">/</span> word<span class="pl-k">.</span>freqNoun) <span class="pl-k">*</span> ((word<span class="pl-k">.</span>freqVerb <span class="pl-k">-</span> kVerb) <span class="pl-k">/</span> word<span class="pl-k">.</span>freqVerb);
+        <span class="pl-k">double</span> p12 <span class="pl-k">=</span> ((word<span class="pl-k">.</span>freqNoun <span class="pl-k">-</span> kNoun) <span class="pl-k">/</span> word<span class="pl-k">.</span>freqNoun) <span class="pl-k">*</span> (kVerb <span class="pl-k">/</span> word<span class="pl-k">.</span>freqVerb);
+        <span class="pl-k">double</span> p21 <span class="pl-k">=</span> (kNoun <span class="pl-k">/</span> word<span class="pl-k">.</span>freqNoun) <span class="pl-k">*</span> ((word<span class="pl-k">.</span>freqVerb <span class="pl-k">-</span> kVerb) <span class="pl-k">/</span> word<span class="pl-k">.</span>freqVerb);
+        <span class="pl-k">double</span> p22 <span class="pl-k">=</span> (kNoun <span class="pl-k">/</span> word<span class="pl-k">.</span>freqNoun) <span class="pl-k">*</span> (kVerb <span class="pl-k">/</span> word<span class="pl-k">.</span>freqVerb);
+
+        <span class="pl-c">// Set fixed lambda values, must sum to 1</span>
+        <span class="pl-k">double</span> lambda11 <span class="pl-k">=</span> <span class="pl-c1">0.2</span>;
+        <span class="pl-k">double</span> lambda12 <span class="pl-k">=</span> <span class="pl-c1">0.4</span>;
+        <span class="pl-k">double</span> lambda21 <span class="pl-k">=</span> <span class="pl-c1">0.0</span>; <span class="pl-c">// this one should always be 0.0</span>
+        <span class="pl-k">double</span> lambda22 <span class="pl-k">=</span> <span class="pl-c1">0.4</span>;
+
+        <span class="pl-c">// update current noun and verb probabilities based on learned and prior probabilities</span>
+        word<span class="pl-k">.</span>nextNounProb <span class="pl-k">=</span> ((lambda21 <span class="pl-k">*</span> p21) <span class="pl-k">+</span> (lambda22 <span class="pl-k">*</span> p22)) <span class="pl-k">/</span> ((lambda11 <span class="pl-k">*</span> p11) <span class="pl-k">+</span> (lambda12 <span class="pl-k">*</span> p12) <span class="pl-k">+</span> (lambda21 <span class="pl-k">*</span> p21) <span class="pl-k">+</span> (lambda22 <span class="pl-k">*</span> p22));
+        word<span class="pl-k">.</span>nextVerbProb <span class="pl-k">=</span> ((lambda12 <span class="pl-k">*</span> p12) <span class="pl-k">+</span> (lambda22 <span class="pl-k">*</span> p22)) <span class="pl-k">/</span> ((lambda11 <span class="pl-k">*</span> p11) <span class="pl-k">+</span> (lambda12 <span class="pl-k">*</span> p12) <span class="pl-k">+</span> (lambda21 <span class="pl-k">*</span> p21) <span class="pl-k">+</span> (lambda22 <span class="pl-k">*</span> p22));
+    }</pre></div>
+
+<p>In this model, the stress patterns that word pairs converge to depends mostly on the lambda (prior) probabilities. However, likelihoods of 0.0 probability will of course rule out specific stress patterns, just as the lambda probability of 0.0 for the stress pattern {2,1} guarantees that it will never occur.</p>
+
+<h3><a id="user-content-5-coupling-by-priors-with-mistransmission" class="anchor" href="#5-coupling-by-priors-with-mistransmission" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Coupling by priors, with mistransmission</h3>
+
+<p><code>java -jar dist/stressChange.jar -model priorWithMistransmission</code></p>
+
+<p>This model includes the prior probabilities of Mode 4, but applies the updates between generations to the "mistransmitted" examples.</p>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">void</span> priorWithMistransmission(<span class="pl-smi">WordPair</span> word) {
+        <span class="pl-c">// the same as prior(), but on "heard" examples (i.e. mistransmission)</span>
+        mistransmission(word);
+        prior(word);
+    }</pre></div>
+
+<h2><a id="user-content-additions" class="anchor" href="#additions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additions</h2>
+
+<p>A few optional features have been added for simulations beyond what's included in Sonderegger and Niyogi (2010):</p>
+
+<ol>
+<li><em>Stochasticity</em> - Sample from parent probabilities rather than taking them directly</li>
+<li><em>Distance</em> - In the MASON 2D field, speakers only learn from parents within a specified distance</li>
+<li><em>Prefixes</em> - In models 4 and 5, the prior probabilities are derived from the prefix class of a pair, if applicable</li>
+</ol>
+
+<h3><a id="user-content-1-stochasticity" class="anchor" href="#1-stochasticity" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Stochasticity</h3>
+
+<p><code>-mode stochastic</code></p>
+
+<p>The deterministic models use exact probabilities between generations (default setting), while stochastic models sample from a probability distribution, allowing for a small amount of randomness.</p>
+
+<h3><a id="user-content-2-distance" class="anchor" href="#2-distance" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Distance</h3>
+
+<h4><a id="user-content-none" class="anchor" href="#none" aria-hidden="true"><span class="octicon octicon-link"></span></a>None</h4>
+
+<p><code>-distModel none</code></p>
+
+<p>With this default setting, no special restrictions are placed on distance, i.e. everyone speaks to everyone.</p>
+
+<h4><a id="user-content-random" class="anchor" href="#random" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random</h4>
+
+<p><code>-distModel random</code></p>
+
+<p>With the random setting, each speaker speaks to half the total number of parents, chosen randomly.</p>
+
+<h4><a id="user-content-absolute" class="anchor" href="#absolute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Absolute</h4>
+
+<p><code>-distModel absolute</code></p>
+
+<p>With the absolute setting, each speaker speaks to parents located within a specific maximum distance.</p>
+
+<h4><a id="user-content-probabilistic" class="anchor" href="#probabilistic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Probabilistic</h4>
+
+<p><code>-distModel probabilistic</code></p>
+
+<p>With the probabilistic setting, whether a speaker speaks to a parent is decided by a sampling a probability based on the distance, i.e. the farther away a parent is, the less like a speaker will speak to them.</p>
+
+<h4><a id="user-content-grouped" class="anchor" href="#grouped" aria-hidden="true"><span class="octicon octicon-link"></span></a>Grouped</h4>
+
+<p><code>-distModel grouped</code></p>
+
+<p>With the grouped setting, speakers are initially placed into two separate groups, allowing diverting trajectories over time.</p>
+
+<h3><a id="user-content-3-prefixes" class="anchor" href="#3-prefixes" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Prefixes</h3>
+
+<p><code>-priorClass prefix</code></p>
+
+<p>Using prefix classes allows having prior probabilities set per prefix class, rather than for the lexicon as a whole. This allows for representing similarities at a more fine-grained level, consistent with the observed property that word pairs with the same prefix tend to have similar stress patterns. With this setting, the prior probabilities (lambdas) are caculated based on the initial stress patterns <em>per prefix class</em>. For example, word pairs with the prefix <em>out</em> have prior probabilities of {1,2} = 0.9 and {2,2} = 0.1, while pairs with the prefix <em>pre</em> have {1,1} = 0.2, {1,2} = 0.4 and {2,2} = 0.4. If a word pair does not have a specific prefix (e.g. <em>affect</em>), the prior probabilities are caculated from the lexicon as a whole, that is {1,1} = 0.09, {1,2} = 0.43 and {2,2} = 0.48.</p>
+
+<p>Without this option, all word pairs have the same prior probabilities, which can be set in the code.</p>
+
+<h2><a id="user-content-results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h2>
+
+<ul>
+<li>How do the agent-based models compare to the baseline dynamical systems models in general?</li>
+<li>Which models and combitations of agent-based additions fulfill the additional properties?</li>
+</ul>
+
+<h2><a id="user-content-references" class="anchor" href="#references" aria-hidden="true"><span class="octicon octicon-link"></span></a>References</h2>
+
+<p>Niyogi, P. (2006). <em>The computational nature of language learning and evolution</em>. Cambridge, MA:: MIT press.</p>
+
+<p>Sonderegger, M. (2009). "Dynamical systems models of language variation and change: An application to an English stress shift." <em>Masters paper, Department of Computer Science, University of Chicago.</em></p>
+
+<p>Sonderegger, M., &amp; Niyogi, P. (2010, July). "Combining data and mathematical models of language change." In <em>Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics</em> (pp. 1019-1029). Association for Computational Linguistics.</p>
+</article>

@@ -4,6 +4,8 @@
 
 package stresschange;
 
+import sim.field.continuous.Continuous2D;
+
 /**
  * @author James
  */
@@ -23,6 +25,7 @@ public class WordPair {
     public Double misVerbPrev; // the probability of mistransmitting the verb
     public Integer freqNoun; // the frequency of the noun
     public Integer freqVerb; // the frequency of the verb
+    public Continuous2D probSpace = new Continuous2D(1.0, 110, 110); // for visualization of representative words
     
     // prior probabilties used in models 4 and 5 for individual prefix classes
     public Double lambda11 = 0.0;
@@ -44,6 +47,12 @@ public class WordPair {
         this.misVerbPrev = StressChange.misProbQ;
         this.freqNoun = StressChange.freqNoun;
         this.freqVerb = StressChange.freqVerb;
+        
+        //for (String word1 : StressChange.representativeWords){
+        //    if (word1.equals(word)){
+                //probSpace.setObjectLocation(this, new Double2D(this.currentNounProb * 100 + 5, this.currentVerbProb * 100 + 5));
+        //    }
+        //}
     }
     
     public String toString(){
