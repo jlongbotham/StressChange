@@ -85,11 +85,18 @@ public class Speaker implements Steppable {
         
         if (StressChange.logging.equals("troubleshooting")){ System.out.println("Total number of potential parents: " + parents.size()); }
         
+        if (StressChange.distModel.equals("none")) {
+            for (int i = 0; i < parents.size(); i++) {
+                speakers.convos.addEdge(this, parents.get(i), 0.0);
+            }
+        }
+        
+        Double2D speaker = speakers.field.getObjectLocation(this); // query to get location of current speaker
         if (! StressChange.distModel.equals("none")) {  // if there is a distance model, parents bag should be restricted
-            Double2D speaker = speakers.field.getObjectLocation(this); // query to get location of current speaker
+            
             if (StressChange.logging.equals("troubleshooting")){ System.out.println("Speaker from " + group + " is at x: " + speaker.x + " and y: " + speaker.y); }
             Bag parentsClose = new Bag(); // reset bag of parents  
-            for (int i = 0; i < parents.size(); i++) { // iterate through edges
+            for (int i = 0; i < parents.size(); i++) { // iterate through nodes
                 Double2D parent = speakers.field.getObjectLocation(parents.get(i)); // for current edge get parent location
                 if (StressChange.logging.equals("troubleshooting")){ System.out.println("Potential parent is at x: " + parent.x + " and y: " + parent.y); }
                 double distance = Math.sqrt(Math.pow((speaker.x - parent.x),2) + Math.pow((speaker.y - parent.y),2)); // get distance
@@ -119,15 +126,17 @@ public class Speaker implements Steppable {
                         speakers.convos.addEdge(this, parents.get(i), distance);
                     }
                 } 
-            }
-            if (!StressChange.distModel.equals("lattice")){ // update speaker location randomly, unless using lattice distance
+            }             
+            
+            parents = parentsClose; // update bag of parents with close parents
+        }  
+        
+        if (!StressChange.distModel.equals("lattice")){ // update speaker location randomly, unless using lattice distance
                 speakers.field.setObjectLocation(this, 
                     new Double2D(speaker.x + 5 * (speakers.random.nextDouble() - 0.5),
                                  speaker.y + 5 * (speakers.random.nextDouble() - 0.5)));
             }
-            
-            parents = parentsClose; // update bag of parents with close parents
-        }  
+        
         if (StressChange.logging.equals("troubleshooting")){ System.out.println("Number of close parents: " + parents.size()); }
         
         for (int i = 0; i < words.size(); i++) { // iterate through array of WordPair objects for current Speaker
