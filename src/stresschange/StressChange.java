@@ -130,6 +130,7 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
         //probSpace.clear(); // clear the probability visualization
         targetSpace.clear(); // clear the probability visualization
         convos.clear(); // clear the speakers
+        count = 0;
 
         // add some speakers to the field
         if (distModel.equals("lattice")){ numSpeakers = 100; maxDistance = 11; } // fixed number of speakers and fixed distance for lattice
