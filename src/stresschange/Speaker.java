@@ -312,7 +312,7 @@ public class Speaker implements Steppable {
             System.out.println("P22: " + p22);
         }
 
-        if (StressChange.step == 0) { // set lambdas initially
+        if (StressChange.count <= 2*StressChange.numSpeakers) { // set lambdas initially
             if (StressChange.priorClass) { // reset lambda values based on prefix class
                 word.lambda11 = 0.0;
                 word.lambda12 = 0.0;
@@ -340,10 +340,10 @@ public class Speaker implements Steppable {
                 word.lambda21 = word.lambda21 / word.prefixClassSize;
                 word.lambda22 = word.lambda22 / word.prefixClassSize;
             } else {  // Set fixed lambda values, must sum to 1
-                word.lambda11 = 0.2;
-                word.lambda12 = 0.4;
+                word.lambda11 = StressChange.lambda11;                
+                word.lambda22 = StressChange.lambda22;
+                word.lambda12 = (1 - (StressChange.lambda11 + StressChange.lambda22));
                 word.lambda21 = 0.0; // this one should always be 0.0
-                word.lambda22 = 0.4;
             }
         }
         
@@ -372,7 +372,8 @@ public class Speaker implements Steppable {
 
     public void step(SimState state) { // method step implements sim.engine.Steppable interface, allows "Speaker" to be not just object but also agent
         speakers = (StressChange) state;
-
+        //StressChange.count++; // update steps
+        //System.out.println("COUNT" + StressChange.count);
         // Run chosen model
         runModel();
         getRepresentativeWordProbabilities();

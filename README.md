@@ -225,6 +225,10 @@ With the absolute setting, each speaker speaks to parents located within a speci
 
 With the probabilistic setting, whether a speaker speaks to a parent is decided by a sampling a probability based on the distance, i.e. the farther away a parent is, the less like a speaker will speak to them.
 
+#### Lattice
+
+With the lattive setting, speakers are initially placed in a fixed grid pattern and only speak to their immediate neighbors.
+
 #### Grouped
 
 With the grouped setting, speakers are initially placed into two separate groups, allowing diverting trajectories over time.
@@ -237,8 +241,21 @@ Without this option, all word pairs have the same prior probabilities, which can
 
 ## Results
 
-* How do the agent-based models compare to the baseline dynamical systems models in general?
-* Which models and combitations of agent-based additions fulfill the additional properties?
+### Agent-based models vs. dynamical systems
+
+As agent-based models simulate individuals and their characteristics, they have some more flexibility in terms of what *can* be simulated. 
+
+### Analogy and dialects
+
+The model using priors with mistransmission as described by Sonderegger and Niyogi (2010) fulfills the six properties of stress pattern change that they identified, but it doesn't address the two additional properties identified here: analogical change and dialectical divergence. In this project, we didn't add a *model* per se, but additional features that can be added to the prior with mistransmission model.
+
+The option "Prefix class prior" initiates separate prior probabilities per prefix class based on their initial stress patterns observed in the corpus. For example, the word *subject* is part of the *sub-* class of prefixes and has prior probabilities of {1,1} = 3.3, {2,1} = 3.3 and {2,2} = 3.3, while *rebate* belongs to the *re-* class of prefixes and has prior probabilities of {1,2} = 0.2, {2,1} = 0.0 and {2,2} = 0.8. By tying a word's prior to its prefix class, similar trajectories can be seen for words with the same prefix, fulfilling the observation of analogical change.
+
+The distance model "grouped" initiates two distinct groups of speakers connected by a few "super speakers". This distance model combined with the option "Stochastic" often shows different *rates* of change, such as this instance for the word *address (n)*:
+
+![Simulated dialectical divergence for "address"](divergence.png)
+
+The group in the blue box has an average probability of secondary stress for *address (n)* of 0.55, while the group in the red box has an average of 0.65, with each speaker having an individual probability within 0.02 points of its group average.
 
 ## References
 

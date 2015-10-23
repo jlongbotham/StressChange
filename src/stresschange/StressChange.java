@@ -41,6 +41,9 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
 
     public static int freqNoun = 1000; // default frequency for nouns
     public static int freqVerb = 1000; // default frequency for verbs
+    
+    public static double lambda11 = 0.2; // only these two need to be set as lambda12 = (1 - (lambda11 + lambda22))
+    public static double lambda22 = 0.4; // and lambda21 is always 0.0
 
     public static String distModel = "grouped"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped", "lattice"
     public static double maxDistance = 30; // default maximum distance 
@@ -91,15 +94,29 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
 
     public Boolean isStochastic() { return stochastic; }
     public void setStochastic(Boolean val) { stochastic = val; }
+    public String desStochastic() {return "Determine \"heard\" examples by sampling from previous generation's average probability";}
     
     public Boolean isPriorClass() { return priorClass; }
     public void setPriorClass(Boolean val) { priorClass = val; }
     public String namePriorClass() {return "Prefix class prior";}
     public String desPriorClass() {return "Use prefixes as a class for determining prior probabilities";}
     
+    public double getLambda11() { return lambda11; }
+    public void setLambda11(double val) { lambda11 = val;}
+    public Object domLambda11() { return new Interval(0.0, 1.0); }
+    public String nameLambda11() {return "Prior {1,1}";}    
+    public String desLambda11() {return "Prior probability for {1,1} stress pattern";}
+    
+    public double getLambda22() { return lambda22; }
+    public void setLambda22(double val) { lambda22 = val;}
+    public Object domLambda22() { return new Interval(0.0, 1.0); }
+    public String nameLambda22() {return "Prior {2,2}";}    
+    public String desLambda22() {return "Prior probability for {2,2} stress pattern";}
+    
     public String getTargetWord() { return targetWord; }
     public void setTargetWord(String s) { targetWord = s; }
     public String nameTargetWord() {return "Target word (n)";}
+    public String desTargetWord() {return "Target word (n) for visualization";}
     
     public static HashMap<String[], double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 
