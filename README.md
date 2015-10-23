@@ -255,7 +255,7 @@ The distance model "grouped" initiates two distinct groups of speakers connected
 
 ![Simulated dialectical divergence for "address"](divergence.png)
 
-The group in the blue box has an average probability of secondary stress for *address (n)* of 0.55, while the group in the red box has an average of 0.65, with each speaker having an individual probability within 0.02 points of its group average.
+The group in the blue box has an probability of secondary stress for *address (n)* of 0.56, while the group in the red box has an average of 0.75, with each speaker having an individual probability within 0.03 points of its group average.
 
 ## References
 
