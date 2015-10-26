@@ -8,7 +8,7 @@ The 5 models come from Sonderegger and Niyogi (2010) [*Combining data and mathem
 
 This code was prepared and tested with Java 8.
 
-No installation or compiling is required. The `dist` folder includes jar files for the main StressChange classes and the dependencies `mason.19.jar` and `commons-cli-1.3.1.jar`.
+No installation or compiling is required. The `dist` folder includes jar files for the main StressChange classes and the dependencies `mason.19.jar`, `commons-cli-1.3.1.jar` (for command line arguments) and `jmf.jar` (for recording Quicktime movies).
 
 ## Usage
 
