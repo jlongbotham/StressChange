@@ -113,6 +113,18 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public String nameLambda22() {return "Prior {2,2}";}    
     public String desLambda22() {return "Prior probability for {2,2} stress pattern";}
     
+    public double getMisProbP() { return misProbP; }
+    public void setMisProbP(double val) { misProbP = val;}
+    public Object domMisProbP() { return new Interval(0.0, 1.0); }
+    public String nameMisProbP() {return "Mistransmission prob N";}    
+    public String desMisProbP() {return "Probability a noun will be misheard as first-syllable stress";}
+    
+    public double getMisProbQ() { return misProbQ; }
+    public void setMisProbQ(double val) { misProbQ = val;}
+    public Object domMisProbQ() { return new Interval(0.0, 1.0); }
+    public String nameMisProbQ() {return "Mistransmission prob V";}    
+    public String desMisProbQ() {return "Probability a verb will be misheard as second-syllable stress";}
+    
     public String getTargetWord() { return targetWord; }
     public void setTargetWord(String s) { targetWord = s; }
     public String nameTargetWord() {return "Target word (n)";}
