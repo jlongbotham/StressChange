@@ -23,8 +23,8 @@ public class WordPair {
     public Double avgParentVerbProb;
     public Double misNounPrev; // the probability of mistransmitting the noun
     public Double misVerbPrev; // the probability of mistransmitting the verb
-    public Integer freqNoun; // the frequency of the noun
-    public Integer freqVerb; // the frequency of the verb
+    public Integer freqNoun = 1000; // the frequency of the noun
+    public Integer freqVerb = 1000; // the frequency of the verb
     public Continuous2D probSpace = new Continuous2D(1.0, 110, 110); // for visualization of representative words
     
     // prior probabilties used in models 4 and 5 for individual prefix classes
@@ -45,18 +45,15 @@ public class WordPair {
         this.nextVerbProb = initialVerbProb;
         this.misNounPrev = StressChange.misProbP;
         this.misVerbPrev = StressChange.misProbQ;
-        this.freqNoun = StressChange.freqNoun;
-        this.freqVerb = StressChange.freqVerb;
-        
-        //for (String word1 : StressChange.representativeWords){
-        //    if (word1.equals(word)){
-                //probSpace.setObjectLocation(this, new Double2D(this.currentNounProb * 100 + 5, this.currentVerbProb * 100 + 5));
-        //    }
-        //}
+        if (word.equals(StressChange.targetWord)){
+            this.freqNoun = StressChange.freqNoun;
+            this.freqVerb = StressChange.freqVerb;
+            StressChange.targetWordPrefix = prefix;
+        }        
     }
     
     public String toString(){
-        return this.word + ": noun prob = " + this.nextNounProb + ", verb prob = " + this.nextVerbProb;
+        return "\t" + this.word + "\tnoun prob =\t" + this.nextNounProb + "\tverb prob =\t" + this.nextVerbProb;
     }
 
 }

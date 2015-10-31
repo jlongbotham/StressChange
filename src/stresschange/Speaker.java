@@ -169,7 +169,7 @@ public class Speaker implements Steppable {
     }
     
     public void runModel() {
-        if (!StressChange.logging.equals("none")) { if(id >= 0 && id < 6) {System.out.println("Speaker " + id + " ================");} }
+        if (!StressChange.logging.equals("none") && !StressChange.logging.equals("tabular")) { if(id >= 0 && id < 6) {System.out.println("Speaker " + id + " ================");} }
         
         updateParentAverage();  // first get parent averages    
         StressChange.count++; // update count
@@ -191,14 +191,20 @@ public class Speaker implements Steppable {
 
             if (!StressChange.logging.equals("none")) {
                 if (id >= 0 && id < 6) {
+                    if (StressChange.logging.equals("tabular")){
+                        System.out.println((int)Math.ceil(StressChange.count / StressChange.numSpeakers) + "," + id + "," + word.word + "," + word.prefix + "," + word.nextNounProb + "," + word.nextVerbProb); // print current state of all words in tabular format for analysis
+                    }
                     if (StressChange.logging.equals("all") || StressChange.logging.equals("troubleshooting")) {
                         System.out.println(word); // print current state of all words
-                    } else {
+                    } else if (StressChange.logging.equals("some")){
                         for (String rep : StressChange.representativeWords) {
                             if (word.word.contains(rep)) {
                                 System.out.println(word); // only print current state if word is in representative array
                                 break;
                             }
+                        }
+                        if (word.word.equals(StressChange.targetWord)){
+                            System.out.println(word);
                         }
                     }
                 }
@@ -318,27 +324,35 @@ public class Speaker implements Steppable {
                 word.lambda12 = 0.0;
                 word.lambda21 = 0.0;
                 word.lambda22 = 0.0;
-
-                for (WordPair wordPair : words) { // iterate through word pairs
-                    if (wordPair.prefix.equals(word.prefix) || word.prefix.equals("na")) { // for current prefix class or "na"
-                        word.prefixClassSize++;
-                        if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb < 0.5) { // lambda11
-                            word.lambda11++;
-                        } else if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb >= 0.5) { // lambda12
-                            word.lambda12++;
-                        } else if (wordPair.currentNounProb >= 0.5 && wordPair.currentVerbProb < 0.5) { // lamda21
-                            word.lambda21++;
-                        } else { // lambda22
-                            word.lambda22++;
+                
+                if (!StressChange.targetWordPrefix.equals("na") && word.prefix.equals(StressChange.targetWordPrefix)) { // if the word in in the target word prefix class, use manually set prior
+                    word.lambda11 = StressChange.targetClassLambda11;
+                    word.lambda22 = StressChange.targetClassLambda22;
+                    word.lambda12 = (1 - (StressChange.targetClassLambda11 + StressChange.targetClassLambda22));
+                    word.lambda21 = 0.0; // this one should always be 0.0
+                } else { // otherwise look at initial probabilities in source and determine priors for prefix classes based on observed proportions
+                    for (WordPair wordPair : words) { // iterate through word pairs
+                        if (wordPair.prefix.equals(word.prefix) || word.prefix.equals("na")) { // for current prefix class or "na"
+                            word.prefixClassSize++;
+                            if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb < 0.5) { // lambda11
+                                word.lambda11++;
+                            } else if (wordPair.currentNounProb < 0.5 && wordPair.currentVerbProb >= 0.5) { // lambda12
+                                word.lambda12++;
+                            } else if (wordPair.currentNounProb >= 0.5 && wordPair.currentVerbProb < 0.5) { // lamda21
+                                word.lambda21++;
+                            } else { // lambda22
+                                word.lambda22++;
+                            }
                         }
-
                     }
+                    // get prior probabilities for prefix classes
+                    // TODO: use distribution instead of probability
+                    word.lambda11 = word.lambda11 / word.prefixClassSize;
+                    word.lambda12 = word.lambda12 / word.prefixClassSize;
+                    word.lambda21 = word.lambda21 / word.prefixClassSize;
+                    word.lambda22 = word.lambda22 / word.prefixClassSize;
                 }
-                // get prior probabilities
-                word.lambda11 = word.lambda11 / word.prefixClassSize;
-                word.lambda12 = word.lambda12 / word.prefixClassSize;
-                word.lambda21 = word.lambda21 / word.prefixClassSize;
-                word.lambda22 = word.lambda22 / word.prefixClassSize;
+                
             } else {  // Set fixed lambda values, must sum to 1
                 word.lambda11 = StressChange.lambda11;                
                 word.lambda22 = StressChange.lambda22;

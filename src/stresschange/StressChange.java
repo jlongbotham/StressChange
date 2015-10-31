@@ -23,9 +23,7 @@ import sim.field.network.*;
  */
 public class StressChange extends SimState /*implements sim.portrayal.inspector.Tabbable*/{
 
-    /**
-     * @param args the command line arguments
-     */
+    // global settings determined by default, through command line or via GUI
     public Continuous2D field = new Continuous2D(1.0, 100, 100); // representation of space/field from sim.field.continuous.Continuous2D, bounds 100x100
     public Continuous2D targetSpace = new Continuous2D(1.0, 110, 110);
     public static int numSpeakers = 10; // number of speakers
@@ -44,6 +42,9 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     
     public static double lambda11 = 0.2; // only these two need to be set as lambda12 = (1 - (lambda11 + lambda22))
     public static double lambda22 = 0.4; // and lambda21 is always 0.0
+    
+    public static double targetClassLambda11 = 0.2; // only these two need to be set as lambda12 = (1 - (lambda11 + lambda22))
+    public static double targetClassLambda22 = 0.4; // and lambda21 is always 0.0
 
     public static String distModel = "grouped"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped", "lattice"
     public static double maxDistance = 30; // default maximum distance 
@@ -52,11 +53,12 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public static Boolean priorClass = true; // use prefixes as prior class
 
     public static String model = "priorWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission"
-    public static Boolean stochastic = true; // default if no arguments are given - otherwise is "deterministic"
+    public static Boolean stochastic = true; // by default stochastic model is not used
     public static int loggingLevel = 0;
     public static String logging = "none"; // default if no arguments are given - other options are "some", "all", "troubleshooting"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
     public static String targetWord = "address";
+    public static String targetWordPrefix = "na"; // by default is "na", updated via WordPair.java when target word belongs to a prefix class
     
     // properties for "Model" tab in GUI
     public int getNumSpeakers() { return numSpeakers; }
@@ -68,11 +70,13 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public void setNounFreq(int val) {if (val > 0) freqNoun = val; }
     public Object domNounFreq() { return new Interval(10, 1000); }
     public String nameNounFreq() {return "Noun frequency";}
+    public String desNounFreq() {return "Noun frequency of the target word";}
     
     public int getVerbFreq() { return freqVerb; }
     public void setVerbFreq(int val) {if (val > 0) freqVerb = val; }
     public Object domVerbFreq() { return new Interval(10, 1000); }
     public String nameVerbFreq() {return "Verb frequency";}
+    public String desVerbFreq() {return "Verb frequency of the target word";}
     
     public String getDistanceModel() { return distModel; }
     public void setDistanceModel(String s) { if(s.equals("none") || s.equals("random") || s.equals("absolute") || s.equals("probabilistic") || s.equals("grouped") || s.equals("lattice")) distModel = s; }
@@ -85,7 +89,7 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public String desModel() {return "The model you want to run. Options are: mistransmission, constraint, constraintWithMistransmission, prior, priorWithMistransmission";}
     //TODO make popup, see Mason manual p.80-81
     //public Object domModel() {return new String[] { "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission" };}
-    
+       
     public int getLogging() { return loggingLevel; }
     public void setLogging(int val) { loggingLevel = val; if(val == 0){logging = "none";} else if(val == 1){logging = "some";} else if(val == 2){logging = "all";} else if(val == 3){logging = "troubleshooting";} else {logging = "none";}}
     public Object domLogging() { return new Interval(0, 3); }
@@ -104,14 +108,26 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public double getLambda11() { return lambda11; }
     public void setLambda11(double val) { lambda11 = val;}
     public Object domLambda11() { return new Interval(0.0, 1.0); }
-    public String nameLambda11() {return "Prior {1,1}";}    
-    public String desLambda11() {return "Prior probability for {1,1} stress pattern";}
+    public String nameLambda11() {return "Prior {1,1} - general";}    
+    public String desLambda11() {return "General prior probability for {1,1} stress pattern";}
     
     public double getLambda22() { return lambda22; }
     public void setLambda22(double val) { lambda22 = val;}
     public Object domLambda22() { return new Interval(0.0, 1.0); }
-    public String nameLambda22() {return "Prior {2,2}";}    
-    public String desLambda22() {return "Prior probability for {2,2} stress pattern";}
+    public String nameLambda22() {return "Prior {2,2} - general";}    
+    public String desLambda22() {return "General prior probability for {2,2} stress pattern";}
+    
+    public double getTargetClassLambda11() { return targetClassLambda11; }
+    public void setTargetClassLambda11(double val) { targetClassLambda11 = val;}
+    public Object domTargetClassLambda11() { return new Interval(0.0, 1.0); }
+    public String nameTargetClassLambda11() {return "Prior {1,1} - target word prefix class";}    
+    public String desTargetClassLambda11() {return "Prior probability for {1,1} stress pattern in the target word prefix class";}
+    
+    public double getTargetClassLambda22() { return targetClassLambda22; }
+    public void setTargetClassLambda22(double val) { targetClassLambda22 = val;}
+    public Object domTargetClassLambda22() { return new Interval(0.0, 1.0); }
+    public String nameTargetClassLambda22() {return "Prior {2,2} - target word prefix class";}    
+    public String desTargetClassLambda22() {return "Prior probability for {2,2} stress pattern in the target word prefix class";}
     
     public double getMisProbP() { return misProbP; }
     public void setMisProbP(double val) { misProbP = val;}
@@ -128,7 +144,7 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public String getTargetWord() { return targetWord; }
     public void setTargetWord(String s) { targetWord = s; }
     public String nameTargetWord() {return "Target word (n)";}
-    public String desTargetWord() {return "Target word (n) for visualization";}
+    public String desTargetWord() {return "Target word (n) for visualizations";}
     
     public static HashMap<String[], double[]> initialStress = new HashMap<>(); // initial N/V stress state, read from file in main method  
 
@@ -200,11 +216,7 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
                                 .create("model");
         options.addOption(optModel);
         
-        Option optMode = OptionBuilder.withArgName("mode")
-                                .hasArg()
-                                .withDescription("mode used for simulation")
-                                .create("mode");
-        options.addOption(optMode);      
+        options.addOption("stochastic", false, "sample from previous generation's distributions");      
         
         Option optLogging = OptionBuilder.withArgName("logging")
                                 .hasArg()
@@ -214,15 +226,51 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
 
         Option optFreqNoun = OptionBuilder.withArgName("freqNoun")
                                 .hasArg()
-                                .withDescription("noun frequency")
+                                .withDescription("noun frequency of the target word")
                                 .create("freqNoun");
         options.addOption(optFreqNoun);   
         
         Option optFreqVerb = OptionBuilder.withArgName("freqVerb")
                                 .hasArg()
-                                .withDescription("verb frequency")
+                                .withDescription("verb frequency of the target word")
                                 .create("freqVerb");
         options.addOption(optFreqVerb);   
+        
+        Option optMisProbP = OptionBuilder.withArgName("misProbNoun")
+                                .hasArg()
+                                .withDescription("mistransmission probability for nouns")
+                                .create("misProbP");
+        options.addOption(optMisProbP);   
+        
+        Option optMisProbQ = OptionBuilder.withArgName("misProbVerb")
+                                .hasArg()
+                                .withDescription("mistransmission probability for verbs")
+                                .create("misProbQ");
+        options.addOption(optMisProbQ);   
+        
+        Option optLambda11 = OptionBuilder.withArgName("prior11General")
+                                .hasArg()
+                                .withDescription("general prior probability for {1,1} stress pattern")
+                                .create("prior11General");
+        options.addOption(optLambda11);   
+        
+        Option optLambda22 = OptionBuilder.withArgName("prior22General")
+                                .hasArg()
+                                .withDescription("general prior probability for {2,2} stress pattern")
+                                .create("prior11General");
+        options.addOption(optLambda22);   
+        
+        Option optTargetLambda11 = OptionBuilder.withArgName("prior11Target")
+                                .hasArg()
+                                .withDescription("prior probability for {1,1} stress pattern in the target word prefix class")
+                                .create("prior11Target");
+        options.addOption(optTargetLambda11);   
+        
+        Option optTargetLambda22 = OptionBuilder.withArgName("prior22Target")
+                                .hasArg()
+                                .withDescription("prior probability for {2,2} stress pattern in the target word prefix class")
+                                .create("prior22Target");
+        options.addOption(optTargetLambda22);   
         
         Option optDistModel = OptionBuilder.withArgName("distModel")
                                 .hasArg()
@@ -230,20 +278,30 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
                                 .create("distModel");
         options.addOption(optDistModel);   
         
-        Option optPriorClass = OptionBuilder.withArgName("priorClass")
+        options.addOption("priorClass", false, "use word pair prefixes as a class for sharing prior probabilities");      
+        
+        Option optNumSpeakers = OptionBuilder.withArgName("numSpeakers")
                                 .hasArg()
-                                .withDescription("class for prior probabilities")
-                                .create("priorClass");
-        options.addOption(optPriorClass);   
+                                .withDescription("number of speakers")
+                                .create("numSpeakers");
+        options.addOption(optNumSpeakers); 
+        
+        Option optTargetWord = OptionBuilder.withArgName("targetWord")
+                                .hasArg()
+                                .withDescription("target word for visualizations")
+                                .create("targetWord");
+        options.addOption(optTargetWord); 
 
         try {  // parse the command line arguments
             CommandLine line = parser.parse(options, args);
             if(line.hasOption("model")) {
                 model = line.getOptionValue("model");
             }
-            //if(line.hasOption("mode")) {  TODO: Change to boolean
-            //    stochastic = line.getOptionValue("mode");
-            //}
+            if(line.hasOption("stochastic")) { 
+                stochastic = true;
+            } else {
+                stochastic = false;
+            }
             if(line.hasOption("logging")) {
                 logging = line.getOptionValue("logging");
             }
@@ -253,40 +311,63 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
             if(line.hasOption("freqVerb")) {
                 freqVerb = Integer.parseInt(line.getOptionValue("freqVerb"));
             }
+            if(line.hasOption("misProbP")) {
+                misProbP = Integer.parseInt(line.getOptionValue("misProbP"));
+            }
+            if(line.hasOption("misProbQ")) {
+                misProbQ = Integer.parseInt(line.getOptionValue("misProbQ"));
+            }
+            if(line.hasOption("prior11General")) {
+                lambda11 = Integer.parseInt(line.getOptionValue("prior11General"));
+            }
+            if(line.hasOption("prior22General")) {
+                lambda22 = Integer.parseInt(line.getOptionValue("prior22General"));
+            }
+            if(line.hasOption("prior11Target")) {
+                targetClassLambda11 = Integer.parseInt(line.getOptionValue("prior11Target"));
+            }
+            if(line.hasOption("prior22Target")) {
+                targetClassLambda22 = Integer.parseInt(line.getOptionValue("prior22Target"));
+            }
             if(line.hasOption("distModel")) {
                 distModel = line.getOptionValue("distModel");
             }
-            //if(line.hasOption("priorClass")) {
-            //    priorClass = line.getOptionValue("priorClass");
-            //}
+            if(line.hasOption("priorClass")) {
+                priorClass = true;
+            } else {
+                priorClass = false;
+            }
+            if(line.hasOption("numSpeakers")) {
+                numSpeakers = Integer.parseInt(line.getOptionValue("numSpeakers"));
+            }
         } catch ( ParseException exp) {
             System.out.println("Unexpected exception: " + exp.getMessage());
         }
 
-        if (!StressChange.logging.equals("none")) {
-            System.out.println("Simulating " + stochastic + " model with " + model + " and " + distModel + " distance model, showing " + logging + " words");
-            if (freqNoun != 0) {
-                System.out.println("N1 (noun frequency): " + freqNoun);
-                System.out.println("N2 (verb frequency): " + freqVerb);
-            } else {
-                System.out.println("N1 and N2 (noun and verb frequency): random");
-            }
+        if (StressChange.logging.equals("tabular")){
+            System.out.println("Iteration,Speaker,Word,Prefix,Noun prob,Verb prob");
+        }
+        else if (!StressChange.logging.equals("none")) {
+            System.out.println("Simulating " + model + " model with " + distModel + " distance model, showing " + logging + " words");
+            System.out.println("N1 (target word noun frequency): " + freqNoun);
+            System.out.println("N2 (target word verb frequency): " + freqVerb);
         }
         
         initialStress = new ReadPairs(System.getProperty("user.dir") + "/src/initialStressSmoothed.txt").OpenFile(); // read in initial pairs
 
         SimState state = new StressChange(System.currentTimeMillis());
         state.start();
-        //
+        
         do {
             convos.removeAllEdges();
-            if (! StressChange.logging.equals("none")){  System.out.println(""); }
-            if (! StressChange.logging.equals("none")){  System.out.println("Generation at year " + (1500 + (state.schedule.getSteps()) * 25)); }// 25-year generations            
+            if (! StressChange.logging.equals("none") && !StressChange.logging.equals("tabular")){  System.out.println(""); }
+            //if (! StressChange.logging.equals("none")){  System.out.println("Generation at year " + (1500 + (state.schedule.getSteps()) * 25)); }  // 25-year generations            
+            if (! StressChange.logging.equals("none") && !StressChange.logging.equals("tabular")){  System.out.println("==== ITERATION " + (state.schedule.getSteps() + 1) + " ===="); }
             if (!state.schedule.step(state)) {
                 break;
             }
             step++;
-        } while (state.schedule.getSteps() < 20); // 20 generations
+        } while (state.schedule.getSteps() < 49); // maximum 50 iterations
         state.finish();
 
         System.exit(0);
