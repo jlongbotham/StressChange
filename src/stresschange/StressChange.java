@@ -9,6 +9,7 @@ import java.util.HashMap;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
@@ -212,7 +213,7 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
 
         Option optModel = OptionBuilder.withArgName("model")
                                 .hasArg()
-                                .withDescription("model used for simulation")
+                                .withDescription("model used for simulation: \n\nmistransmission\n constraint\n constraintWithMistransmission\n prior\n priorWithMistransmission (default)")
                                 .create("model");
         options.addOption(optModel);
         
@@ -220,7 +221,7 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
         
         Option optLogging = OptionBuilder.withArgName("logging")
                                 .hasArg()
-                                .withDescription("logging level")
+                                .withDescription("logging level: \nnone \nsome \nall \ntabular \ntroubleshooting")
                                 .create("logging");
         options.addOption(optLogging);      
 
@@ -274,7 +275,7 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
         
         Option optDistModel = OptionBuilder.withArgName("distModel")
                                 .hasArg()
-                                .withDescription("distance model")
+                                .withDescription("distance model:\n none\n absolute\n probabilistic\n random\n lattice\n grouped (default)")
                                 .create("distModel");
         options.addOption(optDistModel);   
         
@@ -288,9 +289,11 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
         
         Option optTargetWord = OptionBuilder.withArgName("targetWord")
                                 .hasArg()
-                                .withDescription("target word for visualizations")
+                                .withDescription("target word for logging")
                                 .create("targetWord");
         options.addOption(optTargetWord); 
+        
+        options.addOption("help", false, "print this message");         
 
         try {  // parse the command line arguments
             CommandLine line = parser.parse(options, args);
@@ -340,12 +343,16 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
             if(line.hasOption("numSpeakers")) {
                 numSpeakers = Integer.parseInt(line.getOptionValue("numSpeakers"));
             }
+            if(line.hasOption("help")) {
+                HelpFormatter formatter = new HelpFormatter();
+                formatter.printHelp( "StressChange", options );
+            }
         } catch ( ParseException exp) {
             System.out.println("Unexpected exception: " + exp.getMessage());
         }
 
         if (StressChange.logging.equals("tabular")){
-            System.out.println("Iteration,Speaker,Word,Prefix,Noun prob,Verb prob");
+            System.out.println("Iteration,Speaker,Group,Word,Prefix,Noun prob,Verb prob");
         }
         else if (!StressChange.logging.equals("none")) {
             System.out.println("Simulating " + model + " model with " + distModel + " distance model, showing " + logging + " words");

@@ -190,20 +190,19 @@ public class Speaker implements Steppable {
             }
 
             if (!StressChange.logging.equals("none")) {
-                if (id >= 0 && id < 6) {
-                    if (StressChange.logging.equals("tabular")){
-                        System.out.println((int)Math.ceil(StressChange.count / StressChange.numSpeakers) + "," + id + "," + word.word + "," + word.prefix + "," + word.nextNounProb + "," + word.nextVerbProb); // print current state of all words in tabular format for analysis
-                    }
+                if (StressChange.logging.equals("tabular")) {
+                    System.out.println((int) Math.ceil(StressChange.count / StressChange.numSpeakers) + "," + id + "," + group + "," + word.word + "," + word.prefix + "," + word.nextNounProb + "," + word.nextVerbProb); // print current state of all words in tabular format for analysis
+                } else if (id >= 0 && id < 6) {
                     if (StressChange.logging.equals("all") || StressChange.logging.equals("troubleshooting")) {
                         System.out.println(word); // print current state of all words
-                    } else if (StressChange.logging.equals("some")){
+                    } else if (StressChange.logging.equals("some")) {
                         for (String rep : StressChange.representativeWords) {
                             if (word.word.contains(rep)) {
                                 System.out.println(word); // only print current state if word is in representative array
                                 break;
                             }
                         }
-                        if (word.word.equals(StressChange.targetWord)){
+                        if (word.word.equals(StressChange.targetWord)) {
                             System.out.println(word);
                         }
                     }

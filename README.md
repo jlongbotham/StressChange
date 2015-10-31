@@ -28,23 +28,26 @@ You can run the code from the command line as follows:
 
 The options for different parameters are as follows:
 
-`                             -model [ mistransmission | constraint | constraintWithMistransmission | prior | priorWithMistransmission ]`
+`-help`
+Show options in command line
+
+`-model [ mistransmission | constraint | constraintWithMistransmission | prior | priorWithMistransmission ]`
 
 Model to be used (see below for descriptions of each)
 
-`                             -distModel [ none | random | absolute | probabilistic | lattice | grouped ]`
+`-distModel [ none | random | absolute | probabilistic | lattice | grouped ]`
 
 Distance model used for determining which parents transmit to which speakers (see below for description of each)
 
-`                             -numSpeakers [ integer between 10 and 1000 ]`
+`-numSpeakers [ integer between 10 and 1000 ]`
 
 The number of speakers 
 
-`                             -stochastic`
+`-stochastic`
 
 Mistransmission between generations done by sampling from a probability of the parent generation rather that taking the probability directly (only affects models that use mistransmission)
 
-`                             -logging [ none | some | all | tabular | troubleshooting ]`
+`-logging [ none | some | all | tabular | troubleshooting ]`
 
 none = no logging (default) 
 
@@ -56,31 +59,31 @@ tabular = shows general information about all words in comma-delimited tabular f
 
 troubleshooting = shows in-depth information for all words 
 
-`                             -targetWord [ string ]`
+`-targetWord [ string ]`
 
 Show logging information for the given word
 
-`                             -freqNoun [ integer between 1 and 1000 ]`
-`                             -freqVerb [ integer between 1 and 1000 ]`
+`-freqNoun [ integer between 1 and 1000 ]`
+`-freqVerb [ integer between 1 and 1000 ]`
 
 Set the noun and verb frequency of the target word
 
-`                             -misProbNoun [ double between 0.0 and 1.0 ]`
-`                             -misProbVerb [ double between 0.0 and 1.0 ]`
+`-misProbNoun [ double between 0.0 and 1.0 ]`
+`-misProbVerb [ double between 0.0 and 1.0 ]`
 
 Set the mistransmission probabilities for nouns and verbs (only affects models that use mistransmission)
 
-`                             -prior11General [ double between 0.0 and 1.0 ]`
-`                             -prior22General [ double between 0.0 and 1.0 ]`
+`-prior11General [ double between 0.0 and 1.0 ]`
+`-prior22General [ double between 0.0 and 1.0 ]`
 
 Set the prior probabilities for the {1,1} and {2,2} stress patterns generally (only affects models that use priors)
 
-`                             -priorClass`
+`-priorClass`
 
 Determines whether words with the same prefix share the same prior across their prefix class (only affects models that use priors)
 
-`                             -prior11Target [ double between 0.0 and 1.0 ]`
-`                             -prior22Target [ double between 0.0 and 1.0 ]`
+`-prior11Target [ double between 0.0 and 1.0 ]`
+`-prior22Target [ double between 0.0 and 1.0 ]`
 
 Set the prior probabilities for the {1,1} and {2,2} stress patterns for the prefix class of the target word (only affects models that use `-priorClass` and have a `-targetWord`)
 
