@@ -69,14 +69,14 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     
     public int getNounFreq() { return freqNoun; }
     public void setNounFreq(int val) {if (val > 0) freqNoun = val; }
-    public Object domNounFreq() { return new Interval(10, 1000); }
-    public String nameNounFreq() {return "Noun frequency";}
+    public Object domNounFreq() { return new Interval(1, 1000); }
+    public String nameNounFreq() {return "Target word noun frequency";}
     public String desNounFreq() {return "Noun frequency of the target word";}
     
     public int getVerbFreq() { return freqVerb; }
     public void setVerbFreq(int val) {if (val > 0) freqVerb = val; }
-    public Object domVerbFreq() { return new Interval(10, 1000); }
-    public String nameVerbFreq() {return "Verb frequency";}
+    public Object domVerbFreq() { return new Interval(1, 1000); }
+    public String nameVerbFreq() {return "Target word verb frequency";}
     public String desVerbFreq() {return "Verb frequency of the target word";}
     
     public String getDistanceModel() { return distModel; }

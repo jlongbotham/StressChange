@@ -53,7 +53,7 @@ public class WordPair {
     }
     
     public String toString(){
-        return "\t" + this.word + "\tnoun prob =\t" + this.nextNounProb + "\tverb prob =\t" + this.nextVerbProb;
+        return "\t" + this.word + ": noun prob = " + this.nextNounProb + ", verb prob = " + this.nextVerbProb;
     }
 
 }

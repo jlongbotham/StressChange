@@ -344,12 +344,29 @@ public class Speaker implements Steppable {
                             }
                         }
                     }
-                    // get prior probabilities for prefix classes
-                    // TODO: use distribution instead of probability
+                    // get prior proportions for prefix classes
                     word.lambda11 = word.lambda11 / word.prefixClassSize;
                     word.lambda12 = word.lambda12 / word.prefixClassSize;
                     word.lambda21 = word.lambda21 / word.prefixClassSize;
                     word.lambda22 = word.lambda22 / word.prefixClassSize;
+                    
+                    // sample lambdas from uniform distribution based on proportions
+                    int countLambda11 = 0;
+                    int countLambda12 = 0;
+                    int countLambda22 = 0;
+                    
+                    for (int i = 0; i < 100; i++) {
+                        double rand = speakers.random.nextDouble();
+                        if (rand <= word.lambda11) { countLambda11++ ;}
+                        else if (rand > word.lambda11 && rand <= (word.lambda11 + word.lambda12) ) { countLambda12++ ;}
+                        else { countLambda22++; }
+                    }
+                    
+                    word.lambda11 = (double)countLambda11 / 100;
+                    word.lambda12 = (double)countLambda12 / 100;
+                    word.lambda21 = 0.0;
+                    word.lambda22 = (double)countLambda22 / 100;
+                    
                 }
                 
             } else {  // Set fixed lambda values, must sum to 1
