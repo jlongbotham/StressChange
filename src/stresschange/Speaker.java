@@ -118,7 +118,7 @@ public class Speaker implements Steppable {
                         parentsClose.add(parents.get(i)); // if distance below maxDistance, add to parents bag 
                         speakers.convos.addEdge(this, parents.get(i), distance);
                         if (StressChange.logging.equals("troubleshooting")){ System.out.println("Close parent"); }
-                    } else if (StressChange.distModel.equals("grouped") && this.id % 10 == 0 && i % 10 == 0){ 
+                    } else if (StressChange.superspeakers && StressChange.distModel.equals("grouped") && this.id % 10 == 0 && i % 10 == 0){ 
                         // if the speaker is a "super-speaker" he also has connections to other groups
                         // typically this number is 20% in epidemiology -- but we're going in both directions to minimizing to 10%
                         if (StressChange.logging.equals("troubleshooting")){ System.out.println("SUPERSPEAKER close parent"); }
@@ -351,21 +351,22 @@ public class Speaker implements Steppable {
                     word.lambda22 = word.lambda22 / word.prefixClassSize;
                     
                     // sample lambdas from uniform distribution based on proportions
+                    
                     int countLambda11 = 0;
                     int countLambda12 = 0;
                     int countLambda22 = 0;
                     
-                    for (int i = 0; i < 100; i++) {
+                    for (int i = 0; i < 1000; i++) {
                         double rand = speakers.random.nextDouble();
                         if (rand <= word.lambda11) { countLambda11++ ;}
                         else if (rand > word.lambda11 && rand <= (word.lambda11 + word.lambda12) ) { countLambda12++ ;}
                         else { countLambda22++; }
                     }
                     
-                    word.lambda11 = (double)countLambda11 / 100;
-                    word.lambda12 = (double)countLambda12 / 100;
+                    word.lambda11 = (double)countLambda11 / 1000;
+                    word.lambda12 = (double)countLambda12 / 1000;
                     word.lambda21 = 0.0;
-                    word.lambda22 = (double)countLambda22 / 100;
+                    word.lambda22 = (double)countLambda22 / 1000;
                     
                 }
                 

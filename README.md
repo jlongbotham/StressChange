@@ -39,6 +39,10 @@ Model to be used (see below for descriptions of each)
 
 Distance model used for determining which parents transmit to which speakers (see below for description of each)
 
+`-superspeakers`
+
+With the `grouped` distance model, 20% of speakers are "superspeakers" who have connections to the other group.
+
 `-numSpeakers [ integer between 10 and 1000 ]`
 
 The number of speakers 

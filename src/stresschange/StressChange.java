@@ -47,14 +47,15 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     public static double targetClassLambda11 = 0.2; // only these two need to be set as lambda12 = (1 - (lambda11 + lambda22))
     public static double targetClassLambda22 = 0.4; // and lambda21 is always 0.0
 
-    public static String distModel = "grouped"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped", "lattice"
+    public static String distModel = "none"; // default distance model - options are "none", "random", "absolute", "probabilistic", "grouped", "lattice"
     public static double maxDistance = 30; // default maximum distance 
     public int x = 5; public int y = 5; // fixed x and y for lattice model
     
-    public static Boolean priorClass = true; // use prefixes as prior class
+    public static Boolean priorClass = false; // use prefixes as prior class
+    public static Boolean superspeakers = false; // include superspeakers in distance model
 
     public static String model = "priorWithMistransmission"; // default if no arguments are given - other options are "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission"
-    public static Boolean stochastic = true; // by default stochastic model is not used
+    public static Boolean stochastic = false; // by default stochastic model is not used
     public static int loggingLevel = 0;
     public static String logging = "none"; // default if no arguments are given - other options are "some", "all", "troubleshooting"
     public static String[] representativeWords = {"abstract", "accent", "addict", "reset", "sub-let", "a-test"};
@@ -92,14 +93,18 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
     //public Object domModel() {return new String[] { "mistransmission", "constraint", "constraintWithMistransmission", "prior", "priorWithMistransmission" };}
        
     public int getLogging() { return loggingLevel; }
-    public void setLogging(int val) { loggingLevel = val; if(val == 0){logging = "none";} else if(val == 1){logging = "some";} else if(val == 2){logging = "all";} else if(val == 3){logging = "troubleshooting";} else {logging = "none";}}
-    public Object domLogging() { return new Interval(0, 3); }
+    public void setLogging(int val) { loggingLevel = val; if(val == 0){logging = "none";} else if(val == 1){logging = "some";} else if(val == 2){logging = "all";} else if(val == 3){logging = "troubleshooting";} else if(val == 4){logging = "tabular";} else {logging = "none";}}
+    public Object domLogging() { return new Interval(0, 4); }
     public String nameLogging() {return "Logging level";}    
-    public String desLogging() {return "0 = none; 1 = show words from visualization; 2 = show all words; 3 = show troubleshooting information";}
+    public String desLogging() {return "0 = none; 1 = show words from visualization; 2 = show all words; 3 = show troubleshooting information; 4 = csv";}
 
     public Boolean isStochastic() { return stochastic; }
     public void setStochastic(Boolean val) { stochastic = val; }
     public String desStochastic() {return "Determine \"heard\" examples by sampling from previous generation's average probability";}
+    
+    public Boolean isSuperspeakers() { return superspeakers; }
+    public void setSuperspeakers(Boolean val) { superspeakers = val; }
+    public String desSuperspeakers() {return "In grouped distance model, 20% of speakers have connections to the other group";}
     
     public Boolean isPriorClass() { return priorClass; }
     public void setPriorClass(Boolean val) { priorClass = val; }
@@ -217,8 +222,10 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
                                 .create("model");
         options.addOption(optModel);
         
-        options.addOption("stochastic", false, "sample from previous generation's distributions");      
+        options.addOption("stochastic", false, "sample from previous generation's distributions");    
         
+        options.addOption("superspeakers", false, "20% of speakers in grouped distance model connect to other group");      
+
         Option optLogging = OptionBuilder.withArgName("logging")
                                 .hasArg()
                                 .withDescription("logging level: \nnone \nsome \nall \ntabular \ntroubleshooting")
@@ -258,7 +265,7 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
         Option optLambda22 = OptionBuilder.withArgName("prior22General")
                                 .hasArg()
                                 .withDescription("general prior probability for {2,2} stress pattern")
-                                .create("prior11General");
+                                .create("prior22General");
         options.addOption(optLambda22);   
         
         Option optTargetLambda11 = OptionBuilder.withArgName("prior11Target")
@@ -305,6 +312,11 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
             } else {
                 stochastic = false;
             }
+            if(line.hasOption("superspeakers")) { 
+                superspeakers = true;
+            } else {
+                superspeakers = false;
+            }
             if(line.hasOption("logging")) {
                 logging = line.getOptionValue("logging");
             }
@@ -319,6 +331,9 @@ public class StressChange extends SimState /*implements sim.portrayal.inspector.
             }
             if(line.hasOption("misProbQ")) {
                 misProbQ = Integer.parseInt(line.getOptionValue("misProbQ"));
+            }
+            if(line.hasOption("targetWord")) {
+                targetWord = line.getOptionValue("targetWord");
             }
             if(line.hasOption("prior11General")) {
                 lambda11 = Integer.parseInt(line.getOptionValue("prior11General"));
